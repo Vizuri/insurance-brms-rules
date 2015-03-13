@@ -37,7 +37,7 @@ public class InsuranceRestService {
 	    	
 	    	
 	    	
-	    	log.infov("inside createApplicant : {0}"+applicant);
+	    	log.infov("inside createApplicant : {0}",applicant);
 	        return applicant;
 	        
 	        
@@ -57,7 +57,7 @@ public class InsuranceRestService {
 	    	
 	    	
 	    	
-	    	log.info("inside createProperty"+property);
+	    	log.infov("inside createProperty {0}",property);
 	        return property;
 	        
 	        
