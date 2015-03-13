@@ -1,8 +1,9 @@
-package com.vizuri.insurance.domain;
+	package com.vizuri.insurance.domain;
 
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+
 
 public class Property {
 	
@@ -140,6 +141,14 @@ public class Property {
 	}
 	public void setQuoteId(Integer quoteId) {
 		this.quoteId = quoteId;
+	}
+	@Override
+	public String toString() {
+		return "Property [address=" + address + ", policyBeginDate=" + policyBeginDate + ", purchaseDate=" + purchaseDate + ", yearBuilt=" + yearBuilt + ", livingArea=" + livingArea + ", ageOfRoof="
+				+ ageOfRoof + ", electrictSystemRenovated=" + electrictSystemRenovated + ", homeSafetyDeviceInstalled=" + homeSafetyDeviceInstalled + ", homeSafetyDevices=" + homeSafetyDevices
+				+ ", previousClaims=" + previousClaims + ", claims=" + claims + ", dogExists=" + dogExists + ", dogs=" + dogs + ", childCareBusinessExists=" + childCareBusinessExists
+				+ ", childCareLiabilityCoverageRequired=" + childCareLiabilityCoverageRequired + ", childCareLiabilityAlreadyExists=" + childCareLiabilityAlreadyExists + ", applicantId="
+				+ applicantId + ", policyId=" + policyId + ", quoteId=" + quoteId + "]";
 	}
 	
 	

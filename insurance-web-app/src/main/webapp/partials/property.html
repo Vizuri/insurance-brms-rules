@@ -1,0 +1,75 @@
+<form name="propertyForm" ng-submit="fireProperty()">
+	<div>Property</div>
+
+	<table>
+		<tr>
+			<td colspan="4">
+				<table>
+					<tr>
+						<td colspan="4">Address</td>
+					</tr>
+					<tr>
+						<td><label class="labelClz" for="street">Street</label></td>
+						<td><input type="text" name="street" id="street" ng-model="newProperty.address.street" placeholder="Enter street" required /></td>
+						<td><span class="error" ng-show="propertyForm.street.$error.required">required</span></td>
+						<td><span class="error" ng-show="errors.street">{{errors.street}}</span></td>
+					</tr>
+
+					<tr>
+						<td><label class="labelClz" for="city">City</label></td>
+						<td><input type="text" name="city" id="city" ng-model="newProperty.address.city" placeholder="Enter city" required /></td>
+						<td><span class="error" ng-show="propertyForm.city.$error.required">required</span></td>
+						<td><span class="error" ng-show="errors.city">{{errors.city}}</span></td>
+					</tr>
+					<tr>
+						<td><label class="labelClz" for="state">State</label></td>
+						<td><input type="text" name="state" id="state" ng-model="newProperty.address.state" placeholder="Enter state" required /></td>
+						<td><span class="error" ng-show="propertyForm.state.$error.required">required</span></td>
+						<td><span class="error" ng-show="errors.state">{{errors.state}}</span></td>
+					</tr>
+
+					<tr>
+						<td><label class="labelClz" for="zip">ZipCode</label></td>
+						<td><input type="text" name="zip" id="zip" ng-model="newProperty.address.street" placeholder="Enter Zip Code" required /></td>
+						<td><span class="error" ng-show="propertyForm.zip.$error.required">required</span></td>
+						<td><span class="error" ng-show="errors.zip">{{errors.zip}}</span></td>
+					</tr>
+
+
+				</table>
+			</td>
+
+		</tr>
+		<tr>
+			<td><label class="labelClz" for="policyBeginDate">PolicyBeginDate</label></td>
+			<td><input type="date" name="policyBeginDate" id="policyBeginDate" ng-model="newProperty.policyBeginDate" placeholder="Enter policyBeginDate" required /></td>
+			<td><span class="error" ng-show="propertyForm.policyBeginDate.$error.required">required</span></td>
+			<td><span class="error" ng-show="errors.policyBeginDate">{{errors.policyBeginDate}}</span></td>
+		</tr>
+		<tr>
+			<td><label class="labelClz" for="purchaseDate">PurchaseDate</label></td>
+			<td><input type="date" name="purchaseDate" id="purchaseDate" ng-model="newProperty.purchaseDate" placeholder="Enter purchaseDate" required /></td>
+			<td><span class="error" ng-show="propertyForm.purchaseDate.$error.required">required</span></td>
+			<td><span class="error" ng-show="errors.purchaseDate">{{errors.purchaseDate}}</span></td>
+		</tr>		
+		
+		<tr>
+			<td><label class="labelClz" for="yearBuilt">Year Built</label></td>
+			<td><input type="number" name="yearBuilt" id="yearBuilt" ng-model="newProperty.yearBuilt" placeholder="Enter yearBuilt" required /></td>
+			<td><span class="error" ng-show="propertyForm.yearBuilt.$error.required">required</span></td>
+			<td><span class="error" ng-show="errors.yearBuilt">{{errors.yearBuilt}}</span></td>
+		</tr>	
+		<tr>
+			<td><label class="labelClz" for="ageOfRoof">Roof Age</label></td>
+			<td><input type="number" name="ageOfRoof" id="ageOfRoof" ng-model="newProperty.ageOfRoof" placeholder="Enter ageOfRoof" required /></td>
+			<td><span class="error" ng-show="propertyForm.ageOfRoof.$error.required">required</span></td>
+			<td><span class="error" ng-show="errors.ageOfRoof">{{errors.yearBuilt}}</span></td>
+		</tr>			
+				
+		<tr>
+			<td colspan="4"><input type="submit" ng-disabled="propertyForm.{{props.name}}.$invalid" id="fire" value="FireMe" /></td>
+		</tr>
+
+	</table>
+
+</form>
