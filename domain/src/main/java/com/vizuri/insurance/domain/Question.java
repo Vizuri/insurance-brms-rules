@@ -7,6 +7,7 @@ public class Question {
     private String group;
     private String boundProperty;
     private boolean required;
+    
 	public String getDescription() {
 		return description;
 	}
