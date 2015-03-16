@@ -6,9 +6,12 @@
   <artifactId>Insurance</artifactId>
   <version>1.0</version>
   <packaging>kjar</packaging>
- <!-- <name>Insurance</name> -->
   <dependencies>
-    
+    <dependency>
+      <groupId>com.vizuri.insurance</groupId>
+      <artifactId>domain</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
