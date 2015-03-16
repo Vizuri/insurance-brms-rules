@@ -40,6 +40,7 @@
       <boundName>question</boundName>
       <factField>answerType</factField>
       <type>String</type>
+      <valueList>String, Boolean, Date</valueList>
       <isInsertLogical>false</isInsertLogical>
     </insert-fact-column52>
     <insert-fact-column52>
@@ -209,7 +210,7 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueString></valueString>
+        <valueString>Last Name</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
@@ -273,7 +274,7 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueString>String</valueString>
+        <valueString></valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
