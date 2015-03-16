@@ -27,6 +27,10 @@ public class Claim {
 	public void setClaimAmount(double claimAmount) {
 		this.claimAmount = claimAmount;
 	}
+	@Override
+	public String toString() {
+		return "Claim [id=" + id + ", claimDate=" + claimDate + ", claimAmount=" + claimAmount + "]";
+	}
 	
 	
 }
