@@ -1,5 +1,5 @@
 <decision-table52>
-  <tableName>QuestionsTable</tableName>
+  <tableName>RulesTable</tableName>
   <rowNumberCol>
     <hideColumn>false</hideColumn>
     <width>-1</width>
