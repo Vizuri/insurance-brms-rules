@@ -10,7 +10,7 @@
   <dependencies>
     <dependency>
       <groupId>com.vizuri.insurance</groupId>
-      <artifactId>domain</artifactId>
+      <artifactId>insurance-demo</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
