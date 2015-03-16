@@ -1,6 +1,6 @@
 package com.vizuri.insurance;
 
-rule "Row 1 RulesTable"
+rule "rule1"
 dialect "mvel"
 when
 	applicant : Applicant( firstName == "Vip" ) 
