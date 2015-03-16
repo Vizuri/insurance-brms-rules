@@ -6,7 +6,7 @@
   <artifactId>Insurance</artifactId>
   <version>1.0</version>
   <packaging>kjar</packaging>
-  <name>Insurance</name>
+ <!-- <name>Insurance</name> -->
   <dependencies>
     <dependency>
       <groupId>com.vizuri.insurance</groupId>
