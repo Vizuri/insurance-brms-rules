@@ -40,3 +40,15 @@ then
 	update( question );
 end
 
+rule "enableClaims"
+dialect "mvel"
+when
+	property : Property(previousClaims == true ) 
+	question20 : Question(Id == 20)
+	question21 : Question(Id == 21)
+then
+	question20.setEnabled( true );
+	question21.setEnabled( true );
+	update( question20 );
+	update( question21 );
+end
