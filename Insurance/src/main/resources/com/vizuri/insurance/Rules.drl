@@ -30,3 +30,13 @@ then
 	update( question );
 end
 
+rule "enableQ27"
+dialect "mvel"
+when
+	property : Property(childCareLiabilityCoverageRequired == true ) 
+	question : Question(Id == 27)
+then
+	question.setEnabled( true );
+	update( question );
+end
+
