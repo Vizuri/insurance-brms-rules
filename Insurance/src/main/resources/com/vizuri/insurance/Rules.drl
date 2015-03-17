@@ -19,3 +19,14 @@ then
 	question.setEnabled( true );
 	update( question );
 end
+
+rule "enableQ26"
+dialect "mvel"
+when
+	property : Property(childCareBusinessExists == true ) 
+	question : Question(Id == 26)
+then
+	question.setEnabled( true );
+	update( question );
+end
+
