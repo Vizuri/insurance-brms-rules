@@ -9,3 +9,13 @@ then
 	question.setEnabled( true );
 	update( question );
 end
+
+rule "enableQ18"
+dialect "mvel"
+when
+	applicant : Applicant( fraud == true ) 
+	question : Question(Id == 18)
+then
+	question.setEnabled( true );
+	update( question );
+end
