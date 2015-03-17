@@ -52,3 +52,16 @@ then
 	update( question20 );
 	update( question21 );
 end
+
+rule "enableDogDetails"
+dialect "mvel"
+when
+	property : Property(dogExists == true ) 
+	question23 : Question(Id == 23)
+	question24 : Question(Id == 24)
+then
+	question23.setEnabled( true );
+	question24.setEnabled( true );
+	update( question23 );
+	update( question24 );
+end
