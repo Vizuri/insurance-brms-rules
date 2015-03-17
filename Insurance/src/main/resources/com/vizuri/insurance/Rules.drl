@@ -1,6 +1,6 @@
 package com.vizuri.insurance;
 
-rule "rule1"
+rule "enableQ5"
 dialect "mvel"
 when
 	applicant : Applicant( firstName == "Vip" ) 
