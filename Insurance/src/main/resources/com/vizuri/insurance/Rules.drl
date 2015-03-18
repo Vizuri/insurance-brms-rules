@@ -132,3 +132,13 @@ then
 	update( question23 );
 	update( question24 );
 end
+
+rule "roofTooOld"
+dialect "mvel"
+no-loop true
+when
+	property : Property(ageOfRoof >= 25 ) 
+then
+	
+end
+
