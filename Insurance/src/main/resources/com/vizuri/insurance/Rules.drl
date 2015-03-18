@@ -2,6 +2,7 @@ package com.vizuri.insurance;
 
 rule "enableQ5"
 dialect "mvel"
+no-loop true
 when
 	applicant : Applicant( firstName == "Vip" ) 
 	question : Question(Id == 5)
@@ -12,6 +13,7 @@ end
 
 rule "enableQ18"
 dialect "mvel"
+no-loop true
 when
 	applicant : Applicant( fraud == true ) 
 	question : Question(Id == 18)
@@ -22,6 +24,7 @@ end
 
 rule "enableQ26"
 dialect "mvel"
+no-loop true
 when
 	property : Property(childCareBusinessExists == true ) 
 	question : Question(Id == 26)
@@ -32,6 +35,7 @@ end
 
 rule "enableQ27"
 dialect "mvel"
+no-loop true
 when
 	property : Property(childCareLiabilityCoverageRequired == true ) 
 	question : Question(Id == 27)
@@ -42,6 +46,7 @@ end
 
 rule "enableClaims"
 dialect "mvel"
+no-loop true
 when
 	property : Property(previousClaims == true ) 
 	question20 : Question(Id == 20)
@@ -55,6 +60,7 @@ end
 
 rule "enableDogDetails"
 dialect "mvel"
+no-loop true
 when
 	property : Property(dogExists == true ) 
 	question23 : Question(Id == 23)
