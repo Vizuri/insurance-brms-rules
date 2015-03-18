@@ -22,6 +22,17 @@ then
 	update( question );
 end
 
+rule "disableQ18"
+dialect "mvel"
+no-loop true
+when
+	applicant : Applicant( fraud == false ) 
+	question : Question(Id == 18)
+then
+	question.setEnabled( false );
+	update( question );
+end
+
 rule "enableQ26"
 dialect "mvel"
 no-loop true
@@ -33,6 +44,17 @@ then
 	update( question );
 end
 
+rule "disableQ26"
+dialect "mvel"
+no-loop true
+when
+	property : Property(childCareBusinessExists == false ) 
+	question : Question(Id == 26)
+then
+	question.setEnabled( false );
+	update( question );
+end
+
 rule "enableQ27"
 dialect "mvel"
 no-loop true
@@ -41,6 +63,17 @@ when
 	question : Question(Id == 27)
 then
 	question.setEnabled( true );
+	update( question );
+end
+
+rule "disableQ27"
+dialect "mvel"
+no-loop true
+when
+	property : Property(childCareLiabilityCoverageRequired == false ) 
+	question : Question(Id == 27)
+then
+	question.setEnabled( false );
 	update( question );
 end
 
@@ -58,6 +91,20 @@ then
 	update( question21 );
 end
 
+rule "disableClaims"
+dialect "mvel"
+no-loop true
+when
+	property : Property(previousClaims == false ) 
+	question20 : Question(Id == 20)
+	question21 : Question(Id == 21)
+then
+	question20.setEnabled( false );
+	question21.setEnabled( false );
+	update( question20 );
+	update( question21 );
+end
+
 rule "enableDogDetails"
 dialect "mvel"
 no-loop true
@@ -68,6 +115,20 @@ when
 then
 	question23.setEnabled( true );
 	question24.setEnabled( true );
+	update( question23 );
+	update( question24 );
+end
+
+rule "disableDogDetails"
+dialect "mvel"
+no-loop true
+when
+	property : Property(dogExists == false ) 
+	question23 : Question(Id == 23)
+	question24 : Question(Id == 24)
+then
+	question23.setEnabled( false );
+	question24.setEnabled( false );
 	update( question23 );
 	update( question24 );
 end
