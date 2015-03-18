@@ -140,5 +140,6 @@ when
 	property : Property(ageOfRoof >= 25 ) 
 then
 	
+	
 end
 
