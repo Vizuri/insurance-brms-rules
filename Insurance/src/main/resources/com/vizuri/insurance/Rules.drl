@@ -175,3 +175,28 @@ when
 then	
 	property.setStatus("DISQUALIFIED");
 end
+
+rule "NotRewired"
+dialect "mvel"
+no-loop true
+agenda-group "eligibility"
+when
+	property : Property( age > 80, electrictSystemRenovated == false ) 
+then	
+	property.setStatus("HOLD");
+end
+
+rule "calculateQuote"
+dialect "mvel"
+no-loop true
+agenda-group "calculation"
+when
+	property : Property( status == "" ) 
+then	
+	Quote q = new Quote();
+	q.setId(1);
+	q.setAmount(486.95);
+	property.setQuoteId(1);
+	update (property);
+	insert (q);
+end
