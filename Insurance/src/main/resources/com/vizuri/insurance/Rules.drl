@@ -139,7 +139,15 @@ no-loop true
 when
 	property : Property(ageOfRoof >= 25 ) 
 then
-	
-	
+	property.setStatus("HOLD");
 end
 
+rule "bankruptcy"
+dialect "mvel"
+no-loop true
+when
+	applicant : Applicant(filedForBankruptcy == true ) 
+	property : Property( ) 
+then	
+	property.setStatus("HOLD");
+end
