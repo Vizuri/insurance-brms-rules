@@ -27,6 +27,7 @@ public class Property {
 	private Integer policyId;
 	private Integer quoteId;
 	private String status;
+	private int age;
 	
 	public Address getAddress() {
 		return address;
@@ -152,15 +153,18 @@ public class Property {
 		this.status = status;
 	}
 	
-	public int getAgeOfProperty(){
+	public int getAge() {
 		if(getYearBuilt() != 0){
 			Calendar calendar = Calendar.getInstance();
-			int age = calendar.get(Calendar.YEAR) - getYearBuilt();
+			age = calendar.get(Calendar.YEAR) - getYearBuilt();
 			return age;
 		}
 		return 0;
 	}
 	
+	public void setAge(int age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
 		return "Property [address=" + address + ", policyBeginDate=" + policyBeginDate + ", purchaseDate=" + purchaseDate + ", yearBuilt=" + yearBuilt + ", livingArea=" + livingArea + ", ageOfRoof="
