@@ -151,6 +151,16 @@ public class Property {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	public int getAgeOfProperty(){
+		if(getYearBuilt() != 0){
+			Calendar calendar = Calendar.getInstance();
+			int age = calendar.get(Calendar.YEAR) - getYearBuilt();
+			return age;
+		}
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
 		return "Property [address=" + address + ", policyBeginDate=" + policyBeginDate + ", purchaseDate=" + purchaseDate + ", yearBuilt=" + yearBuilt + ", livingArea=" + livingArea + ", ageOfRoof="
