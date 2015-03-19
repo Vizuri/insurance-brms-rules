@@ -26,6 +26,8 @@ public class Property {
 	private Integer applicantId;
 	private Integer policyId;
 	private Integer quoteId;
+	private String status;
+	
 	public Address getAddress() {
 		return address;
 	}
@@ -141,6 +143,13 @@ public class Property {
 	}
 	public void setQuoteId(Integer quoteId) {
 		this.quoteId = quoteId;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	@Override
 	public String toString() {
