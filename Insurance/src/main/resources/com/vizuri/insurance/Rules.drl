@@ -147,6 +147,7 @@ end
 rule "roofTooOld"
 dialect "mvel"
 no-loop true
+agenda-group "eligibility"
 when
 	property : Property(ageOfRoof >= 25 ) 
 then
@@ -156,9 +157,21 @@ end
 rule "bankruptcy"
 dialect "mvel"
 no-loop true
+agenda-group "eligibility"
 when
 	applicant : Applicant(filedForBankruptcy == true ) 
 	property : Property( ) 
 then	
 	property.setStatus("HOLD");
+end
+
+rule "fraud"
+dialect "mvel"
+no-loop true
+agenda-group "eligibility"
+when
+	applicant : Applicant(fraud == true ) 
+	property : Property( ) 
+then	
+	property.setStatus("DISQUALIFIED");
 end
