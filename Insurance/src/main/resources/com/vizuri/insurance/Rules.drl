@@ -1,18 +1,6 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 
-rule "enableQ5"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
-when
-	applicant : Applicant( firstName == "Vip" ) 
-	question : Question(Id == 5)
-then
-	question.setEnabled( true );
-	update( question );
-end
-
 rule "enableQ18"
 dialect "mvel"
 no-loop true
