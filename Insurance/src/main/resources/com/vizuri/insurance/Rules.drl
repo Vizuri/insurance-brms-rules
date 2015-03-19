@@ -170,7 +170,7 @@ dialect "mvel"
 no-loop true
 agenda-group "eligibility"
 when
-	property : Property(electrictSystemRenovated == false ) 
+	property : Property( age > 80, electrictSystemRenovated == false ) 
 then	
 	property.setStatus("HOLD");
 end
