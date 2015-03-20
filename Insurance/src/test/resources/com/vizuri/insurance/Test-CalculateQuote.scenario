@@ -27,7 +27,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>id</fieldName>
-          <expected>3</expected>
+          <expected>1</expected>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
