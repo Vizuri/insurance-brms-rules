@@ -43,10 +43,6 @@
       <isModify>false</isModify>
     </fact-data>
     <execution-trace/>
-    <expect-rule>
-      <ruleName>disableClaims</ruleName>
-      <expectedFire>true</expectedFire>
-    </expect-rule>
     <expect-fact>
       <fieldValues>
         <expect-field>
@@ -71,6 +67,10 @@
       <name>question2</name>
       <anonymous>false</anonymous>
     </expect-fact>
+    <expect-rule>
+      <ruleName>enableClaims</ruleName>
+      <expectedFire>true</expectedFire>
+    </expect-rule>
   </fixtures>
   <rules/>
   <inclusive>false</inclusive>
