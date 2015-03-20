@@ -44,7 +44,7 @@
       <anonymous>false</anonymous>
     </expect-fact>
     <expect-rule>
-      <ruleName>disableQ26</ruleName>
+      <ruleName>enableQ26</ruleName>
       <expectedFire>true</expectedFire>
     </expect-rule>
   </fixtures>
