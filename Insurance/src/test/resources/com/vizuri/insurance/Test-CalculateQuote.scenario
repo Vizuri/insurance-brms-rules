@@ -35,10 +35,22 @@
           <fieldName>amount</fieldName>
           <expected>486.95</expected>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>Quote</name>
+      <anonymous>true</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>quoteId</fieldName>
+          <expected>1</expected>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
+      </fieldValues>
+      <name>Property</name>
       <anonymous>true</anonymous>
     </expect-fact>
   </fixtures>
