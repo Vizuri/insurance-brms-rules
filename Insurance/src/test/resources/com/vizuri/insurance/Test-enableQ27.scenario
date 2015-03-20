@@ -1,5 +1,5 @@
 <scenario>
-  <name>Test-disableQ27.scenario</name>
+  <name>Test-enableQ27.scenario</name>
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
   <fixtures>
@@ -11,7 +11,7 @@
       <fieldData>
         <field-data>
           <name>childCareLiabilityCoverageRequired</name>
-          <value>false</value>
+          <value>true</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
@@ -35,7 +35,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>enabled</fieldName>
-          <expected>false</expected>
+          <expected>true</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
@@ -44,7 +44,7 @@
       <anonymous>false</anonymous>
     </expect-fact>
     <expect-rule>
-      <ruleName>disableQ27</ruleName>
+      <ruleName>enableQ27</ruleName>
       <expectedFire>true</expectedFire>
     </expect-rule>
   </fixtures>
