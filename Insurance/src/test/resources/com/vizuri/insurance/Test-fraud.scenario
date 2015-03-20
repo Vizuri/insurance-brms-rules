@@ -3,6 +3,9 @@
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
   <fixtures>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>eligibility</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
     <fact-data>
       <type>Applicant</type>
       <fieldData>
@@ -32,7 +35,7 @@
           <fieldName>status</fieldName>
           <expected>DISQUALIFIED</expected>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>Property</name>
