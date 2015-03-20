@@ -18,12 +18,6 @@
       <name>applicant</name>
       <isModify>false</isModify>
     </fact-data>
-    <fact-data>
-      <type>Property</type>
-      <fieldData/>
-      <name>property</name>
-      <isModify>false</isModify>
-    </fact-data>
     <execution-trace/>
     <expect-rule>
       <ruleName>fraud</ruleName>
