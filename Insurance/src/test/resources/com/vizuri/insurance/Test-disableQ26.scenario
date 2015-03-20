@@ -1,5 +1,5 @@
 <scenario>
-  <name>Test-enableQ27.scenario</name>
+  <name>Test-disableQ26.scenario</name>
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
   <fixtures>
@@ -10,8 +10,8 @@
       <type>Property</type>
       <fieldData>
         <field-data>
-          <name>childCareLiabilityCoverageRequired</name>
-          <value>true</value>
+          <name>childCareBusinessExists</name>
+          <value>false</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
@@ -23,7 +23,7 @@
       <fieldData>
         <field-data>
           <name>id</name>
-          <value>27</value>
+          <value>26</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
@@ -35,7 +35,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>enabled</fieldName>
-          <expected>true</expected>
+          <expected>false</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
@@ -44,7 +44,7 @@
       <anonymous>false</anonymous>
     </expect-fact>
     <expect-rule>
-      <ruleName>enableQ27</ruleName>
+      <ruleName>disableQ26</ruleName>
       <expectedFire>true</expectedFire>
     </expect-rule>
   </fixtures>
