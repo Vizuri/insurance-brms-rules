@@ -45,7 +45,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>quoteId</fieldName>
-          <expected>1</expected>
+          <expected>2</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
