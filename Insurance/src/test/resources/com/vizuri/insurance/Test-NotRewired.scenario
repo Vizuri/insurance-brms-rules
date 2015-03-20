@@ -16,7 +16,7 @@
         </field-data>
         <field-data>
           <name>electrictSystemRenovated</name>
-          <value>false</value>
+          <value>true</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
