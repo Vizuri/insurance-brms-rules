@@ -33,7 +33,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>status</fieldName>
-          <expected>HOLD</expected>
+          <expected>HOL</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
