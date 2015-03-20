@@ -1,5 +1,5 @@
 <scenario>
-  <name>Test-disableClaims.scenario</name>
+  <name>Test-enableClaims.scenario</name>
   <maxRuleFirings>100000</maxRuleFirings>
   <globals/>
   <fixtures>
@@ -51,7 +51,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>enabled</fieldName>
-          <expected>false</expected>
+          <expected>true</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
@@ -63,7 +63,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>enabled</fieldName>
-          <expected>false</expected>
+          <expected>true</expected>
           <operator>==</operator>
           <nature>0</nature>
         </expect-field>
