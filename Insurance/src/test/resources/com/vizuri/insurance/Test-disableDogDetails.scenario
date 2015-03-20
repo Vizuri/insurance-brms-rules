@@ -11,7 +11,7 @@
       <fieldData>
         <field-data>
           <name>dogExists</name>
-          <value>true</value>
+          <value>false</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
