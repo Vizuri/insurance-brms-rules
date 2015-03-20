@@ -25,18 +25,21 @@
     <link rel="stylesheet" href="css/screen.css" type="text/css" />
       -->
     <!-- Load angularjs -->
-    <script src="js/libs/angular.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <!-- Load angularjs-route, which allows us to use multiple views displayed through application routes -->
-    <script src="js/libs/angular-route.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- Load angularjs-resource, which allows us to interact with REST resources as high level services -->
-    <script src="js/libs/angular-resource.js"></script>
-    
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="js/app.js"></script>
     <!-- Load the controllers for our app -->
     <script src="js/controllers.js"></script>
 
     <script src="js/controllers/insuranceController.js"></script>
-    <script src="js/services/insuranceService.js"></script>    
+    <script src="js/services/insuranceService.js"></script>  
+    
+     <script src="js/controllers/quoteController.js"></script>
+     <script src="js/services/quoteService.js"></script>  
     
     <!-- Load the application wide JS, such as route definitions -->
    

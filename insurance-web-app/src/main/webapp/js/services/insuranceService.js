@@ -1,4 +1,4 @@
-var module = angular.module('insuranceService', []);
+var module = angular.module('insuranceService', [ 'ngResource' ]);
 
 module.factory('Applicant', function() {
 	// /var newLeague = {};
@@ -28,3 +28,45 @@ module.factory('Property', function() {
 		}
 	};
 });
+
+module.factory('QuestionsApplicant', [ '$resource', function($resource) {
+
+
+	var questRes = $resource("http://localhost:8080/insurance-web-app/rest/insurance/questionsByGroup", {}, {
+		query : {
+			method : "GET",
+			isArray : false
+		}
+	});
+	var questions = [];
+	var questMappings = {};
+	/*questRes.query(function(data) {
+
+		// data.questions;
+		angular.forEach(data.questions, function(iter) {
+
+			//iter["answer"] = "";
+			var answerType = iter["answerType"];
+			//iter["answerType"] = mapping[answerType];
+			if (iter.group == "Applicant") {
+				questions.push(iter);
+				questMappings[iter["mappedProperty"] ]= iter;
+			}
+
+		});
+	});*/
+	return {
+		getQuestions : function() {
+			return questions;
+		},
+		toApplicant: function(questions){
+			
+		},getQuestionMappings : function (){
+			return questMappings;
+			
+		}
+		
+
+	};
+
+} ]);

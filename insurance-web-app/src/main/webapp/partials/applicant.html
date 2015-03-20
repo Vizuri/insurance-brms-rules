@@ -1,68 +1,56 @@
+<style>
+/* .mainTbl div div {
+	border: 1px solid red;
+	margin-bottom: 3px;
+} */
+</style>
 
-<form name="applicantForm" ng-submit="fireSome()">
 	<div>Applicant</div>
-	<table>
+	<table class="mainTbl">
 		<tr>
-			<td><label class="labelClz" for="firstName">First Name:</label></td>
-			<td><input type="text" name="firstName" id="firstName" ng-model="newApplicant.firstName" placeholder="Your First Name" required autofocus /></td>
-			<td><span class="error" ng-show="applicantForm.firstName.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.firstName">{{errors.firstName}}</span></td>
-		</tr>
+			<td colspan="4">
 
-		<tr>
-			<td><label class="labelClz" for="lastName">Last Name:</label></td>
-			<td><input type="text" name="lastName" id="lastName" ng-model="newApplicant.lastName" placeholder="Your Last Name" required autofocus /></td>
-			<td><span class="error" ng-show="applicantForm.lastName.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.lastName">{{errors.lastName}}</span></td>
+				<div>
+					
+					<div style="height: 30px;"></div>
+					<div ng-show="qmap['a.firstName'].enabled == true">
+						{{qmap['a.firstName'].description}} <input ng-required="qmap['a.firstName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.firstName">
+					</div>
+					<div ng-show="qmap['a.lastName'].enabled">
+						{{qmap['a.lastName'].description}} <input ng-required="qmap['a.lastName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.lastName">
+					</div>
 
-		</tr>
+					<div ng-show="qmap['a.email'].enabled">
+						{{qmap['a.email'].description}} <input ng-required="qmap['a.email'].required" type="email" ng-model="newApplicant.email" ng-blur="changeHandle()">
+					</div>
+					<div ng-show="qmap['a.phone'].enabled">
+						{{qmap['a.phone'].description}} <input ng-required="qmap['a.phone'].required" ng-pattern="/^\(?\d{3}\)?\s*\d{3}\s*-?\s*\d{4}$/" ng-blur="changeHandle()" type="text" ng-model="newApplicant.phone">
+					</div>
+					<div ng-show="qmap['a.filedForBankruptcy'].enabled">
 
+						{{qmap['a.filedForBankruptcy'].description}} <input ng-change="changeHandle()" type="checkbox" type="text" 
+						ng-model="newApplicant.filedForBankruptcy">
+					</div>
 
-		<tr>
-			<td><label class="labelClz" for="email">Email:</label></td>
-			<td><input type="text" name="email" id="email" ng-model="newApplicant.email" placeholder="Your Email" required autofocus /></td>
-			<td><span class="error" ng-show="applicantForm.email.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.email">{{errors.email}}</span></td>
+					<div ng-show="qmap['a.fraud'].enabled">
+						{{qmap['a.fraud'].description}} <input ng-change="changeHandle()" type="checkbox" ng-model="newApplicant.fraud">
+					</div>
 
-		</tr>
-
-
-		<tr>
-			<td><label class="labelClz" for="phone">Phone:</label></td>
-			<td><input type="text" name="phone" id="phone" ng-model="newApplicant.phone" placeholder="Your Phone" required autofocus /></td>
-			<td><span class="error" ng-show="applicantForm.phone.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.phone">{{errors.phone}}</span></td>
-
-		</tr>
-
-
-
-		<tr>
-			<td><label class="labelClz" for="fraud">Have you been convicted for fraud</label></td>
-			<td><input type="radio" name="fraud" id="fraudYes" ng-model="newApplicant.fraud" value="true" />Yes <td>
-			<input type="radio" name="fraud" id="fraudNo" ng-model="newApplicant.fraud" value="false"
-				required />No</td><td><span class="error" ng-show="applicantForm.fraud.$error.required">required</span> <span class="error" ng-show="errors.fraud">{{errors.fraud}}</span></td>
-		</tr>
-
-		<tr>
-			<td><label class="labelClz" for="filedForBankruptcy">Have you been Filed for bankruptcy?</label></td>
-			<td><input type="radio" name="filedForBankruptcy" id="filedForBankruptcYes" ng-model="newApplicant.filedForBankruptcy" value="true" />Yes
-			<td><input type="radio" name="filedForBankruptcy" id="filedForBankruptcNod" ng-model="newApplicant.filedForBankruptcy" value="false" required />No</td>
-			<td><span class="error" ng-show="applicantForm.filedForBankruptcy.$error.required">required</span> <span class="error" ng-show="errors.filedForBankruptcy">{{filedForBankruptcy}}</span></td>
-		</tr>
-		<tr>
-			<td><label class="labelClz" for="anyPreviousInsuranceDenials">Has insurance Been Denied?</label></td>
-			<td><input type="radio" name="anyPreviousInsuranceDenials" id="anyPreviousInsuranceDenialsYes" ng-model="newApplicant.anyPreviousInsuranceDenials" value="true" />Yes
-			<td><input type="radio" name="anyPreviousInsuranceDenials" id="anyPreviousInsuranceDenialsNo" ng-model="newApplicant.anyPreviousInsuranceDenials" value="false" required />No</td>
-			<td><span class="error" ng-show="applicantForm.anyPreviousInsuranceDenials.$error.required">required</span> <span class="error" ng-show="errors.anyPreviousInsuranceDenials">{{anyPreviousInsuranceDenials}}</span>
+					<div ng-show="qmap['p.anyPreviousInsuranceDenials'].enabled">
+						{{qmap['p.anyPreviousInsuranceDenials'].description}} <input ng-change="changeHandle()"  type="checkbox" ng-model="newApplicant.anyPreviousInsuranceDenials">
+					</div>
+				</div>
 			</td>
 		</tr>
 
-		<tr>
-			<td colspan="4"><input type="submit" ng-disabled="applicantForm.$invalid" id="fire" value="Next To Property" /></td>
-		</tr>
+	<!-- 	<tr>
+			<td colspan="4">
+				 <input type="button" id="show" ng-click="changeHandle()" value="changeHandle" /> 
+				<input type="button" id="hide" ng-click="hideField()" value="hideField" />
+				 <input type="button" ng-disabled="applicantForm.$invalid" id="fire" value="Next To Property" ng-click="goToPropery()" /></td>
+		</tr> -->
 
 	</table>
 
-</form>
+
 

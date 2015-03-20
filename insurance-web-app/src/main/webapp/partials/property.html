@@ -1,75 +1,107 @@
-<form name="propertyForm" ng-submit="fireProperty()">
+<style>
+/* div {
+border:1px solid green;
+} */
+</style>
+
 	<div>Property</div>
+	<div>Address:</div>
+	
+	<div ng-show="qmap['p.street'].enabled == true">
+		<label for="street">{{qmap['p.street'].description}}</label>
+		 <input ng-required="qmap['p.street'].required" ng-blur="changeHandle()" type="text" name="street" id="street" ng-model="newProperty.address.street" placeholder="Enter street" required />
 
-	<table>
-		<tr>
-			<td colspan="4">
-				<table>
-					<tr>
-						<td colspan="4">Address</td>
-					</tr>
-					<tr>
-						<td><label class="labelClz" for="street">Street</label></td>
-						<td><input type="text" name="street" id="street" ng-model="newProperty.address.street" placeholder="Enter street" required /></td>
-						<td><span class="error" ng-show="propertyForm.street.$error.required">required</span></td>
-						<td><span class="error" ng-show="errors.street">{{errors.street}}</span></td>
-					</tr>
+	</div>
 
-					<tr>
-						<td><label class="labelClz" for="city">City</label></td>
-						<td><input type="text" name="city" id="city" ng-model="newProperty.address.city" placeholder="Enter city" required /></td>
-						<td><span class="error" ng-show="propertyForm.city.$error.required">required</span></td>
-						<td><span class="error" ng-show="errors.city">{{errors.city}}</span></td>
-					</tr>
-					<tr>
-						<td><label class="labelClz" for="state">State</label></td>
-						<td><input type="text" name="state" id="state" ng-model="newProperty.address.state" placeholder="Enter state" required /></td>
-						<td><span class="error" ng-show="propertyForm.state.$error.required">required</span></td>
-						<td><span class="error" ng-show="errors.state">{{errors.state}}</span></td>
-					</tr>
+	<div  ng-show="qmap['p.city'].enabled == true">
+		<label for="city">{{qmap['p.city'].description}}</label> 
+		<input ng-blur="changeHandle()"    ng-required="qmap['p.city'].required" type="text" name="city" id="city" ng-model="newProperty.address.city" placeholder="Enter city" required />
+	</div>
 
-					<tr>
-						<td><label class="labelClz" for="zip">ZipCode</label></td>
-						<td><input type="text" name="zip" id="zip" ng-model="newProperty.address.zip" placeholder="Enter Zip Code" required /></td>
-						<td><span class="error" ng-show="propertyForm.zip.$error.required">required</span></td>
-						<td><span class="error" ng-show="errors.zip">{{errors.zip}}</span></td>
-					</tr>
+	<div   ng-show="qmap['p.state'].enabled == true">
+		<label for="state">{{qmap['p.state'].description}}</label>
+		<input ng-blur="changeHandle()"    ng-required="qmap['p.state'].required" type="text" name="state" id="state" ng-model="newProperty.address.state" placeholder="Enter state" required />
+
+	</div>
+
+	<div   ng-show="qmap['p.zip'].enabled == true">
+		<label for="zip">{{qmap['p.zip'].description}}</label>
+		<input ng-blur="changeHandle()"    ng-required="qmap['p.zip'].required" type="text" name="zip" id="zip" ng-model="newProperty.address.zip" placeholder="Enter Zip Code" required />
+
+	</div>
+
+	<div>Other Questions:</div>
+
+	<div   ng-show="qmap['p.policyBeginDate'].enabled == true">
+		<label for="policyBeginDate">{{qmap['p.policyBeginDate'].description}}</label>
+		<input ng-blur="changeHandle()" ng-required="qmap['p.policyBeginDate'].required" type="date" name="policyBeginDate" id="policyBeginDate" ng-model="newProperty.policyBeginDate" placeholder="Enter policyBeginDate" required />
+
+	</div>
+	<div   ng-show="qmap['p.purchaseDate'].enabled == true">
+		<label for="purchaseDate">{{qmap['p.purchaseDate'].description}}</label>
+		<input ng-blur="changeHandle()"  ng-required="qmap['p.purchaseDate'].required"  type="date" name="purchaseDate" id="purchaseDate" ng-model="newProperty.purchaseDate" placeholder="Enter purchaseDate" required />
+
+	</div>
+	<div   ng-show="qmap['p.yearBuilt'].enabled == true">
+		<label for="yearBuilt">{{qmap['p.yearBuilt'].description}}</label>
+		<input ng-blur="changeHandle()"  ng-required="qmap['p.yearBuilt'].required"  type="number" name="yearBuilt" id="yearBuilt" ng-model="newProperty.yearBuilt" placeholder="Enter yearBuilt" required />
+	</div>
+	<div   ng-show="qmap['p.livingArea'].enabled == true">
+	    <label for="livingArea">{{qmap['p.livingArea'].description}}</label>
+	   <input ng-blur="changeHandle()"  ng-required="qmap['p.livingArea'].required"  type="number" name="livingArea" ng-model="newProperty.livingArea"/>
+	</div>
+	
+	<div   ng-show="qmap['p.ageOfRoof'].enabled == true">
+		<label for="ageOfRoof">{{qmap['p.ageOfRoof'].description}}</label>
+		<input ng-blur="changeHandle()"  ng-required="qmap['p.ageOfRoof'].required"  type="number" name="ageOfRoof" id="ageOfRoof" ng-model="newProperty.ageOfRoof" placeholder="Enter ageOfRoof" required />
+
+	</div>	
+	
+	<div   ng-show="qmap['p.electrictSystemRenovated'].enabled == true">
+	    <label for="electrictSystemRenovated">{{qmap['p.electrictSystemRenovated'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="electrictSystemRenovated" ng-model="newProperty.electrictSystemRenovated"/>
+	</div>	
+
+	<div   ng-show="qmap['p.electrictSystemRenovated'].enabled == true">
+	    <label for="homeSafetyDeviceInstalled">{{qmap['p.electrictSystemRenovated'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="homeSafetyDeviceInstalled" ng-model="newProperty.homeSafetyDeviceInstalled"/>
+	</div>	
+	
+	<div   ng-show="qmap['p.previousClaims'].enabled == true">
+	    <label for="previousClaims">{{qmap['p.previousClaims'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="previousClaims" ng-model="newProperty.previousClaims"/>
+	</div>	
+	
+	<div   ng-show="qmap['p.dogExists'].enabled == true">
+	    <label for="dogExists">{{qmap['p.dogExists'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="dogExists" ng-model="newProperty.dogExists"/>
+	</div>	
+
+	<div    ng-show="qmap['p.childCareBusinessExists'].enabled == true">
+	    <label for="childCareBusinessExists">{{qmap['p.childCareBusinessExists'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="childCareBusinessExists" ng-model="newProperty.childCareBusinessExists"/>
+	</div>	
+
+	<div   ng-show="qmap['p.childCareLiabilityAlreadyExists'].enabled == true">
+	    <label for="childCareLiabilityAlreadyExists">{{qmap['p.childCareLiabilityAlreadyExists'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="childCareLiabilityAlreadyExists" ng-model="newProperty.childCareLiabilityAlreadyExists"/>
+	</div>	
+	
+	<div   ng-show="qmap['p.childCareLiabilityCoverageRequired'].enabled == true">
+	    <label for="childCareLiabilityCoverageRequired">{{qmap['p.childCareLiabilityCoverageRequired'].description}}</label>
+	   <input ng-change="changeHandle()"  type="checkbox" name="childCareLiabilityCoverageRequired" ng-model="newProperty.childCareLiabilityCoverageRequired"/>
+	</div>			
+	
+<!-- 	
+	<div>
+		<td colspan="4">goToApplication <input type="button" id="goToApplication" value="goToApplication" ng-click="goToApplication()" /> <input type="submit" ng-disabled="propertyForm.$invalid" id="fire"
+			value="FireMe" />
+
+	</div> -->
 
 
-				</table>
-			</td>
 
-		</tr>
-		<tr>
-			<td><label class="labelClz" for="policyBeginDate">PolicyBeginDate</label></td>
-			<td><input type="date" name="policyBeginDate" id="policyBeginDate" ng-model="newProperty.policyBeginDate" placeholder="Enter policyBeginDate" required /></td>
-			<td><span class="error" ng-show="propertyForm.policyBeginDate.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.policyBeginDate">{{errors.policyBeginDate}}</span></td>
-		</tr>
-		<tr>
-			<td><label class="labelClz" for="purchaseDate">PurchaseDate</label></td>
-			<td><input type="date" name="purchaseDate" id="purchaseDate" ng-model="newProperty.purchaseDate" placeholder="Enter purchaseDate" required /></td>
-			<td><span class="error" ng-show="propertyForm.purchaseDate.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.purchaseDate">{{errors.purchaseDate}}</span></td>
-		</tr>		
-		
-		<tr>
-			<td><label class="labelClz" for="yearBuilt">Year Built</label></td>
-			<td><input type="number" name="yearBuilt" id="yearBuilt" ng-model="newProperty.yearBuilt" placeholder="Enter yearBuilt" required /></td>
-			<td><span class="error" ng-show="propertyForm.yearBuilt.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.yearBuilt">{{errors.yearBuilt}}</span></td>
-		</tr>	
-		<tr>
-			<td><label class="labelClz" for="ageOfRoof">Roof Age</label></td>
-			<td><input type="number" name="ageOfRoof" id="ageOfRoof" ng-model="newProperty.ageOfRoof" placeholder="Enter ageOfRoof" required /></td>
-			<td><span class="error" ng-show="propertyForm.ageOfRoof.$error.required">required</span></td>
-			<td><span class="error" ng-show="errors.ageOfRoof">{{errors.yearBuilt}}</span></td>
-		</tr>			
-				
-		<tr>
-			<td colspan="4"><input type="submit" ng-disabled="propertyForm.{{props.name}}.$invalid" id="fire" value="FireMe" /></td>
-		</tr>
+<div>
 
-	</table>
+</div>
 
-</form>

@@ -1,52 +1,86 @@
 var applicantModule = angular.module('insuranceController', [ 'insuranceService' ]);
 
-applicantModule.controller('ApplicantEntryController', [ '$scope', '$http', '$location', 'Applicant', function($scope, $http, $location, Applicant) {
-	$scope.newApplicant = Applicant.getApplicant();
+applicantModule
+		.controller(
+				'ApplicantEntryController',
+				[
+						'$scope',
+						'$http',
+						'$location',
+						'Applicant',
+						'QuestionsApplicant',
+						function($scope, $http, $location, Applicant,
+								QuestionsApplicant) {
+	$scope.newApplicant = {};// Applicant.getApplicant();
+	var mapping = {
+		'String' : 'text',
+		'IntegEer' : 'number',
+		'Double' : 'number',
+		"Boolean" : 'checkbox'
+
+	};
+	/*
+	 * Questions.query(function(data) {
+	 * 
+	 * $scope.questions = [];//data.questions;
+	 * angular.forEach(data.questions,function(iter){
+	 * 
+	 * iter["answer"] = ""; var answerType = iter["answerType"];
+	 * iter["answerType"] = mapping[answerType]; if(iter.group == "Applicant"){
+	 * $scope.questions.push(iter); }
+	 * 
+	 * 
+	 * }); });
+	 */
+
+	$scope.questions = QuestionsApplicant.getQuestions();
+	$scope.qmap = QuestionsApplicant.getQuestionMappings();
 	$scope.fireSome = function() {
 		console.log("applicantModule in fireSome");
 
-		$http.post('rest/insurance/createApplicant', $scope.newApplicant).success(function(data, status, headers, config) {
+		$http.post('http://localhost:8080/insurance-web-app/rest/insurance/createApplicant', $scope).success(function(data, status, headers, config) {
 			console.log('success ');
-			$scope.newApplicant = data;
+
 			$location.path('/property');
 		}).error(function(data, status, headers, config) {
 			console.log('error ');
 		});
+		$location.path('/property');
+	};
 
+	$scope.changeHandle = function() {
+		console.log("Inside changeHandle");
+		console.log('$scope : ', this.newApplicant);
+		$http.post('http://localhost:8080/insurance-web-app/rest/insurance/fireRulesApplicant', {
+			'applicant':$scope.newApplicant,
+			'questions'  : $scope.questions
+			
+		}).success(function(data, status, headers, config) {
+			console.log('success data',data);
+			$scope.newApplicant=data.applicant;
+			var questions = [];
+			var qmap = {};
+			angular.forEach(data.questions, function(iter) {
+
+				
+				//var answerType = iter["answerType"];
+				
+				if (iter.group == "Applicant") {
+					questions.push(iter);
+					qmap[iter["mappedProperty"] ]= iter;
+				}
+
+			});
+			
+			$scope.questions = questions;
+			$scope.qmap = qmap;	
+			 $scope.refresh();
+		}).error(function(data, status, headers, config) {
+			console.log('error ');
+		});
 	};
 
 } ]);
-
-var creatPropertyUi = function() {
-
-	var propertyUiMeta = [ {
-		"name" : "policyBeginDate",
-		"type" : "text",
-		"value" : "",
-		"placeHolder" : "Enter Policy Begin Date",
-		"required":true,
-		//"pattern" : "^\d{2}\\/\d{2}\\/\\d{4}$"
-	}, {
-		"name" : "purchaseDate",
-		"type" : "list",
-		"value" : "",
-		"placeHolder" : "Enter Purchase Date",
-		"selectValues" : [ undefined, "today", "yesterday" ],
-		"required":true,
-		//"pattern" : "^\d{2}\\/\d{2}\\/\\d{4}$"
-	}, {
-		"name" : "previousClaims",
-		"type" : "radio",
-		"value" : "",
-		"placeHolder" : "Previous Claims",
-		"required":true,
-		"selectValues" : [ "true", "false" ]
-	},
-	
-	];
-
-	return propertyUiMeta;
-};
 
 applicantModule.controller('PropertyEntryController', [ '$scope', '$http', '$location', 'Property', function($scope, $http, $location, Property) {
 
@@ -54,27 +88,29 @@ applicantModule.controller('PropertyEntryController', [ '$scope', '$http', '$loc
 	$scope.propui = creatPropertyUi();
 	$scope.fireProperty = function() {
 		console.log("PropertyEntryController in fireSome");
-	
-		$http.post('rest/insurance/createProperty', $scope.newProperty).success(function(data, status, headers, config) {
-			console.log('success ');
-			$scope.newProperty = data;
 
-		}).error(function(data, status, headers, config) {
-			console.log('error ');
-		});
+		/*
+		 * $http.post('/insurance-web-app/rest/insurance/createProperty',
+		 * $scope.newProperty).success(function(data, status, headers, config) {
+		 * console.log('success '); $scope.newProperty = data;
+		 * 
+		 * }).error(function(data, status, headers, config) { console.log('error
+		 * '); });
+		 */
 
 	};
 
 	$scope.changeHandle = function() {
 		console.log("Inside changeHandle");
 
-		$http.post('rest/insurance/createProperty', $scope.newProperty).success(function(data, status, headers, config) {
-			console.log('success ');
-			$scope.newProperty = data;
-
-		}).error(function(data, status, headers, config) {
-			console.log('error ');
-		});
+		/*
+		 * $http.post('/insurance-web-apprest/insurance/createProperty',
+		 * $scope.newProperty).success(function(data, status, headers, config) {
+		 * console.log('success '); $scope.newProperty = data;
+		 * 
+		 * }).error(function(data, status, headers, config) { console.log('error
+		 * '); });
+		 */
 	};
 
 } ]);

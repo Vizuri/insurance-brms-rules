@@ -167,12 +167,23 @@ public class Property {
 	}
 	@Override
 	public String toString() {
-		return "Property [address=" + address + ", policyBeginDate=" + policyBeginDate + ", purchaseDate=" + purchaseDate + ", yearBuilt=" + yearBuilt + ", livingArea=" + livingArea + ", ageOfRoof="
-				+ ageOfRoof + ", electrictSystemRenovated=" + electrictSystemRenovated + ", homeSafetyDeviceInstalled=" + homeSafetyDeviceInstalled + ", homeSafetyDevices=" + homeSafetyDevices
-				+ ", previousClaims=" + previousClaims + ", claims=" + claims + ", dogExists=" + dogExists + ", dogs=" + dogs + ", childCareBusinessExists=" + childCareBusinessExists
-				+ ", childCareLiabilityCoverageRequired=" + childCareLiabilityCoverageRequired + ", childCareLiabilityAlreadyExists=" + childCareLiabilityAlreadyExists + ", applicantId="
-				+ applicantId + ", policyId=" + policyId + ", quoteId=" + quoteId + "]";
+		return "Property [address=" + address + ", policyBeginDate="
+				+ policyBeginDate + ", purchaseDate=" + purchaseDate
+				+ ", yearBuilt=" + yearBuilt + ", livingArea=" + livingArea
+				+ ", ageOfRoof=" + ageOfRoof + ", electrictSystemRenovated="
+				+ electrictSystemRenovated + ", homeSafetyDeviceInstalled="
+				+ homeSafetyDeviceInstalled + ", homeSafetyDevices="
+				+ homeSafetyDevices + ", previousClaims=" + previousClaims
+				+ ", claims=" + claims + ", dogExists=" + dogExists + ", dogs="
+				+ dogs + ", childCareBusinessExists=" + childCareBusinessExists
+				+ ", childCareLiabilityCoverageRequired="
+				+ childCareLiabilityCoverageRequired
+				+ ", childCareLiabilityAlreadyExists="
+				+ childCareLiabilityAlreadyExists + ", applicantId="
+				+ applicantId + ", policyId=" + policyId + ", quoteId="
+				+ quoteId + ", status=" + status + ", age=" + age + "]";
 	}
+	
 	
 	
 	

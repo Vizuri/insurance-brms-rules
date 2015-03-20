@@ -1,0 +1,33 @@
+
+<div  style="width:60%;">
+<div  style="float:left;width:70%;border-right:1px solid green">
+<form name="mainForm">
+<div  ng-include="templatesApplicant"></div>
+<div  ng-include="templatesProperty"></div>
+<div>
+<input type="button" id="eligibility" ng-disabled="mainForm.$invalid"  value="Check Eligibility" ng-click="getEligibility()"/>
+
+
+<div>
+<input type="button" id="quote" ng-disabled="mainForm.$invalid"  value="Quote" ng-click="getQuote()"/>
+
+</div>
+
+</form>
+
+</div>
+
+<div style="float:right">
+
+<div>
+Quote Messages :
+{{newProperty.status}}
+<div ng-show="$scope.newProperty.status = ''">
+Quote Amount : {{$scope.wrapper.quote.amount}}
+Quote Id : {{$scope.wrapper.quote.id}}
+</div>
+</div>
+</div>
+</div>
+
+

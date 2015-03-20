@@ -36,9 +36,5 @@ public class Address {
 	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
-	@Override
-	public String toString() {
-		return "Address [street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + ", verified=" + verified + "]";
-	}
 
 }
