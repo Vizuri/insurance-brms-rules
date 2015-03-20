@@ -15,11 +15,6 @@
           <nature>1</nature>
         </field-data>
         <field-data>
-          <name>age</name>
-          <value>12</value>
-          <nature>1</nature>
-        </field-data>
-        <field-data>
           <name>electrictSystemRenovated</name>
           <value>false</value>
           <nature>1</nature>
