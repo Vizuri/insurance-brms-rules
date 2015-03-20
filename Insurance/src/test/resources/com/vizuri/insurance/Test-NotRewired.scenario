@@ -27,12 +27,16 @@
           <fieldName>status</fieldName>
           <expected>HOLD</expected>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>Property</name>
       <anonymous>true</anonymous>
     </expect-fact>
+    <expect-rule>
+      <ruleName>NotRewired</ruleName>
+      <expectedFire>true</expectedFire>
+    </expect-rule>
   </fixtures>
   <rules/>
   <inclusive>false</inclusive>
