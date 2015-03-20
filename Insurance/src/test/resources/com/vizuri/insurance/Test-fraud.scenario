@@ -33,7 +33,7 @@
       <fieldValues>
         <expect-field>
           <fieldName>status</fieldName>
-          <expected>DISQUALIFIED</expected>
+          <expected>DISQUALIFIE</expected>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
