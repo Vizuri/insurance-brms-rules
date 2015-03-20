@@ -141,6 +141,7 @@ when
 	property : Property(ageOfRoof >= 25 ) 
 then
 	property.setStatus("HOLD");
+	update (property);
 end
 
 rule "bankruptcy"
@@ -152,6 +153,7 @@ when
 	property : Property( ) 
 then	
 	property.setStatus("HOLD");
+	update (property);
 end
 
 rule "fraud"
@@ -163,6 +165,7 @@ when
 	property : Property( ) 
 then	
 	property.setStatus("DISQUALIFIED");
+	update (property);
 end
 
 rule "NotRewired"
@@ -173,6 +176,7 @@ when
 	property : Property(age > 80, electrictSystemRenovated == false ) 
 then	
 	property.setStatus("HOLD");
+	update (property);
 end
 
 rule "calculateQuote"
