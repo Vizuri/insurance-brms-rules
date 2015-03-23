@@ -146,7 +146,7 @@ end
 
 rule "bankruptcy"
 dialect "mvel"
-lock-on-active true
+//lock-on-active true
 agenda-group "eligibility"
 when
 	applicant : Applicant(filedForBankruptcy == true ) 
