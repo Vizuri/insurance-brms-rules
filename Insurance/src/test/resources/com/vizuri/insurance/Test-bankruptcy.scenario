@@ -25,10 +25,6 @@
       <name>bankruptcy</name>
     </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
     <execution-trace/>
-    <expect-rule>
-      <ruleName>bankruptcy</ruleName>
-      <expectedFire>true</expectedFire>
-    </expect-rule>
     <expect-fact>
       <fieldValues>
         <expect-field>
