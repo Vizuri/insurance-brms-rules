@@ -1,32 +1,70 @@
+<style>
+div.form-group > label.control-label{
+	width:300px;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+}
 
-<div style="width: 100%;">
-	<div style="float: left; width: 70%; border-right: 1px solid green">
-		<form name="mainForm">
-			<div ng-include="templatesApplicant"></div>
-			<div ng-include="templatesProperty"></div>
-			
-				<input  type="button" name="eligibility" id="eligibility"  ng-disabled="false == (quoteStatus == QuoteStatus.NEED_ELIGIBILITY_CHECK)" value="Check Eligibility" ng-click="getEligibility()" />
+div.form-group > div{
+	width:400px;
+}
+
+div[class="form-group"]{
+	margin-bottom: 5px;
+}
+</style>
+<div class="row">
+	<div class="col-md-8">
+		<form name="mainForm" class="form-horizontal ">
 
 
-				<div>
-					<input type="button" id="quote" ng-show="QuoteStatus.ELIBIBILITY_COMPLETE == quoteStatus" value="Quote" ng-click="quoteCalculate()" />
-				
-					<div ng-show="false" ng-repeat="formDt in mainForm" style="border:1px solid red">
-					
-					{{formDt}}
-					</div>
-				</div>
+			<ng-include src="templatesApplicant"></ng-include>
+			<ng-include src="templatesProperty"></ng-include>
+
+
+
 		</form>
 
 	</div>
 
-	<div>
-	
-		<div style="float:left">
-			Quote Messages : {{newProperty.status}}
-			<div ng-show="newProperty.status.isEmpty()">Quote Amount : {{wrapper.quote.amount}} Quote Id : {{wrapper.quote.id}}</div>
-		</div>
+	<div class="col-md-4">
+
+		<nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix">
+			<div class="panel panel-default">
+				<div class="panel-heading">Tasks</div>
+
+				<div class="panel-body">
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input disabled="false" class="btn btn-lg btn-primary" type="button" name="eligibility" id="eligibility" ng-disabled="false == (quoteStatus == QuoteStatus.NEED_ELIGIBILITY_CHECK)" value="Check Eligibility"
+								ng-click="getEligibility()" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-10">
+							<input disabled="false" class="btn btn-lg btn-primary" type="button" id="quote" ng-show="QuoteStatus.ELIBIBILITY_COMPLETE == quoteStatus" value="Quote" ng-click="quoteCalculate()" />
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">Quote Messages</div>
+
+				<div class="panel-body">
+					<div>Quote Status : {{newProperty.status}}</div>
+					<div ng-show="newProperty.status.isEmpty()">Quote Amount : {{wrapper.quote.amount}} Quote Id : {{wrapper.quote.id}}</div>
+				</div>
+			</div>
+
+		</nav>
 	</div>
+
+
+
 </div>
+
 
 
