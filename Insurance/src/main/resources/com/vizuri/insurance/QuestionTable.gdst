@@ -362,7 +362,7 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueString>Are there any home safety devices</valueString>
+        <valueString>Are there any home safety devices?</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
