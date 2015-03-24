@@ -2,9 +2,18 @@ package com.vizuri.insurance.domain;
 
 import java.util.Calendar;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import com.vizuri.insurance.domain.xmladapter.CalendarXmlAdapter;
+
+
+@SuppressWarnings("restriction")
+@XmlRootElement
 public class Claim {
 
 	private Integer id;
+	@XmlJavaTypeAdapter(value = CalendarXmlAdapter.class)
 	private Calendar claimDate;
 	private double claimAmount;
 	
