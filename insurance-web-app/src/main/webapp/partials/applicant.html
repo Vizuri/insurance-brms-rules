@@ -14,30 +14,30 @@
 					
 					<div style="height: 30px;"></div>
 					<div ng-show="qmap['a.firstName'].enabled == true">
-						{{qmap['a.firstName'].description}} <input ng-required="qmap['a.firstName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.firstName">
+						{{qmap['a.firstName'].description}} <input name="firstName" ng-required="qmap['a.firstName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.firstName">
 					</div>
 					<div ng-show="qmap['a.lastName'].enabled">
-						{{qmap['a.lastName'].description}} <input ng-required="qmap['a.lastName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.lastName">
+						{{qmap['a.lastName'].description}} <input name="lastName" ng-required="qmap['a.lastName'].required" type="text" ng-blur="changeHandle()" ng-model="newApplicant.lastName">
 					</div>
 
 					<div ng-show="qmap['a.email'].enabled">
-						{{qmap['a.email'].description}} <input ng-required="qmap['a.email'].required" type="email" ng-model="newApplicant.email" ng-blur="changeHandle()">
+						{{qmap['a.email'].description}} <input name="email" ng-required="qmap['a.email'].required" type="email" ng-model="newApplicant.email" ng-blur="changeHandle()">
 					</div>
 					<div ng-show="qmap['a.phone'].enabled">
-						{{qmap['a.phone'].description}} <input ng-required="qmap['a.phone'].required" ng-pattern="/^\(?\d{3}\)?\s*\d{3}\s*-?\s*\d{4}$/" ng-blur="changeHandle()" type="text" ng-model="newApplicant.phone">
+						{{qmap['a.phone'].description}} <input name="phone" ng-required="qmap['a.phone'].required" ng-pattern="/^\(?\d{3}\)?\s*\d{3}\s*-?\s*\d{4}$/" ng-blur="changeHandle()" type="text" ng-model="newApplicant.phone">
 					</div>
 					<div ng-show="qmap['a.filedForBankruptcy'].enabled">
 
-						{{qmap['a.filedForBankruptcy'].description}} <input ng-change="changeHandle()" type="checkbox" type="text" 
+						{{qmap['a.filedForBankruptcy'].description}} <input name="filedForBankruptcy" ng-change="changeHandle()" type="checkbox" type="text" 
 						ng-model="newApplicant.filedForBankruptcy">
 					</div>
 
 					<div ng-show="qmap['a.fraud'].enabled">
-						{{qmap['a.fraud'].description}} <input ng-change="changeHandle()" type="checkbox" ng-model="newApplicant.fraud">
+						{{qmap['a.fraud'].description}} <input name="fraud" ng-change="changeHandle()" type="checkbox" ng-model="newApplicant.fraud">
 					</div>
 
 					<div ng-show="qmap['p.anyPreviousInsuranceDenials'].enabled">
-						{{qmap['p.anyPreviousInsuranceDenials'].description}} <input ng-change="changeHandle()"  type="checkbox" ng-model="newApplicant.anyPreviousInsuranceDenials">
+						{{qmap['p.anyPreviousInsuranceDenials'].description}} <input name="anyPreviousInsuranceDenials" ng-change="changeHandle()"  type="checkbox" ng-model="newApplicant.anyPreviousInsuranceDenials">
 					</div>
 				</div>
 			</td>

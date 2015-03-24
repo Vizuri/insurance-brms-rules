@@ -22,17 +22,26 @@ import com.vizuri.insurance.domain.Applicant;
 import com.vizuri.insurance.domain.Claim;
 import com.vizuri.insurance.domain.Property;
 import com.vizuri.insurance.domain.Question;
+import com.vizuri.insurance.domain.Quote;
 import com.vizuri.insurance.rest.brms.RuleProcessor;
 
 
-
+@SuppressWarnings({"unchecked","rawtypes"})
 @Path("/quoteService")
 public class QuotingResourceService {
 	private static final Logger log = Logger.getLogger(QuotingResourceService.class);
-	public static final String AGENDA_ELIGIBLITY = "eligibility";
-	private static final String AGENDA_CALCULATION = "calculation";
+
 	
-	private Map<String, Question> buildGroupMap(List<Question> questionLst,String groupss){
+	
+	/**
+	 * Prepare a key/value pair for questions in groups
+	 * eg. key for property is p.street
+	 * eg. key for applicant is a.firstName
+	 * @param questionLst
+	 * @param groupss
+	 * @return
+	 */
+	private Map<String, Question> buildQuestionByGroup(List<Question> questionLst,String groupss){
 		
 		Map<String, Question> questMap = new HashMap<String,Question>();
 	       
@@ -68,7 +77,7 @@ public class QuotingResourceService {
        
        
        Map<String, Question> applicantQuestMap = new HashMap<String,Question>();
-       applicantQuestMap = buildGroupMap(questionLst, null);
+       applicantQuestMap = buildQuestionByGroup(questionLst, null);
        
        //Map<String, Question> propertyQuestMap = buildGroupMap(questionLst, "Property");
        
@@ -93,7 +102,7 @@ public class QuotingResourceService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	
-	public Response operate(TransferWrapper wrapper){
+	public Response handleQuestionDisplaysOnInputChanges(TransferWrapper wrapper){
 		log.info("inside operate");
 		///wrapper.getApplicantQuestMap().get("filedForBankruptcy").setEnabled(true);
 		 log.infov("parameter wrapper : ",wrapper);
@@ -111,14 +120,8 @@ public class QuotingResourceService {
 		
 		questionLst =(List) mp.get("questions");
 		
-
-	    
-	      
-	      /* doEligiblity(wrapper);
-	       docalculation(wrapper);*/
-	       
 	       Map<String, Question> applicantQuestMap = new HashMap<String,Question>();
-		   applicantQuestMap = buildGroupMap(questionLst, null);
+		   applicantQuestMap = buildQuestionByGroup(questionLst, null);
 	       wrapper.setApplicantQuestMap(applicantQuestMap);
 	       
 	       log.infov("retured wrapper : ",wrapper);
@@ -140,13 +143,14 @@ public class QuotingResourceService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response doEligiblity(TransferWrapper wrapper){
+		log.info("Inside doEligiblity");
 		List sendList = new ArrayList(wrapper.getQuestions());
 		sendList.add(wrapper.getApplicant());
 		sendList.add(wrapper.getProperty());
 		sendList.add(wrapper.getProperty().getAddress());
 		
 		RuleProcessor rp = new RuleProcessor();
-		Collection coll  =rp.fireRules(AGENDA_ELIGIBLITY, sendList.toArray());
+		/*Collection coll  =*/rp.fireRules(RuleProcessor.AGENDA_ELIGIBLITY, sendList.toArray());
 		
 		return Response
 	            .status(200)
@@ -159,17 +163,28 @@ public class QuotingResourceService {
 	            .build();
 	}
 	
+	
 	@Path("/quoteCalculate")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response docalculation(TransferWrapper wrapper){
+		log.info("Inside docalculation");
+		
 		List sendList = new ArrayList(wrapper.getQuestions());
 		sendList.add(wrapper.getApplicant());
 		sendList.add(wrapper.getProperty());
 		sendList.add(wrapper.getProperty().getAddress());
 		RuleProcessor rp = new RuleProcessor();
-		Collection coll  = rp.fireRules(AGENDA_CALCULATION ,sendList.toArray());
+		Collection coll  = rp.fireRules(RuleProcessor.AGENDA_CALCULATION ,sendList.toArray());
+		
+		for (Object object : coll) {
+			DefaultFactHandle fact = (DefaultFactHandle ) object;
+			if(fact.getObject() instanceof Quote){
+				wrapper.setQuote((Quote) fact.getObject());
+				break;
+			}
+		}
 		
 		return Response
 	            .status(200)
@@ -195,7 +210,7 @@ public class QuotingResourceService {
 		sendList.add(app);
 		
 		RuleProcessor rp = new RuleProcessor();
-		Collection coll  =rp.fireRules(AGENDA_ELIGIBLITY, sendList.toArray());
+		Collection coll  =rp.fireRules(RuleProcessor.AGENDA_ELIGIBLITY, sendList.toArray());
 		
 		System.out.println("prop : "+p);
 		/*for (Object object : coll) {

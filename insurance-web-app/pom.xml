@@ -199,8 +199,15 @@
 			<groupId>org.drools</groupId>
 			<artifactId>drools-compiler</artifactId>
 			<version>6.0.3-redhat-6</version>
-		</dependency>        
-        
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
     </dependencies>
 
     <build>

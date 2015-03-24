@@ -23,13 +23,15 @@ module.factory('QuoteWrapper', function($resource) {
 		checkEligibility :{
 			method : "POST",
 			isArray : false,
-			controller : "eligibility"
+			params : {controller : "eligibility"}
+			
 			
 		},
 		quoteCalculate :{
 			method : "POST",
 			isArray : false,
-			controller : "quoteCalculate"
+			params : {controller : "quoteCalculate"}
+			
 			
 		}
 	});

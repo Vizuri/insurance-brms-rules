@@ -24,6 +24,7 @@
 
     <link rel="stylesheet" href="css/screen.css" type="text/css" />
       -->
+      <script src="js/util.js"></script>
     <!-- Load angularjs -->
     <script src="bower_components/angular/angular.js"></script>
     <!-- Load angularjs-route, which allows us to use multiple views displayed through application routes -->
@@ -32,8 +33,10 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="js/app.js"></script>
+    
+    
     <!-- Load the controllers for our app -->
-    <script src="js/controllers.js"></script>
+   <!--  <script src="js/controllers.js"></script> -->
 
     <script src="js/controllers/insuranceController.js"></script>
     <script src="js/services/insuranceService.js"></script>  
@@ -45,34 +48,18 @@
    
     
     <!-- Load the services we have defined for the application, particularly the REST services -->
-    <script src="js/services.js"></script>
+    <!-- <script src="js/services.js"></script> -->
     
 
 </head>
 <body>
     <aside id="container">
- <!--        <div class="dualbrand">
-            <img src="gfx/rhjb_eap_logo.png" />
-        </div> -->
+ 
         <div id="content" ng-view>
             <!-- This div will be templated by AngularJS -->
             [Template content will be inserted here]
         </div>
-        <!-- <div id="aside">
-            <p>Learn more about JBoss Enterprise Application
-                Platform 6.</p>
-            <ul>
-                <li><a href="https://access.redhat.com/site/documentation/JBoss_Enterprise_Application_Platform/">Documentation</a></li>
-                <li><a href="http://red.ht/jbeap-6">Product Information</a></li>
-            </ul>
-        </div>
-        <footer id="footer">
-            <p>
-                This project was generated from a Maven archetype from
-                JBoss.<br />
-            </p>
-        </footer>
-         -->
+        
     </aside>
 
     

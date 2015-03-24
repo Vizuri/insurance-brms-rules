@@ -18,11 +18,17 @@ public class RuleListener implements RuleRuntimeEventListener{
 		Object factObject = event.getObject();
 	//	log.info("event.getPropagationContext().getRule(); : "+event.getPropagationContext().getRule());
 		Rule ruleFired = event.getPropagationContext().getRule();
-	
+		log.info("inserted Object : "+factObject);
 	}
 
 	public void objectUpdated(ObjectUpdatedEvent event) {
-		// TODO Auto-generated method stub
+		log.info("objectUpdated");
+		System.out.println("objectUpdated");
+		Object factObject = event.getObject();
+	//	log.info("event.getPropagationContext().getRule(); : "+event.getPropagationContext().getRule());
+		Rule ruleFired = event.getPropagationContext().getRule();
+		log.info("updated Object : "+factObject);
+		
 		
 	}
 

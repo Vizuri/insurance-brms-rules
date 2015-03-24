@@ -1,5 +1,6 @@
 package com.vizuri.insurance.rest.brms;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,7 +9,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.ws.rs.core.Request;
+import javax.ws.rs.core.Response;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
+
 import org.drools.core.common.DefaultFactHandle;
+import org.drools.core.util.StringUtils;
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieScanner;
 import org.kie.api.builder.ReleaseId;
@@ -50,6 +58,8 @@ public class RuleProcessor {
 
 	public static final String  AGENDA_QUESTION_GROUP = "question-group";
 	public static final String  AGENDA_QUESTION_DISPLAY = "question-display";
+	public static final String AGENDA_ELIGIBLITY = "eligibility";
+	public static final String AGENDA_CALCULATION = "calculation";
 	//public static final String  AGENDA_MAIN_GROUP = "question-group";
 	AgendaListener agendaListener  = new AgendaListener();
 	RuleListener ruleListener = new RuleListener();
@@ -207,6 +217,8 @@ public class RuleProcessor {
 		System.out.println("map : "+map);
 		
 	}*/
-	
+	public static void main(String[] args) {
+		
+	}
 	
 }

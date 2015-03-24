@@ -4,12 +4,24 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import com.vizuri.insurance.domain.xmladapter.CalendarXmlAdapter;
+
+@SuppressWarnings("restriction")
+@XmlRootElement
 public class Property {
 	
+	
 	private Address address;
+	
+	@XmlJavaTypeAdapter(value = CalendarXmlAdapter.class)
 	private Calendar policyBeginDate;
+	
+	@XmlJavaTypeAdapter(value = CalendarXmlAdapter.class)
 	private Calendar purchaseDate;
+	
 	private int yearBuilt;
 	private int livingArea;
 	private int ageOfRoof;
@@ -17,7 +29,7 @@ public class Property {
 	private boolean homeSafetyDeviceInstalled;
 	private List<String> homeSafetyDevices;
 	private boolean previousClaims;
-	private List claims;
+	private List<Claim> claims;
 	private boolean dogExists;
 	private Map<Integer, String> dogs;
 	private boolean childCareBusinessExists;
@@ -89,10 +101,10 @@ public class Property {
 	public void setPreviousClaims(boolean previousClaims) {
 		this.previousClaims = previousClaims;
 	}
-	public List getClaims() {
+	public List<Claim> getClaims() {
 		return claims;
 	}
-	public void setClaims(List claims) {
+	public void setClaims(List<Claim> claims) {
 		this.claims = claims;
 	}
 	public boolean isDogExists() {
