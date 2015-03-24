@@ -32,7 +32,7 @@
         <isOtherwise>false</isOtherwise>
       </typedDefaultValue>
       <hideColumn>false</hideColumn>
-      <width>-1</width>
+      <width>510</width>
       <header>Description</header>
       <factType>Question</factType>
       <boundName>question</boundName>
