@@ -176,7 +176,7 @@ when
 	property : Property(age > 80, electrictSystemRenovated == false ) 
 then	
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "calculateQuote"
