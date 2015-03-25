@@ -141,7 +141,7 @@ when
 	property : Property(ageOfRoof >= 25 ) 
 then
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "bankruptcy"
@@ -153,7 +153,7 @@ when
 	property : Property( ) 
 then	
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "fraud"
@@ -165,7 +165,7 @@ when
 	property : Property( ) 
 then	
 	property.setStatus("DISQUALIFIED");
-	update (property);
+	//update (property);
 end
 
 rule "NotRewired"
@@ -190,6 +190,6 @@ then
 	q.setId(1);
 	q.setAmount(486.95);
 	property.setQuoteId(1);
-	update (property);
+	//update (property);
 	insert (q);
 end
