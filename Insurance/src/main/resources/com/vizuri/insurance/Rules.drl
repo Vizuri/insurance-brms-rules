@@ -141,7 +141,7 @@ when
 	property : Property(ageOfRoof >= 25 ) 
 then
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "bankruptcy"
