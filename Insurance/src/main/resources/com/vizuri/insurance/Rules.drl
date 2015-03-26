@@ -3,7 +3,7 @@ import com.vizuri.insurance.domain.*;
 
 rule "enableQ18"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	applicant : Applicant( fraud == true ) 
@@ -15,7 +15,7 @@ end
 
 rule "disableQ18"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	applicant : Applicant( fraud == false ) 
@@ -27,7 +27,7 @@ end
 
 rule "enableQ26"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(childCareBusinessExists == true ) 
@@ -39,7 +39,7 @@ end
 
 rule "disableQ26"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(childCareBusinessExists == false ) 
@@ -51,7 +51,7 @@ end
 
 rule "enableQ27"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(childCareLiabilityCoverageRequired == true ) 
@@ -63,7 +63,7 @@ end
 
 rule "disableQ27"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(childCareLiabilityCoverageRequired == false ) 
@@ -75,7 +75,7 @@ end
 
 rule "enableClaims"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(previousClaims == true ) 
@@ -90,7 +90,7 @@ end
 
 rule "disableClaims"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(previousClaims == false ) 
@@ -105,7 +105,7 @@ end
 
 rule "enableDogDetails"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(dogExists == true ) 
@@ -120,7 +120,7 @@ end
 
 rule "disableDogDetails"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "question-display"
 when
 	property : Property(dogExists == false ) 
@@ -135,53 +135,53 @@ end
 
 rule "roofTooOld"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "eligibility"
 when
 	property : Property(ageOfRoof >= 25 ) 
 then
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "bankruptcy"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "eligibility"
 when
 	applicant : Applicant(filedForBankruptcy == true ) 
 	property : Property( ) 
 then	
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "fraud"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "eligibility"
 when
 	applicant : Applicant(fraud == true ) 
 	property : Property( ) 
 then	
 	property.setStatus("DISQUALIFIED");
-	update (property);
+	//update (property);
 end
 
 rule "NotRewired"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "eligibility"
 when
 	property : Property(age > 80, electrictSystemRenovated == false ) 
 then	
 	property.setStatus("HOLD");
-	update (property);
+	//update (property);
 end
 
 rule "calculateQuote"
 dialect "mvel"
-lock-on-active true
+no-loop true
 agenda-group "calculation"
 when
 	property : Property( status == "" ) 
@@ -190,6 +190,6 @@ then
 	q.setId(1);
 	q.setAmount(486.95);
 	property.setQuoteId(1);
-	update (property);
+	//update (property);
 	insert (q);
 end
