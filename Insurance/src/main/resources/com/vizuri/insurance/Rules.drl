@@ -221,7 +221,7 @@ when
 then	
 
 	q.setAmount(1000.95);
-	property.setQuoteId(1);
+	property.setQuoteId(2);
 
 	insert (q);
 end
