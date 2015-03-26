@@ -211,7 +211,7 @@ then
 end
 
 
-rule "calculateQuoteWithDogs"
+rule "calculateQuoteWithClaims"
 dialect "mvel"
 no-loop true
 agenda-group "calculation"
@@ -220,7 +220,7 @@ when
 	q: Quote()
 then	
 
-	q.setAmount(686.95);
+	q.setAmount(1000.95);
 	property.setQuoteId(1);
 
 	insert (q);
