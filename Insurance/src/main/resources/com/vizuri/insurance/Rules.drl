@@ -182,6 +182,7 @@ end
 rule "calculateQuote"
 dialect "mvel"
 no-loop true
+salience 1000
 agenda-group "calculation"
 when
 	property : Property( status == "" ) 
