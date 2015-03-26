@@ -18,6 +18,21 @@
       <conditions>
         <condition-column52>
           <typedDefaultValue>
+            <valueString></valueString>
+            <dataType>STRING</dataType>
+            <isOtherwise>false</isOtherwise>
+          </typedDefaultValue>
+          <hideColumn>false</hideColumn>
+          <width>-1</width>
+          <header>fraudNotNull</header>
+          <constraintValueType>1</constraintValueType>
+          <factField>fraud</factField>
+          <fieldType>Boolean</fieldType>
+          <operator>!= null</operator>
+          <parameters/>
+        </condition-column52>
+        <condition-column52>
+          <typedDefaultValue>
             <valueBoolean>false</valueBoolean>
             <valueString></valueString>
             <dataType>BOOLEAN</dataType>
@@ -106,6 +121,12 @@
       <value>
         <valueString></valueString>
         <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueBoolean>false</valueBoolean>
+        <valueString></valueString>
+        <dataType>BOOLEAN</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
