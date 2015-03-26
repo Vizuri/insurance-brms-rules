@@ -201,9 +201,10 @@ no-loop true
 agenda-group "calculation"
 when
 	property : Property( status == "" ,dogExists == true) 
+	q: Quote()
 then	
-	Quote q = new Quote();
-	q.setId(1);
+	//Quote q = new Quote();
+	//q.setId(1);
 	q.setAmount(686.95);
 	property.setQuoteId(1);
 	//update (property);
