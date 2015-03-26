@@ -18,7 +18,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	applicant : Applicant( fraud == false ) 
+	applicant : Applicant( fraud == null || fraud == false ) 
 	question : Question(Id == 18)
 then
 	question.setEnabled( false );
@@ -42,7 +42,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(childCareBusinessExists == false ) 
+	property : Property(childCareBusinessExists == null || childCareBusinessExists == false ) 
 	question : Question(Id == 26)
 then
 	question.setEnabled( false );
@@ -66,7 +66,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(childCareLiabilityCoverageRequired == false ) 
+	property : Property(childCareLiabilityCoverageRequired == null || childCareLiabilityCoverageRequired == false ) 
 	question : Question(Id == 27)
 then
 	question.setEnabled( false );
@@ -93,7 +93,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(previousClaims == false ) 
+	property : Property(previousClaims == null || previousClaims == false ) 
 	question20 : Question(Id == 20)
 	question21 : Question(Id == 21)
 then
@@ -123,7 +123,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(dogExists == false ) 
+	property : Property(dogExists == null || dogExists == false ) 
 	question23 : Question(Id == 23)
 	question24 : Question(Id == 24)
 then
@@ -173,7 +173,7 @@ dialect "mvel"
 no-loop true
 agenda-group "eligibility"
 when
-	property : Property(age > 80, electrictSystemRenovated == false ) 
+	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
 then	
 	property.setStatus("HOLD");
 	//update (property);
