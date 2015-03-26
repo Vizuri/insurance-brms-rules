@@ -30,7 +30,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(childCareBusinessExists == true ) 
+	property : Property(childCareBusinessExists != null, childCareBusinessExists == true ) 
 	question : Question(Id == 26)
 then
 	question.setEnabled( true );
