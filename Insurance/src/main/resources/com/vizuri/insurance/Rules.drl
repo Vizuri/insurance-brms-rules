@@ -5,7 +5,7 @@ import com.vizuri.insurance.domain.*;
 rule "k"
 
 when
-    Applicant(fraud != null , fraud == false)
+    Applicant( fraud == false)
 then
    insert(new Question() );
 end;
