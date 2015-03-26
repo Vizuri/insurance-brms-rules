@@ -2,7 +2,7 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 
 rule "enableQ18"
-dialect "mvel"
+
 no-loop true
 agenda-group "question-display"
 when
