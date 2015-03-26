@@ -2,10 +2,3 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.Applicant;
 
 
-rule "k"
-dialect "mvel"
-when
-    Applicant( fraud == false)
-then
-   insert(new Question() );
-end;
