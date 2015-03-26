@@ -193,3 +193,19 @@ then
 	//update (property);
 	insert (q);
 end
+
+rule "calculateQuoteWithDogs"
+dialect "mvel"
+no-loop true
+agenda-group "calculation"
+when
+	property : Property( status == "" ,dogExists == true) 
+then	
+	Quote q = new Quote();
+	q.setId(1);
+	q.setAmount(686.95);
+	property.setQuoteId(1);
+	//update (property);
+	insert (q);
+end
+
