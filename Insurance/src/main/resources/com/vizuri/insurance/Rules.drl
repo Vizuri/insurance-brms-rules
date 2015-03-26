@@ -6,7 +6,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	applicant : Applicant( !fraud == true ) 
+	applicant : Applicant( fraud == true ) 
 	question : Question(Id == 18)
 then
 	question.setEnabled( true );
@@ -18,7 +18,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	applicant : Applicant( !fraud == false ) 
+	applicant : Applicant( fraud == false ) 
 	question : Question(Id == 18)
 then
 	question.setEnabled( false );
@@ -30,7 +30,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(!childCareBusinessExists == true ) 
+	property : Property(childCareBusinessExists == true ) 
 	question : Question(Id == 26)
 then
 	question.setEnabled( true );
@@ -42,7 +42,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(!childCareBusinessExists == false ) 
+	property : Property(childCareBusinessExists == false ) 
 	question : Question(Id == 26)
 then
 	question.setEnabled( false );
@@ -54,7 +54,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	property : Property(!childCareLiabilityCoverageRequired == true ) 
+	property : Property(childCareLiabilityCoverageRequired == true ) 
 	question : Question(Id == 27)
 then
 	question.setEnabled( true );
