@@ -6,7 +6,7 @@ dialect "mvel"
 no-loop true
 agenda-group "question-display"
 when
-	applicant : Applicant( !applicant.fraud == true ) 
+	applicant : Applicant( fraud == true ) 
 	question : Question(Id == 18)
 then
 	question.setEnabled( true );
