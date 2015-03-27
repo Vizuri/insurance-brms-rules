@@ -28,6 +28,6 @@ then
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-
+	msg.setMessage("Year Built cannot be greater than current year");
 	insert(msg);
 end;
