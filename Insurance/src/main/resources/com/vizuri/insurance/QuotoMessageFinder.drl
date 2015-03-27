@@ -12,7 +12,7 @@ then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
-	msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
+	//msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
 
 	insertLogical(msg);
 end;
