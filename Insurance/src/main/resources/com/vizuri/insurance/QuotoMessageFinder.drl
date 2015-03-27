@@ -44,7 +44,7 @@ then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("ageOfRoof");
-	msg.setMessage("Roof Age cannot be greater than 25 years.");
+	msg.setMessage("Roof Age cannot be greater than 24 years.");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
 	insert(msg);
