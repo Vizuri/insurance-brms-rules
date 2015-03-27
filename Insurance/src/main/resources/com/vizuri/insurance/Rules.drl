@@ -133,16 +133,7 @@ then
 	update( question24 );
 end
 
-rule "roofTooOld"
-dialect "mvel"
-no-loop true
-agenda-group "eligibility"
-when
-	property : Property(ageOfRoof >= 25 ) 
-then
-	property.setStatus("HOLD");
-	//update (property);
-end
+
 
 rule "bankruptcy"
 dialect "mvel"
