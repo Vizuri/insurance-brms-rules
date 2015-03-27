@@ -1,6 +1,6 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
-//import com.vizuri.insurance.domain.MESSAGE_LEVEL;
+
 
 rule "yearBuiltCheck"
 dialect "mvel"
@@ -15,4 +15,4 @@ then
 	//msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
 
 	insertLogical(msg);
-end;com.vizuri.insurance.domain.Claim( )
+end;
