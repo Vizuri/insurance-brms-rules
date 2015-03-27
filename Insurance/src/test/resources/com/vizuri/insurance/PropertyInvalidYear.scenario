@@ -27,6 +27,12 @@
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
+        <expect-field>
+          <fieldName>message</fieldName>
+          <expected>Year Built cannot be greater than current year</expected>
+          <operator>==</operator>
+          <nature>0</nature>
+        </expect-field>
       </fieldValues>
       <name>QuoteMessage</name>
       <anonymous>true</anonymous>
