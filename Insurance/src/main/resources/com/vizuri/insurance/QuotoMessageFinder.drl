@@ -1,5 +1,6 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
+import com.vizuri.insurance.domain.MESSAGE_LEVEL;
 
 rule "yearBuiltCheck"
 
