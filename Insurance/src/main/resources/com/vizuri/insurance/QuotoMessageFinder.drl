@@ -3,16 +3,16 @@ import com.vizuri.insurance.domain.*;
 //import com.vizuri.insurance.domain.MESSAGE_LEVEL;
 
 rule "yearBuiltCheck"
-
-agenda-group "Quote-Errors"
+dialect "mvel"
 no-loop true
+agenda-group "quote-error-check"
 when
 	$prop : Property( yearBuilt < 1920)
 then
 	QuoteMessage msg  = new QuoteMessag();
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
-	msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
+	//msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
 
 	insertLogical(msg);
 end;com.vizuri.insurance.domain.Claim( )
