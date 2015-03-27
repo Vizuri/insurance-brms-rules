@@ -1,6 +1,6 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
-
+import java.util.*;
 
 rule "yearBuiltCheck"
 dialect "mvel"
@@ -8,6 +8,21 @@ no-loop true
 agenda-group "quote-error-check"
 when
 	$prop : Property( yearBuilt < 1920)
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("yearBuilt");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insertLogical(msg);
+end;
+
+rule "yearBuiltMax"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
