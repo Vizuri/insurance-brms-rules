@@ -14,7 +14,7 @@ then
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
-	insertLogical(msg);
+	insert(msg);
 end;
 
 rule "yearBuiltMax"
@@ -29,5 +29,5 @@ then
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
-	insertLogical(msg);
+	insert(msg);
 end;
