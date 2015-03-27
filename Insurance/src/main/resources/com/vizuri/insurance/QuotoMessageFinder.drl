@@ -2,6 +2,40 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 import java.util.*;
 
+rule "livingAreaMin"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( livingArea < 500)
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("livingArea");
+	msg.setMessage("Living Area needs to greater than or equal to 500 sq ft.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end;
+
+rule "livingAreaMax"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( livingArea > 5000)
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("livingArea");
+	msg.setMessage("Living Area needs to less than or equal to 5000 sq ft.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end;
+
+
+
 rule "yearBuiltCheck"
 dialect "mvel"
 no-loop true
