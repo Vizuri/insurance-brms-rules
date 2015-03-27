@@ -9,7 +9,7 @@ agenda-group "quote-error-check"
 when
 	$prop : Property( yearBuilt < 1920)
 then
-	QuoteMessage msg  = new QuoteMessag();
+	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
 	//msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
