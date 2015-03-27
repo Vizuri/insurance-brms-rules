@@ -13,7 +13,7 @@ then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("state");
-	//msg.setMessage("Insurance not offered in the state  of  "+$add.getState() );
+	msg.setMessage("Insurance not offered in the state  of  "+$add.getState() );
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
 	insert(msg);	
