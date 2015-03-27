@@ -1,3 +1,17 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 
+rule "yearBuiltCheck"
+
+agenda-group "Quote-Errors"
+no-loop "true"
+when
+	$prop : Property( yearBuilt < 1920)
+then
+	QuoteMessage msg  = new QuoteMessag();
+	msg.setGroup("Property");
+	msg.setProperty("yearBuilt");
+	msg.setMessageLevel(MESSAGE_LEVEL.ERROR);
+
+	insertLogical(msg);
+end;
