@@ -2,6 +2,23 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 import java.util.*;
 
+rule "stateCheck"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( !address.state not in ('VA','MD','NY','WV','PA') )
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("state");
+	msg.setMessage("Insurance not offered in state : "+"$prop.getAddress().getState());
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end;
+
+
 rule "livingAreaMin"
 dialect "mvel"
 no-loop true
