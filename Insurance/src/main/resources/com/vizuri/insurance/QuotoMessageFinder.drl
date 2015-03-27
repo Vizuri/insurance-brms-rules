@@ -34,7 +34,21 @@ then
 	insert(msg);
 end;
 
+rule "roofTooOld"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	property : Property(ageOfRoof >= 25 ) 
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("ageOfRoof");
+	msg.setMessage("Roof Age cannot be greater than 25 years.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
+	insert(msg);
+end
 
 rule "yearBuiltCheck"
 dialect "mvel"
