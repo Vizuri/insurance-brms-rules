@@ -8,9 +8,15 @@ no-loop true
 agenda-group "quote-error-check"
 when
 	$prop : Property( )
-	$add : Address(this == $prop.address)
+	$add : Address(this == $prop.address,state not in ('VA','MD','PA','WV'))
 then
-	
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("state");
+	//msg.setMessage("Insurance not offered in the state  of  "+$add.getState() );
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);	
 end;
 
 
