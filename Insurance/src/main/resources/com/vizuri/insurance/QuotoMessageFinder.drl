@@ -7,15 +7,10 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( address.state not in ('VA','MD','NY','WV','PA') )
+	$prop : Property( )
+	$add : Address(this == $prop.address)
 then
-	QuoteMessage msg  = new QuoteMessage();
-	msg.setGroup("Property");
-	msg.setProperty("state");
-	msg.setMessage("Insurance not offered in state : "+"$prop.getAddress().getState());
-	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-
-	insert(msg);
+	
 end;
 
 
