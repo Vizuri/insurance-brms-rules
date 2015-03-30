@@ -226,7 +226,7 @@ then
 	insert (q);
 end
 
-rule "AreaNotCovered"
+rule "AreaNotCovered1"
 dialect "mvel"
 when
 	Property( address.zip.trim() == "20171" )
