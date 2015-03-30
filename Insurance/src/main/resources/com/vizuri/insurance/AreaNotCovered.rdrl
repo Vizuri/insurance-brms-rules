@@ -10,7 +10,7 @@ rule "AreaNotCovered"
 	dialect "mvel"
 	agenda-group "quote-error-check"
 	when
-		Property( address.zip.trim() == "20171" )
+		Property( address.zip.trim() == "20171" , address != null )
 	then
 		QuoteMessage fact0 = new QuoteMessage();
 		fact0.setMessage( "Coverage Not Available For 20171" );
