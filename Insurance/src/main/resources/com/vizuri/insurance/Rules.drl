@@ -189,7 +189,7 @@ when
 then	
 	Quote q = new Quote();
 	q.setId(1);
-	q.setAmount(486.95);
+	q.setAmount(487.95);
 	property.setQuoteId(1);
 	//update (property);
 	insert (q);
