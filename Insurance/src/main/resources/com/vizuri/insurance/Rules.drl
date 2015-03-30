@@ -226,15 +226,3 @@ then
 	insert (q);
 end
 
-rule "AreaNotCovered1"
-dialect "mvel"
-when
-	Property( address.zip.trim() == "20171" )
-then
-	QuoteMessage fact0 = new QuoteMessage();
-	fact0.setMessage( "Coverage Not Available" );
-	fact0.setMessageStatus( QuoteMessageStatus.ERROR );
-	fact0.setProperty( "Address.zip" );
-	fact0.setGroup( "Property" );
-	insert( fact0 );
-end
