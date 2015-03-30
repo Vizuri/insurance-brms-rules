@@ -8,7 +8,7 @@ no-loop true
 agenda-group "quote-error-check"
 when
 	$prop : Property( address != null)
-	$add : Address(this == $prop.address,state not in ('VA','MD','PA','WV'))
+	$add : Address(this == $prop.address, state != null, state not in ('VA','MD','PA','WV'))
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
