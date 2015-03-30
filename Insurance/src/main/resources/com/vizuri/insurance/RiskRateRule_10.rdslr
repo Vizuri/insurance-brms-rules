@@ -4,6 +4,7 @@ import java.lang.Number;
 
 rule "RiskRateRule_10"
 	dialect "mvel"
+	no-loop true
 	when
 		If property age is 30 or more but less than 45
 	then
