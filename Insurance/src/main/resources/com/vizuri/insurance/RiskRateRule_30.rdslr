@@ -1,0 +1,9 @@
+package com.vizuri.insurance;
+
+import java.lang.Number;
+
+rule "RiskRateRule_30"
+	dialect "mvel"
+	when
+	then
+end
