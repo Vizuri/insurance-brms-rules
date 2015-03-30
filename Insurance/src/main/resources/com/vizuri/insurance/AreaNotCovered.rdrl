@@ -14,7 +14,7 @@ rule "AreaNotCovered"
 	then
 		QuoteMessage fact0 = new QuoteMessage();
 		fact0.setMessage( "Coverage Not Available For 20171" );
-		fact0.setMessageStatus( QuoteMessageStatus.ERROR );
+		fact0.setMessageStatus( QuoteMessageStatus.INFO );
 		fact0.setProperty( "Address.zip" );
 		fact0.setGroup( "Property" );
 		insert( fact0 );
