@@ -7,7 +7,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( )
+	$prop : Property( address != null)
 	$add : Address(this == $prop.address,state not in ('VA','MD','PA','WV'))
 then
 	QuoteMessage msg  = new QuoteMessage();
