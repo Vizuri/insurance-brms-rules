@@ -2,6 +2,72 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 import java.util.*;
 
+rule "stateCheck"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( )
+	$add : Address(this == $prop.address,state not in ('VA','MD','PA','WV'))
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("state");
+	msg.setMessage("Insurance not offered in the state  of  "+$add.getState() );
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);	
+end;
+
+
+rule "livingAreaMin"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( livingArea < 500)
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("livingArea");
+	msg.setMessage("Living Area needs to greater than or equal to 500 sq ft.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end;
+
+rule "livingAreaMax"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	$prop : Property( livingArea > 4000)
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("livingArea");
+	msg.setMessage("Living Area needs to less than or equal to 5000 sq ft.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end;
+
+rule "roofTooOld"
+dialect "mvel"
+no-loop true
+agenda-group "quote-error-check"
+when
+	property : Property(ageOfRoof >= 25 ) 
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("ageOfRoof");
+	msg.setMessage("Roof Age cannot be greater than 24 years.");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insert(msg);
+end
+
 rule "yearBuiltCheck"
 dialect "mvel"
 no-loop true
@@ -28,6 +94,6 @@ then
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-
+	msg.setMessage("Year Built cannot be greater than current year");
 	insert(msg);
 end;
