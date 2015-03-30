@@ -2,7 +2,7 @@ package com.vizuri.insurance;
 
 import java.lang.Number;
 
-rule "RiskRateRule"
+rule "RiskRateRule_10"
 	dialect "mvel"
 	when
 	then
