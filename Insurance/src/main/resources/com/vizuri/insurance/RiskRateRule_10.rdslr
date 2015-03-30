@@ -5,5 +5,7 @@ import java.lang.Number;
 rule "RiskRateRule_10"
 	dialect "mvel"
 	when
+		If property age is 85 or more but less than 100
 	then
+		Set property risk rate to 10
 end
