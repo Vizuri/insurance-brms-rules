@@ -8,6 +8,7 @@ import com.vizuri.insurance.domain.Property;
 
 rule "AreaNotCovered"
 	dialect "mvel"
+	agenda-group "quote-error-check"
 	when
 		Property( address.zip.trim() == "20171" )
 	then
