@@ -1,9 +1,16 @@
 package com.vizuri.insurance;
 
 import java.lang.Number;
+import com.vizuri.insurance.domain.Address;
+import com.vizuri.insurance.domain.QuoteMessageStatus;
+import com.vizuri.insurance.domain.QuoteMessage;
 
 rule "AreaNotCovered"
 	dialect "mvel"
 	when
+		Address( zip == "20147" , zip == "20171" )
 	then
+		QuoteMessage fact0 = new QuoteMessage();
+		fact0.setMessage( "Coverage Not Available" );
+		insert( fact0 );
 end
