@@ -4,13 +4,17 @@ import java.lang.Number;
 import com.vizuri.insurance.domain.Address;
 import com.vizuri.insurance.domain.QuoteMessageStatus;
 import com.vizuri.insurance.domain.QuoteMessage;
+import com.vizuri.insurance.domain.Property;
 
 rule "AreaNotCovered"
 	dialect "mvel"
 	when
-		Address( zip == "20147" , zip == "20171" )
+		Property( address.zip.trim() == "20147" , address.zip.trim() == "20171" )
 	then
 		QuoteMessage fact0 = new QuoteMessage();
 		fact0.setMessage( "Coverage Not Available" );
+		fact0.setMessageStatus( QuoteMessageStatus.ERROR );
+		fact0.setProperty( "Address.zip" );
+		fact0.setGroup( "Property" );
 		insert( fact0 );
 end
