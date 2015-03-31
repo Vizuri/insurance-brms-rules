@@ -25,7 +25,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( livingArea > 0, livingArea < 500)
+	$prop : Property( livingArea < 500)
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -41,7 +41,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( livingArea > 0,  livingArea > 4000)
+	$prop : Property( livingArea > 4000)
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -73,7 +73,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property(yearBuilt > 0,  yearBuilt < 1920)
+	$prop : Property(  yearBuilt < 1920)
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -88,7 +88,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( yearBuilt > 0 , yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
+	$prop : Property(  yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
