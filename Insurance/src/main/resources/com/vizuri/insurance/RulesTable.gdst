@@ -115,6 +115,22 @@
       <type>Double</type>
       <isInsertLogical>true</isInsertLogical>
     </insert-fact-column52>
+    <insert-fact-column52>
+      <typedDefaultValue>
+        <valueNumeric class="int">1001</valueNumeric>
+        <valueString></valueString>
+        <dataType>NUMERIC_INTEGER</dataType>
+        <isOtherwise>false</isOtherwise>
+      </typedDefaultValue>
+      <hideColumn>true</hideColumn>
+      <width>-1</width>
+      <header>Quote Id</header>
+      <factType>Quote</factType>
+      <boundName>quote</boundName>
+      <factField>id</factField>
+      <type>Integer</type>
+      <isInsertLogical>true</isInsertLogical>
+    </insert-fact-column52>
   </actionCols>
   <auditLog>
     <filter class="org.drools.guvnor.client.modeldriven.dt52.auditlog.DecisionTableAuditLogFilter">
