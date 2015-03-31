@@ -73,13 +73,13 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( yearBuilt < 1920)
+	$prop : Property(yearBuilt > 0,  yearBuilt < 1920)
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-
+	msg.setMessage("Year Built cannot be less than 1920");
 	insert(msg);
 end;
 
@@ -88,7 +88,7 @@ dialect "mvel"
 no-loop true
 agenda-group "quote-error-check"
 when
-	$prop : Property( yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
+	$prop : Property( yearBuilt > 0 , yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
