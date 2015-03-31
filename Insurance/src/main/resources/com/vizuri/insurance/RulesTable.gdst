@@ -12,7 +12,7 @@
   <attributeCols>
     <attribute-column52>
       <typedDefaultValue>
-        <valueString>Calculation</valueString>
+        <valueString>calculation</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </typedDefaultValue>
