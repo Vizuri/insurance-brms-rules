@@ -1,9 +1,0 @@
-package com.vizuri.insurance;
-
-import java.lang.Number;
-
-rule "TestG"
-	dialect "mvel"
-	when
-	then
-end
