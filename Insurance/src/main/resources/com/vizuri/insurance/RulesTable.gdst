@@ -10,53 +10,8 @@
   </descriptionCol>
   <metadataCols/>
   <attributeCols/>
-  <conditionPatterns>
-    <Pattern52>
-      <factType>Applicant</factType>
-      <boundName>applicant</boundName>
-      <isNegated>false</isNegated>
-      <conditions>
-        <condition-column52>
-          <typedDefaultValue>
-            <valueString>Vip</valueString>
-            <dataType>STRING</dataType>
-            <isOtherwise>false</isOtherwise>
-          </typedDefaultValue>
-          <hideColumn>false</hideColumn>
-          <width>-1</width>
-          <header>Test</header>
-          <constraintValueType>1</constraintValueType>
-          <factField>firstName</factField>
-          <fieldType>String</fieldType>
-          <operator>==</operator>
-          <parameters/>
-        </condition-column52>
-      </conditions>
-      <window>
-        <operator></operator>
-        <parameters/>
-      </window>
-      <entryPointName>Vip</entryPointName>
-    </Pattern52>
-  </conditionPatterns>
-  <actionCols>
-    <insert-fact-column52>
-      <typedDefaultValue>
-        <valueBoolean>true</valueBoolean>
-        <valueString></valueString>
-        <dataType>BOOLEAN</dataType>
-        <isOtherwise>false</isOtherwise>
-      </typedDefaultValue>
-      <hideColumn>false</hideColumn>
-      <width>-1</width>
-      <header>Then</header>
-      <factType>Question</factType>
-      <boundName>question</boundName>
-      <factField>enabled</factField>
-      <type>Boolean</type>
-      <isInsertLogical>false</isInsertLogical>
-    </insert-fact-column52>
-  </actionCols>
+  <conditionPatterns/>
+  <actionCols/>
   <auditLog>
     <filter class="org.drools.guvnor.client.modeldriven.dt52.auditlog.DecisionTableAuditLogFilter">
       <acceptedTypes>
@@ -87,10 +42,10 @@
   <imports>
     <imports>
       <org.drools.workbench.models.datamodel.imports.Import>
-        <type>com.vizuri.insurance.domain.Question</type>
+        <type>com.vizuri.insurance.domain.Property</type>
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
-        <type>com.vizuri.insurance.domain.Applicant</type>
+        <type>com.vizuri.insurance.domain.Quote</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
