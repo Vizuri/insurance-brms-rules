@@ -179,6 +179,7 @@ then
 	//update (property);
 end
 
+/*
 rule "calculateQuote"
 dialect "mvel"
 no-loop true
@@ -225,4 +226,4 @@ then
 
 	insert (q);
 end
-
+*/
