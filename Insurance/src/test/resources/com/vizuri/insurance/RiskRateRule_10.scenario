@@ -23,6 +23,30 @@
     <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
       <name>riskRuleGroup</name>
     </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <fact-data>
+      <type>Applicant</type>
+      <fieldData>
+        <field-data>
+          <name>fraud</name>
+          <value>false</value>
+          <nature>1</nature>
+        </field-data>
+      </fieldData>
+      <name>app</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>Question</type>
+      <fieldData>
+        <field-data>
+          <name>id</name>
+          <value>18</value>
+          <nature>1</nature>
+        </field-data>
+      </fieldData>
+      <name>q</name>
+      <isModify>false</isModify>
+    </fact-data>
     <execution-trace/>
     <expect-fact>
       <fieldValues>
@@ -30,7 +54,7 @@
           <fieldName>riskRate</fieldName>
           <expected>10</expected>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>$prop</name>
@@ -44,6 +68,15 @@
     <imports>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Property</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Address</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Question</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Applicant</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
