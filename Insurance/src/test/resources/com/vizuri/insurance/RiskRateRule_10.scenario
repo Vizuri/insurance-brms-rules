@@ -7,13 +7,13 @@
       <type>Property</type>
       <fieldData>
         <field-data>
-          <name>age</name>
-          <value>32</value>
+          <name>riskRate</name>
+          <value></value>
           <nature>1</nature>
         </field-data>
         <field-data>
-          <name>riskRate</name>
-          <value></value>
+          <name>yearBuilt</name>
+          <value>1971</value>
           <nature>1</nature>
         </field-data>
       </fieldData>
