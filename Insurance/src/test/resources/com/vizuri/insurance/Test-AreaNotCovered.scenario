@@ -14,7 +14,7 @@
               <field-data>
                 <name>zip</name>
                 <value>20171</value>
-                <nature>1</nature>
+                <nature>4</nature>
               </field-data>
             </fieldData>
           </fact>
@@ -23,30 +23,46 @@
       <name>property</name>
       <isModify>false</isModify>
     </fact-data>
-    <execution-trace/>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>quote-error-check</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <execution-trace>
+      <executionTimeResult>2</executionTimeResult>
+      <numberOfRulesFired>3</numberOfRulesFired>
+    </execution-trace>
     <expect-rule>
       <ruleName>AreaNotCovered</ruleName>
+      <explanation>Rule [AreaNotCovered] was activated 1 times.</explanation>
       <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
     </expect-rule>
     <expect-fact>
       <fieldValues>
         <expect-field>
           <fieldName>group</fieldName>
           <expected>Property</expected>
+          <actualResult>No match</actualResult>
+          <successResult>true</successResult>
+          <explanation>[QuoteMessage] field [group] was [Property].</explanation>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
         <expect-field>
           <fieldName>message</fieldName>
-          <expected>Coverage Not Available</expected>
+          <expected>Coverage Not Available For 20171</expected>
+          <actualResult>Living Area needs to greater than or equal to 500 sq ft.</actualResult>
+          <successResult>true</successResult>
+          <explanation>[QuoteMessage] field [message] was [Coverage Not Available For 20171].</explanation>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>QuoteMessage</name>
       <anonymous>true</anonymous>
     </expect-fact>
   </fixtures>
+  <lastRunResult>2015-06-23 04:49:15.691 UTC</lastRunResult>
   <rules/>
   <inclusive>false</inclusive>
   <packageName>com.vizuri.insurance</packageName>
