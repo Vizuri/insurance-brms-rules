@@ -170,7 +170,7 @@ then
 	//update (property);
 end
 
-/*
+
 rule "calculateQuote"
 dialect "mvel"
 no-loop true
@@ -186,7 +186,7 @@ then
 	//update (property);
 	insert (q);
 end
-
+/*
 rule "calculateQuoteWithDogs"
 dialect "mvel"
 no-loop true
