@@ -12,28 +12,40 @@
         <field-data>
           <name>status</name>
           <value></value>
-          <nature>1</nature>
+          <nature>4</nature>
         </field-data>
       </fieldData>
       <name>property</name>
       <isModify>false</isModify>
     </fact-data>
-    <execution-trace/>
+    <execution-trace>
+      <executionTimeResult>2</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
     <expect-rule>
       <ruleName>calculateQuote</ruleName>
+      <explanation>Rule [calculateQuote] was activated 1 times.</explanation>
       <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
     </expect-rule>
     <expect-fact>
       <fieldValues>
         <expect-field>
           <fieldName>id</fieldName>
           <expected>1</expected>
+          <actualResult>No match</actualResult>
+          <successResult>true</successResult>
+          <explanation>[Quote] field [id] was [1].</explanation>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
         <expect-field>
           <fieldName>amount</fieldName>
-          <expected>486.95</expected>
+          <expected>487.95</expected>
+          <actualResult>487.95</actualResult>
+          <successResult>false</successResult>
+          <explanation>[Quote] field [amount] was [487.95] expected [486.95].</explanation>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
@@ -46,14 +58,18 @@
         <expect-field>
           <fieldName>quoteId</fieldName>
           <expected>1</expected>
+          <actualResult></actualResult>
+          <successResult>true</successResult>
+          <explanation>[Property] field [quoteId] was [1].</explanation>
           <operator>==</operator>
-          <nature>0</nature>
+          <nature>1</nature>
         </expect-field>
       </fieldValues>
       <name>Property</name>
       <anonymous>true</anonymous>
     </expect-fact>
   </fixtures>
+  <lastRunResult>2015-06-23 04:53:44.598 UTC</lastRunResult>
   <rules/>
   <inclusive>false</inclusive>
   <packageName>com.vizuri.insurance</packageName>
