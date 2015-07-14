@@ -1,0 +1,86 @@
+<scenario>
+  <name>Test-CalculateQuote.scenario</name>
+  <maxRuleFirings>100000</maxRuleFirings>
+  <globals/>
+  <fixtures>
+    <org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+      <name>calculation</name>
+    </org.drools.workbench.models.testscenarios.shared.ActivateRuleFlowGroup>
+    <fact-data>
+      <type>Property</type>
+      <fieldData>
+        <field-data>
+          <name>status</name>
+          <value></value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>property</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <execution-trace>
+      <executionTimeResult>2</executionTimeResult>
+      <numberOfRulesFired>1</numberOfRulesFired>
+    </execution-trace>
+    <expect-rule>
+      <ruleName>calculateQuote</ruleName>
+      <explanation>Rule [calculateQuote] was activated 1 times.</explanation>
+      <expectedFire>true</expectedFire>
+      <successResult>true</successResult>
+      <actualResult>1</actualResult>
+    </expect-rule>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>id</fieldName>
+          <expected>1</expected>
+          <actualResult>No match</actualResult>
+          <successResult>true</successResult>
+          <explanation>[Quote] field [id] was [1].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+        <expect-field>
+          <fieldName>amount</fieldName>
+          <expected>487.95</expected>
+          <actualResult>487.95</actualResult>
+          <successResult>false</successResult>
+          <explanation>[Quote] field [amount] was [487.95] expected [486.95].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>Quote</name>
+      <anonymous>true</anonymous>
+    </expect-fact>
+    <expect-fact>
+      <fieldValues>
+        <expect-field>
+          <fieldName>quoteId</fieldName>
+          <expected>1</expected>
+          <actualResult></actualResult>
+          <successResult>true</successResult>
+          <explanation>[Property] field [quoteId] was [1].</explanation>
+          <operator>==</operator>
+          <nature>1</nature>
+        </expect-field>
+      </fieldValues>
+      <name>Property</name>
+      <anonymous>true</anonymous>
+    </expect-fact>
+  </fixtures>
+  <lastRunResult>2015-06-23 04:53:44.598 UTC</lastRunResult>
+  <rules/>
+  <inclusive>false</inclusive>
+  <packageName>com.vizuri.insurance</packageName>
+  <imports>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Property</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Quote</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
+  </imports>
+</scenario>

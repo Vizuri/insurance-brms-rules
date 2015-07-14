@@ -1,0 +1,13 @@
+<configuration>
+  <imports>
+    <imports>
+      <import>
+        <type>java.lang.Number</type>
+      </import>
+      <import>
+        <type>java.lang.Boolean</type>
+      </import>
+    </imports>
+  </imports>
+  <version>1.0</version>
+</configuration>

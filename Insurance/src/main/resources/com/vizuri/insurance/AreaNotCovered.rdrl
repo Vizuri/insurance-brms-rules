@@ -1,0 +1,21 @@
+package com.vizuri.insurance;
+
+import java.lang.Number;
+import com.vizuri.insurance.domain.Address;
+import com.vizuri.insurance.domain.QuoteMessageStatus;
+import com.vizuri.insurance.domain.QuoteMessage;
+import com.vizuri.insurance.domain.Property;
+
+rule "AreaNotCovered"
+	dialect "mvel"
+	agenda-group "quote-error-check"
+	when
+		Property( address != null , address.zip != null , address.zip.trim() == "20171" )
+	then
+		QuoteMessage fact0 = new QuoteMessage();
+		fact0.setMessage( "Coverage Not Available For 20171" );
+		fact0.setMessageStatus( QuoteMessageStatus.INFO );
+		fact0.setProperty( "Address.zip" );
+		fact0.setGroup( "Property" );
+		insert( fact0 );
+end
