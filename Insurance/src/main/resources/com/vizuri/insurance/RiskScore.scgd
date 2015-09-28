@@ -3,11 +3,28 @@
   <baselineScore>0.0</baselineScore>
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
-  <factName></factName>
-  <fieldName></fieldName>
+  <factName>Property</factName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm></reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
-  <characteristics/>
+  <characteristics>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>Property</fact>
+      <field>age</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>30,45</value>
+          <partialScore>0.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name></name>
+      <dataType>int</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+  </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
     <imports>
@@ -16,6 +33,6 @@
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
-  <agendaGroup></agendaGroup>
+  <agendaGroup>riskRuleGroup</agendaGroup>
   <ruleFlowGroup></ruleFlowGroup>
 </org.drools.workbench.models.guided.scorecard.shared.ScoreCardModel>
