@@ -16,19 +16,19 @@
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>30,45</value>
-          <partialScore>0.0</partialScore>
+          <partialScore>10.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>45,60</value>
-          <partialScore>0.0</partialScore>
+          <partialScore>20.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>60,75</value>
-          <partialScore>0.0</partialScore>
+          <partialScore>30.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
