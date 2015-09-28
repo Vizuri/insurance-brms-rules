@@ -4,7 +4,7 @@
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
   <factName>Property</factName>
-  <fieldName></fieldName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm></reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
