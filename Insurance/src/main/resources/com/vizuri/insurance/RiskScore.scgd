@@ -16,7 +16,7 @@
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>30,45</value>
-          <partialScore>10.0</partialScore>
+          <partialScore>13.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
