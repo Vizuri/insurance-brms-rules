@@ -21,7 +21,7 @@
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
-      <name></name>
+      <name>agebasedScore</name>
       <dataType>int</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
