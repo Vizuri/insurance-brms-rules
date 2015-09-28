@@ -10,7 +10,11 @@
   <characteristics/>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
-    <imports/>
+    <imports>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Property</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+    </imports>
   </imports>
   <agendaGroup></agendaGroup>
   <ruleFlowGroup></ruleFlowGroup>
