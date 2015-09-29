@@ -1,7 +1,7 @@
 <org.drools.workbench.models.guided.scorecard.shared.ScoreCardModel>
   <name>RiskScore</name>
   <baselineScore>0.0</baselineScore>
-  <initialScore>0.0</initialScore>
+  <initialScore>2.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
   <factName>Property</factName>
   <fieldName>riskRate</fieldName>
