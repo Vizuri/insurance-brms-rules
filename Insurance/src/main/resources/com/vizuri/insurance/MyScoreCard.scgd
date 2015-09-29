@@ -4,7 +4,7 @@
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
   <factName>PropertyCopy</factName>
-  <fieldName>age</fieldName>
+  <fieldName>totalScore</fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
