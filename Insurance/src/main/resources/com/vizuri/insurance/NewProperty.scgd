@@ -18,13 +18,13 @@
           <value>2,5</value>
           <partialScore>10.0</partialScore>
           <reasonCode></reasonCode>
-          <operator>&gt;=..&lt;=</operator>
+          <operator>&gt;..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>6,9</value>
           <partialScore>20.0</partialScore>
           <reasonCode></reasonCode>
-          <operator>&gt;=..&lt;=</operator>
+          <operator>&gt;..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
       <name>ageScoreCalculate</name>
