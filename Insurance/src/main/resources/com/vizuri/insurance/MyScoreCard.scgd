@@ -3,8 +3,8 @@
   <baselineScore>0.0</baselineScore>
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
-  <factName>PropertyCopy</factName>
-  <fieldName>totalScore</fieldName>
+  <factName>Property</factName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
@@ -30,6 +30,9 @@
     <imports>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>org.drools.scorecards.example.PropertyCopy</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Property</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
