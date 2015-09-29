@@ -9,19 +9,19 @@
   <reasonCodeField></reasonCodeField>
   <characteristics>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-      <fact>PropertyCopy</fact>
+      <fact>Property</fact>
       <field>age</field>
       <baselineScore>0.0</baselineScore>
       <reasonCode></reasonCode>
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>5</value>
-          <partialScore>2.0</partialScore>
+          <partialScore>1.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&lt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
-      <name>ScoreAge</name>
+      <name></name>
       <dataType>double</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
