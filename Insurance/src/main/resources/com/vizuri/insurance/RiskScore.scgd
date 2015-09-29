@@ -5,7 +5,7 @@
   <useReasonCodes>false</useReasonCodes>
   <factName>Property</factName>
   <fieldName>totalScore</fieldName>
-  <reasonCodesAlgorithm></reasonCodesAlgorithm>
+  <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
@@ -21,7 +21,7 @@
           <operator>&lt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>6..15</value>
+          <value>6,15</value>
           <partialScore>0.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
