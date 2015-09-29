@@ -16,21 +16,18 @@
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>5</value>
-          <partialScore>1.0</partialScore>
+          <partialScore>12.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&lt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
-      <name></name>
+      <name>PropertyAgeCheck</name>
       <dataType>double</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
     <imports>
-      <org.drools.workbench.models.datamodel.imports.Import>
-        <type>org.drools.scorecards.example.PropertyCopy</type>
-      </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Property</type>
       </org.drools.workbench.models.datamodel.imports.Import>
