@@ -40,6 +40,38 @@
       <name>PropertyCopyOccupation</name>
       <dataType>String</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>Property</fact>
+      <field>age</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>5</value>
+          <partialScore>12.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&lt;=</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyAgeCheck</name>
+      <dataType>double</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>PropertyCopy</fact>
+      <field>occupation</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>Programmer</value>
+          <partialScore>13.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>in</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyCopyOccupation</name>
+      <dataType>String</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
