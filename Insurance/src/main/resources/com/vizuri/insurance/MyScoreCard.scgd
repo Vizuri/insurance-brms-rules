@@ -4,8 +4,8 @@
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
   <factName>PropertyCopy</factName>
-  <fieldName>totalScore</fieldName>
-  <reasonCodesAlgorithm></reasonCodesAlgorithm>
+  <fieldName>age</fieldName>
+  <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
@@ -16,7 +16,7 @@
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>5</value>
-          <partialScore>0.0</partialScore>
+          <partialScore>2.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&lt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
