@@ -20,6 +20,12 @@
           <reasonCode></reasonCode>
           <operator>&lt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>6..15</value>
+          <partialScore>0.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
       <name></name>
       <dataType>double</dataType>
