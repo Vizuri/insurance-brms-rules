@@ -22,7 +22,7 @@
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
       <name>PropertyAgeCheck</name>
-      <dataType>double</dataType>
+      <dataType>int</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
