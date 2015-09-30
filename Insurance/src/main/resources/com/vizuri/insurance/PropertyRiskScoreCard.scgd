@@ -49,9 +49,6 @@
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Property</type>
       </org.drools.workbench.models.datamodel.imports.Import>
-      <org.drools.workbench.models.datamodel.imports.Import>
-        <type>org.drools.scorecards.example.PropertyCopy</type>
-      </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
   <agendaGroup></agendaGroup>
