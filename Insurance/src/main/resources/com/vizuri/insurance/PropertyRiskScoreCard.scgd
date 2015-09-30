@@ -15,14 +15,32 @@
       <reasonCode></reasonCode>
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>5</value>
-          <partialScore>12.0</partialScore>
+          <value>15,20</value>
+          <partialScore>10.0</partialScore>
           <reasonCode></reasonCode>
-          <operator>&lt;=</operator>
+          <operator>&gt;..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>20,30</value>
+          <partialScore>15.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>30,50</value>
+          <partialScore>20.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>50</value>
+          <partialScore>25.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
       <name>PropertyAgeCheck</name>
-      <dataType>int</dataType>
+      <dataType>double</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
