@@ -51,6 +51,6 @@
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
-  <agendaGroup></agendaGroup>
+  <agendaGroup>riskRuleGroup</agendaGroup>
   <ruleFlowGroup></ruleFlowGroup>
 </org.drools.workbench.models.guided.scorecard.shared.ScoreCardModel>
