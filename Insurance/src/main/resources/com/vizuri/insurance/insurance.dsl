@@ -1,10 +1,7 @@
 [when]If property age is {var} or more but less than {var1}= $property : Property(getAge() >= {var}, getAge() < {var1})
 [when]If we have a quote = $quote : Quote()
-									
-[then] Set property risk rate to {var}= System.out.println("***** Property Age: " + $property.getAge());
-                                                                                update ($property);
 
-[then] Set quote risk rate to {var}= System.out.println("***** Quote Risk Rate: " + $property.getAge());
+[then] Set quote risk rate to {var}= System.out.println("***** Quote Risk Rate set based on property Age: " + $property.getAge());
                                                                                 $quote.setRiskRate({var});
                                                                                 update ($quote);
                                                                                 
