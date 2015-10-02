@@ -24,9 +24,9 @@ rule "fraud"
 	agenda-group "eligibility"
 when
 	applicant : Applicant(fraud == true ) 
-	property : Property( ) 
+	$quote : Quote (id != null)
 then	
-	property.setStatus("DISQUALIFIED");
+	$quote .setStatus("DISQUALIFIED");
 	//update (property);
 end
 
