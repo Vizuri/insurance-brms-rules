@@ -40,9 +40,9 @@ then
 end
 
 rule "enableQ18"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+
+	no-loop true
+	agenda-group "question-display"
 when
 	applicant : Applicant( fraud == true ) 
 	question : Question(Id == 18)
@@ -53,9 +53,8 @@ then
 end
 
 rule "disableQ18"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	applicant : Applicant( fraud == null || fraud == false ) 
 	question : Question(Id == 18)
@@ -65,9 +64,9 @@ then
 end
 
 rule "enableQ26"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(childCareBusinessExists == true ) 
 	question : Question(Id == 26)
@@ -77,7 +76,6 @@ then
 end
 
 rule "disableQ26"
-
 	no-loop true
 	agenda-group "question-display"
 when
