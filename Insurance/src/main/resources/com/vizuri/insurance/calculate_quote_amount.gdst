@@ -1,5 +1,5 @@
 <decision-table52>
-  <tableName>calculate_quote_ammount</tableName>
+  <tableName>calculate_quote_amount</tableName>
   <rowNumberCol>
     <hideColumn>false</hideColumn>
     <width>-1</width>
