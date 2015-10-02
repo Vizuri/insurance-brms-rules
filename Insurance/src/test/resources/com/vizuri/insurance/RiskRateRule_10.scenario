@@ -58,13 +58,13 @@
     <expect-fact>
       <fieldValues>
         <expect-field>
-          <fieldName>riskRate</fieldName>
+          <fieldName>amount</fieldName>
           <expected>10</expected>
           <operator>==</operator>
           <nature>1</nature>
         </expect-field>
       </fieldValues>
-      <name>$prop</name>
+      <name>$quote</name>
       <anonymous>false</anonymous>
     </expect-fact>
   </fixtures>
