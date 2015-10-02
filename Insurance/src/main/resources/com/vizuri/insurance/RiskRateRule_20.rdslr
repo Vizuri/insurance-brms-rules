@@ -9,5 +9,5 @@ rule "RiskRateRule_20"
 	when
 		If property age is 45 or more but less than 60
 	then
-		Set property risk rate to 20
+		Set quote risk rate to 20
 end
