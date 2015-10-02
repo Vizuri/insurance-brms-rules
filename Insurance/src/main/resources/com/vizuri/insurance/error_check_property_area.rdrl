@@ -6,7 +6,7 @@ import com.vizuri.insurance.domain.QuoteMessageStatus;
 import com.vizuri.insurance.domain.QuoteMessage;
 import com.vizuri.insurance.domain.Property;
 
-rule "AreaNotCovered"
+rule "error_check_property_area"
 	dialect "mvel"
 	agenda-group "quote-error-check"
 	when
