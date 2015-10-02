@@ -3,8 +3,8 @@
   <baselineScore>0.0</baselineScore>
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
-  <factName>Quote</factName>
-  <fieldName>riskRate</fieldName>
+  <factName>Property</factName>
+  <fieldName></fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
@@ -110,9 +110,6 @@
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>java.lang.Boolean</type>
-      </org.drools.workbench.models.datamodel.imports.Import>
-      <org.drools.workbench.models.datamodel.imports.Import>
-        <type>com.vizuri.insurance.domain.RateCalculationResult</type>
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Quote</type>
