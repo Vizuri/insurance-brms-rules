@@ -29,6 +29,15 @@ then
 	System.out.println("******** Fired test rule for agenda group[quote-error-check]");
 end
 
+rule "test firing agenda group: calculation"
+	agenda-group "calculation"
+when
+	applicant : Applicant( ) 
+then
+	
+	System.out.println("******** Fired test rule for agenda group[calculation]");
+end
+
 rule "enableQ18"
 dialect "mvel"
 no-loop true
