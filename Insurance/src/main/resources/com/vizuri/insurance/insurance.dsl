@@ -2,7 +2,6 @@
 [when]If we have a quote = $quote : Quote()
 									
 [then] Set property risk rate to {var}= System.out.println("***** Property Age: " + $property.getAge());
-                                                                                $property.setRiskRate({var});
                                                                                 update ($property);
 
 [then] Set quote risk rate to {var}= System.out.println("***** Quote Risk Rate: " + $property.getAge());
