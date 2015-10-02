@@ -2,6 +2,7 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 
 dialect "mvel"
+
 rule "test firing agenda group: question-display"
 	agenda-group "question-display"
 when
@@ -76,9 +77,9 @@ then
 end
 
 rule "disableQ26"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(childCareBusinessExists == null || childCareBusinessExists == false ) 
 	question : Question(Id == 26)
@@ -88,9 +89,8 @@ then
 end
 
 rule "enableQ27"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(childCareLiabilityCoverageRequired == true ) 
 	question : Question(Id == 27)
@@ -100,9 +100,8 @@ then
 end
 
 rule "disableQ27"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(childCareLiabilityCoverageRequired == null || childCareLiabilityCoverageRequired == false ) 
 	question : Question(Id == 27)
@@ -112,9 +111,8 @@ then
 end
 
 rule "enableClaims"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(previousClaims == true ) 
 	question20 : Question(Id == 20)
@@ -127,9 +125,8 @@ then
 end
 
 rule "disableClaims"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(previousClaims == null || previousClaims == false ) 
 	question20 : Question(Id == 20)
@@ -142,9 +139,8 @@ then
 end
 
 rule "enableDogDetails"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(dogExists == true ) 
 	question23 : Question(Id == 23)
@@ -157,9 +153,9 @@ then
 end
 
 rule "disableDogDetails"
-dialect "mvel"
-no-loop true
-agenda-group "question-display"
+
+	no-loop true
+	agenda-group "question-display"
 when
 	property : Property(dogExists == null || dogExists == false ) 
 	question23 : Question(Id == 23)
@@ -170,89 +166,3 @@ then
 	update( question23 );
 	update( question24 );
 end
-
-
-
-rule "bankruptcy"
-dialect "mvel"
-no-loop true
-agenda-group "eligibility"
-when
-	applicant : Applicant(filedForBankruptcy == true ) 
-	property : Property( ) 
-then	
-	property.setStatus("HOLD");
-	//update (property);
-end
-
-rule "fraud"
-dialect "mvel"
-no-loop true
-agenda-group "eligibility"
-when
-	applicant : Applicant(fraud == true ) 
-	property : Property( ) 
-then	
-	property.setStatus("DISQUALIFIED");
-	//update (property);
-end
-
-rule "NotRewired"
-dialect "mvel"
-no-loop true
-agenda-group "eligibility"
-when
-	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
-then	
-	property.setStatus("HOLD");
-	//update (property);
-end
-
-
-rule "calculateQuote"
-dialect "mvel"
-no-loop true
-salience 1000
-agenda-group "calculation"
-when
-	property : Property( status == "" ) 
-then	
-	Quote q = new Quote();
-	q.setId(1);
-	q.setAmount(487.95);
-	property.setQuoteId(1);
-	//update (property);
-	insert (q);
-end
-/*
-rule "calculateQuoteWithDogs"
-dialect "mvel"
-no-loop true
-agenda-group "calculation"
-when
-	property : Property( status == "" ,dogExists == true) 
-	q: Quote()
-then	
-
-	q.setAmount(686.95);
-	property.setQuoteId(1);
-
-	insert (q);
-end
-
-
-rule "calculateQuoteWithClaims"
-dialect "mvel"
-no-loop true
-agenda-group "calculation"
-when
-	property : Property( status == "" ,previousClaims == true) 
-	q: Quote()
-then	
-
-	q.setAmount(1000.95);
-	property.setQuoteId(2);
-
-	insert (q);
-end
-*/
