@@ -7,14 +7,9 @@
       <type>Property</type>
       <fieldData>
         <field-data>
-          <name>riskRate</name>
-          <value></value>
-          <nature>1</nature>
-        </field-data>
-        <field-data>
           <name>yearBuilt</name>
           <value>1971</value>
-          <nature>1</nature>
+          <nature>4</nature>
         </field-data>
       </fieldData>
       <name>$prop</name>
@@ -41,10 +36,22 @@
         <field-data>
           <name>id</name>
           <value>18</value>
-          <nature>1</nature>
+          <nature>4</nature>
         </field-data>
       </fieldData>
       <name>q</name>
+      <isModify>false</isModify>
+    </fact-data>
+    <fact-data>
+      <type>Quote</type>
+      <fieldData>
+        <field-data>
+          <name>amount</name>
+          <value>0</value>
+          <nature>4</nature>
+        </field-data>
+      </fieldData>
+      <name>$quote</name>
       <isModify>false</isModify>
     </fact-data>
     <execution-trace/>
@@ -77,6 +84,9 @@
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Applicant</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Quote</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
