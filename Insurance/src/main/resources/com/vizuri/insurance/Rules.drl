@@ -1,6 +1,16 @@
 package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 
+dialect "mvel"
+rule "test firing agenda group: question-display"
+	agenda-group "question-display"
+when
+	applicant : Applicant( ) 
+then
+	
+	System.out.println("Fired test rule for agenda group[question-display]");
+end
+
 rule "enableQ18"
 dialect "mvel"
 no-loop true
@@ -11,6 +21,7 @@ when
 then
 	question.setEnabled( true );
 	update( question );
+	System.out.println("Fired rule [enableQ18] for agenda group[question-display]");
 end
 
 rule "disableQ18"
