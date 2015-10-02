@@ -4,7 +4,7 @@
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
   <factName>Quote</factName>
-  <fieldName>amount</fieldName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
