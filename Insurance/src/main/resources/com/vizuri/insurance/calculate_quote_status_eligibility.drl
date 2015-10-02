@@ -32,8 +32,9 @@ rule "NotRewired"
 	no-loop true
 	agenda-group "eligibility"
 when
+	$quote : Quote (id != null)
 	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
 then	
-	property.setStatus("HOLD");
+	$quote.setStatus("HOLD");
 	//update (property);
 end
