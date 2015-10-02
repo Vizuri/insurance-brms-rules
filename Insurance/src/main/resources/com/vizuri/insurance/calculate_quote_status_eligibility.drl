@@ -12,9 +12,9 @@ rule "bankruptcy"
 	agenda-group "eligibility"
 when
 	applicant : Applicant(filedForBankruptcy == true ) 
-	property : Property( ) 
+	$quote : Quote (id != null)
 then	
-	property.setStatus("HOLD");
+	$quote.setStatus("HOLD");
 	//update (property);
 end
 
