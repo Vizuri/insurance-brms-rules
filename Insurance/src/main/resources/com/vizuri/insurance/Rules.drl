@@ -11,6 +11,15 @@ then
 	System.out.println("Fired test rule for agenda group[question-display]");
 end
 
+rule "test firing agenda group: eligibility"
+	agenda-group "eligibility"
+when
+	applicant : Applicant( ) 
+then
+	
+	System.out.println("Fired test rule for agenda group[eligibility]");
+end
+
 rule "enableQ18"
 dialect "mvel"
 no-loop true
