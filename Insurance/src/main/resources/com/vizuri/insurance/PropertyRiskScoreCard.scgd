@@ -38,6 +38,12 @@
           <reasonCode></reasonCode>
           <operator>&gt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>15</value>
+          <partialScore>5.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&lt;=</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
       <name>PropertyAgeCheck</name>
       <dataType>double</dataType>
