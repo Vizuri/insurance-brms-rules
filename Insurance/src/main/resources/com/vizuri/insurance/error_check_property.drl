@@ -2,6 +2,15 @@ package com.vizuri.insurance;
 import com.vizuri.insurance.domain.*;
 import java.util.*;
 
+rule "test firing agenda group: quote-error-check"
+	agenda-group "quote-error-check"
+when
+	applicant : Applicant( ) 
+then
+	
+	System.out.println("******** Fired test rule for agenda group[quote-error-check]");
+end
+
 rule "stateCheck"
 dialect "mvel"
 no-loop true
