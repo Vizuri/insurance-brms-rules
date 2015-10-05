@@ -49,7 +49,7 @@ rule "No showstoppers"
 when
 	$quote : Quote (id != null)
 	$applicant : Applicant(fraud == false ) 
-	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims = false) 
+	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
 	$quote.setStatus("ELIGIBLE");
 end
