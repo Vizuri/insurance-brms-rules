@@ -2,7 +2,7 @@ package com.vizuri.insurance;
 
 import com.vizuri.insurance.domain.Applicant;
 import com.vizuri.insurance.domain.Property;
-//import java.util.*;
+import java.util.Calendar;
 
 rule "test firing agenda group: quote-error-check"
 	agenda-group "quote-error-check"
