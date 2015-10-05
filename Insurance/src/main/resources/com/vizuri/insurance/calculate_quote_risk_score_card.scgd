@@ -98,6 +98,22 @@
       <name>ApplicantBackgroundCheck</name>
       <dataType>Boolean</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>Property</fact>
+      <field>dummy</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>1</value>
+          <partialScore>200.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>dummy</name>
+      <dataType>double</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
