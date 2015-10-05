@@ -116,6 +116,6 @@
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
-  <agendaGroup></agendaGroup>
+  <agendaGroup>score</agendaGroup>
   <ruleFlowGroup></ruleFlowGroup>
 </org.drools.workbench.models.guided.scorecard.shared.ScoreCardModel>
