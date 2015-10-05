@@ -61,4 +61,5 @@ when
 	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
 	$quote.setStatus("ELIGIBLE");
+	modify($quote) {setStatus("ELIGIBLE");}
 end
