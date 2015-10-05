@@ -1,5 +1,7 @@
 package com.vizuri.insurance;
-import com.vizuri.insurance.domain.*;
+
+import com.vizuri.insurance.domain.Applicant;
+import com.vizuri.insurance.domain.Property;
 import java.util.*;
 
 rule "test firing agenda group: quote-error-check"
