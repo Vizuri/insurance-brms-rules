@@ -48,9 +48,8 @@ rule "No showstoppers"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	applicant : Applicant(fraud == false ) 
-	property : Property(age < 15, electrictSystemRenovated == true, previousClaims = false) 
+	$applicant : Applicant(fraud == false ) 
+	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims = false) 
 then	
 	$quote.setStatus("ELIGIBLE");
-	//update (property);
 end
