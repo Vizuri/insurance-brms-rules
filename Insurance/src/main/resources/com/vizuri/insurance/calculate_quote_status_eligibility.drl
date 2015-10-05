@@ -6,6 +6,15 @@ import com.vizuri.insurance.domain.Quote;
 
 dialect "mvel"
 
+rule "test firing agenda group: eligibility"
+	agenda-group "eligibility"
+when
+	applicant : Applicant( ) 
+then
+	
+	System.out.println("******** Fired test rule for agenda group[eligibility]");
+end
+
 rule "bankruptcy"
 
 	no-loop true
