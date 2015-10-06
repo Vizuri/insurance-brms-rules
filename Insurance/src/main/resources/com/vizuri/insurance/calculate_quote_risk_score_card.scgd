@@ -68,13 +68,13 @@
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>10,24</value>
-          <partialScore>3.0</partialScore>
+          <partialScore>5.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=..&lt;</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>24</value>
-          <partialScore>4.0</partialScore>
+          <partialScore>10.0</partialScore>
           <reasonCode></reasonCode>
           <operator>&gt;=</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
@@ -99,20 +99,36 @@
       <dataType>Boolean</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-      <fact>Property</fact>
-      <field>dummy</field>
+      <fact>Applicant</fact>
+      <field>fraud</field>
       <baselineScore>0.0</baselineScore>
       <reasonCode></reasonCode>
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>1</value>
-          <partialScore>200.0</partialScore>
+          <value>N/A</value>
+          <partialScore>50.0</partialScore>
           <reasonCode></reasonCode>
-          <operator>&gt;</operator>
+          <operator>true</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
-      <name>dummy</name>
-      <dataType>double</dataType>
+      <name>ApplicantFraudCheck</name>
+      <dataType>Boolean</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>Property</fact>
+      <field>childCareBusinessExists</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>N/A</value>
+          <partialScore>10.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>true</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyBusinessCheck</name>
+      <dataType>Boolean</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
