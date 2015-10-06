@@ -40,14 +40,12 @@ then
 end
 
 rule "NotRewired"
-
 	no-loop true
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
 	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
 then	
-	$quote.setStatus("HOLD");
 	modify($quote) {setStatus("HOLD")}
 end
 
@@ -60,6 +58,5 @@ when
 	$applicant : Applicant(fraud == false ) 
 	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
-	$quote.setStatus("ELIGIBLE");
 	modify($quote) {setStatus("ELIGIBLE")}
 end
