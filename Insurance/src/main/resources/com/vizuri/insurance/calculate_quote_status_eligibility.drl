@@ -35,8 +35,7 @@ when
 	$quote : Quote (id != null)
 	applicant : Applicant(fraud == true ) 
 	
-then	
-	
+then		
 	modify($quote) {setStatus("DISQUALIFIED")}
 end
 
