@@ -16,14 +16,12 @@ then
 end
 
 rule "bankruptcy"
-
 	no-loop true
 	agenda-group "eligibility"
 when
+	$quote : Quote (id != null, status != "HOLD")
 	applicant : Applicant(filedForBankruptcy == true ) 
-	$quote : Quote (id != null)
 then	
-	
 	modify($quote) {setStatus("HOLD")}
 end
 
@@ -74,11 +72,10 @@ then
 end
 
 rule "No showstoppers"
-
 	no-loop true
 	agenda-group "eligibility"
 when
-	$quote : Quote (id != null)
+	$quote : Quote (id != null, status != "ELIGIBLE"))
 	$applicant : Applicant(fraud == false ) 
 	$property : Property(age <= 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
