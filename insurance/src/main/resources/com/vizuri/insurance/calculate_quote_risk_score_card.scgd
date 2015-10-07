@@ -90,7 +90,7 @@
       <attributes>
         <org.drools.workbench.models.guided.scorecard.shared.Attribute>
           <value>N/A</value>
-          <partialScore>1.0</partialScore>
+          <partialScore>5.0</partialScore>
           <reasonCode></reasonCode>
           <operator>true</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
