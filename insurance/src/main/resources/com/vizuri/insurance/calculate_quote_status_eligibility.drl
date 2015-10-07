@@ -49,6 +49,18 @@ then
 	modify($quote) {setStatus("HOLD")}
 end
 
+rule "old property"
+
+	no-loop true
+	agenda-group "eligibility"
+when
+	$quote : Quote (id != null)
+	$applicant : Applicant(fraud == false ) 
+	$property : Property(age > 15) 
+then	
+	modify($quote) {setStatus("RISKY")}
+end
+
 rule "No showstoppers"
 
 	no-loop true
@@ -56,7 +68,7 @@ rule "No showstoppers"
 when
 	$quote : Quote (id != null)
 	$applicant : Applicant(fraud == false ) 
-	$property : Property(age < 15, electrictSystemRenovated == true, previousClaims == false) 
+	$property : Property(age <= 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
 	modify($quote) {setStatus("ELIGIBLE")}
 end
