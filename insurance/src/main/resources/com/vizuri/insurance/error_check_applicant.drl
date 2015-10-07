@@ -4,6 +4,8 @@ import com.vizuri.insurance.domain.Applicant;
 import com.vizuri.insurance.domain.Property;
 import java.util.Calendar;
 
+dialect "mvel"
+
 rule "test firing agenda group: quote-error-check"
 	agenda-group "quote-error-check"
 when
@@ -14,12 +16,9 @@ then
 end
 
 rule "first name check"
-dialect "mvel"
-no-loop true
-agenda-group "quote-error-check"
+	agenda-group "quote-error-check"
 when
-	$applicant : Applicant( firstName == null)
-	
+	$applicant : Applicant( firstName == null)	
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Applicant");
