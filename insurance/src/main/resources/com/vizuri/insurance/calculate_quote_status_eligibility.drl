@@ -61,6 +61,18 @@ then
 	modify($quote) {setStatus("RISKY")}
 end
 
+rule "border line"
+
+	no-loop true
+	agenda-group "eligibility"
+when
+	$quote : Quote (id != null)
+	$applicant : Applicant(fraud == false ) 
+	$property : Property(dogExists == true) 
+then	
+	modify($quote) {setStatus("TALK TO UNDERWRITER")}
+end
+
 rule "No showstoppers"
 
 	no-loop true
