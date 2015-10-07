@@ -72,7 +72,7 @@ then
 end
 
 rule "No showstoppers"
-	no-loop true
+	lock-on-active true	// this rule will only be activated one
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "ELIGIBLE"))
