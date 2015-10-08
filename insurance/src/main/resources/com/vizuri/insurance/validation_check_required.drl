@@ -10,12 +10,27 @@ rule "If selected that dogs exists, but did not give details"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	property : Property(dogExists == true, dogs.size == 0 ) 
+	property : Property(dogExists == true, dogs == null || dogs.size == 0 ) 
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("dogs");
 	msg.setMessage("Please enter details of existing dogs");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insertLogical(msg);
+end
+
+rule "If selected that claims exists, but did not give details"
+	no-loop true
+	agenda-group "quote-error-check"
+when
+	property : Property(previousClaims == true, claims == null || claims.size == 0 ) 
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Property");
+	msg.setProperty("claims");
+	msg.setMessage("Please enter details of previous claims");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
 	insertLogical(msg);
