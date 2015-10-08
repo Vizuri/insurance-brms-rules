@@ -6,25 +6,17 @@ import java.util.Calendar;
 
 dialect "mvel"
 
-rule "test firing agenda group: quote-error-check"
+rule "If selected that dogs exists, but did not give details"
+	no-loop true
 	agenda-group "quote-error-check"
 when
-	applicant : Applicant( ) 
-then
-	
-	System.out.println("******** Fired test rule for agenda group[quote-error-check]");
-end
-
-rule "first name check"
-	agenda-group "quote-error-check"
-when
-	$applicant : Applicant( firstName == null)	
+	property : Property(dogExists == true, dogs.size == 0 ) 
 then
 	QuoteMessage msg  = new QuoteMessage();
-	msg.setGroup("Applicant");
-	msg.setProperty("First Name");
-	msg.setMessage("Applicant must have a first name");
+	msg.setGroup("Property");
+	msg.setProperty("dogs");
+	msg.setMessage("Please enter details of existing dogs");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
-	insertLogical(msg);	
-end;
+	insertLogical(msg);
+end
