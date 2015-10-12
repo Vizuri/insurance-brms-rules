@@ -35,3 +35,12 @@ then
 	modify($question){ setStrValue( $answer.getStrValue() ) }
 	System.out.println("set question["+$answer.getQuestionId()+"] strValue: "+ $question.getStrValue());
 end;
+
+rule "Updatedddd question for a given answer"
+	agenda-group "sync-answers"
+when 	
+	$question : Question ( id != null)
+then
+	
+	System.out.println("found question["+$question.getId()+"] strValue: "+ $question.getStrValue());
+end;
