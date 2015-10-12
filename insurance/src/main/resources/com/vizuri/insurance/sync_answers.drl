@@ -2,7 +2,7 @@ package com.vizuri.insurance;
 
 // this is for first time inserted answers
 rule "Reset answer updated flag"
-agenda-group "reset-answers"
+agenda-group "sync-answers"
 when 
 	$a_new : Answer ( updatedValue == true )
 	not $a_old : Answer ( questionId == $a_new.questionId, updatedValue == false)
@@ -13,7 +13,7 @@ end;
 
 // this is for answers that are updated for a second or more times
 rule "Remove old answers"
-agenda-group "remove-old-answers"
+agenda-group "sync-answers"
 when 
 	$a_new : Answer ( updatedValue == true)
 	$a_old : Answer ( questionId == $a_old.questionId, updatedValue == false )
