@@ -27,10 +27,10 @@ end;
 
 // this is for setting the question model if any answer
 rule "Update question for a given answer"
-agenda-group "sync-answers"
+	agenda-group "sync-answers"
 when 
 	$answer : Answer ( updatedValue == false , strValue != null)
-	$question : Question ( id == $answer.questionId, strValue != $question.strValue )
+	$question : Question ( id == $answer.questionId, strValue != $answer.strValue )
 then
 	modify($question){ setStrValue( $answer.getStrValue() ) }
 	System.out.println("set question["+$answer.getQuestionId()+"] strValue: "+ $question.getStrValue());
