@@ -11,5 +11,5 @@ query getApplicant ( )
 end
 
 query getQuestionErrors ( )
-    $errors : QuoteMessage ( )
+    $error : QuoteMessage ( )
 end
