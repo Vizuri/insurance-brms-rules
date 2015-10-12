@@ -18,7 +18,7 @@ end
 rule "first name check"
 	agenda-group "quote-error-check"
 when
-	$applicant : Applicant( firstName == null)	
+	$answer : Answer( questionId == "a.firstName", strValue == null || strValue.isEmpty )	
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Applicant");
