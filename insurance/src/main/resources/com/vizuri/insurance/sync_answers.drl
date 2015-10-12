@@ -8,7 +8,7 @@ when
 	not $a_old : Answer ( questionId == $a_new.questionId, updatedValue == false)
 then
 	modify($a_new){ setUpdatedValue( false ) }
-	System.out.println("reset answer: "+ $a1.getQuestionIdentifier());
+	System.out.println("reset answer: "+ $a_new.getQuestionIdentifier());
 end;
 
 // this is for answers that are updated for a second or more times
