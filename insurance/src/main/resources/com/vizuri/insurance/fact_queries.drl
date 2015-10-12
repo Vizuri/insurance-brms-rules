@@ -9,3 +9,7 @@ dialect "mvel"
 query getApplicant ( )
     $applicant : Applicant ( )
 end
+
+query getQuestionErrors ( )
+    $errors : QuoteMessage ( )
+end
