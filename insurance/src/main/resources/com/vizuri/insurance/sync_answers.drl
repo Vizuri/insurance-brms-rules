@@ -26,7 +26,7 @@ then
 end;
 
 // this is for setting the question model if any answer
-rule "Reset answer updated flag"
+rule "Update question for a given answer"
 agenda-group "sync-answers"
 when 
 	$answer : Answer ( updatedValue == false , strValue != null)
