@@ -1,2 +1,22 @@
 package com.vizuri.insurance;
 
+rule "Remove old answers"
+agenda-group "remove-old-answers"
+when 
+	$a_old : Answer ( updatedValue == false )
+	$a_new : Answer ( questionId == $a_old.questionId, updatedValue == true)
+then
+	// remove the old answer which was not update if we have the same answer but with an updated value
+	System.out.println("remove old answer: "+ $a_old.getQuestionIdentifier());
+	retract( $a_old );
+end;
+
+rule "Reset answer updated flag"
+agenda-group "reset-answers"
+when 
+	$a_new : Answer ( updatedValue == true )
+	not $a_old : Answer ( questionId == $a_new.questionId, updatedValue == false)
+then
+	modify($a_new){ setUpdatedValue( false ); }
+	System.out.println("reset answer: "+ $a1.getQuestionIdentifier());
+end;
