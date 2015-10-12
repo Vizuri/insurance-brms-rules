@@ -24,3 +24,14 @@ then
 	modify($a_new){ setUpdatedValue( false ) }
 	retract( $a_old );
 end;
+
+// this is for setting the question model if any answer
+rule "Reset answer updated flag"
+agenda-group "sync-answers"
+when 
+	$answer : Answer ( updatedValue == false , strValue != null)
+	$question : Question ( id == $answer.questionId, strValue != $question.strValue )
+then
+	modify($question){ setStrValue( $answer.getStrValue() ) }
+	System.out.println("set question["+$answer.getQuestionId()+"] strValue: "+ $question.getStrValue());
+end;
