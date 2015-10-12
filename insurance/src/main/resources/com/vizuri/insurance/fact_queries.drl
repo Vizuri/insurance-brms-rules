@@ -10,6 +10,10 @@ query getApplicant ( )
     $applicant : Applicant ( )
 end
 
+query getQuestions ( )
+    $question : Question ( )
+end
+
 query getQuestionErrors ( )
     $error : QuoteMessage ( )
 end
