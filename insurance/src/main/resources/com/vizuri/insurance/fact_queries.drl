@@ -1,13 +1,12 @@
 package com.vizuri.insurance;
 
-import com.vizuri.insurance.domain.Applicant;
 import com.vizuri.insurance.domain.Property;
 import com.vizuri.insurance.domain.Quote;
 
 dialect "mvel"
 
-query getApplicant ( )
-    $applicant : Applicant ( )
+query getAnswers ( )
+    $answer : Answer ( )
 end
 
 query getQuestions ( )
