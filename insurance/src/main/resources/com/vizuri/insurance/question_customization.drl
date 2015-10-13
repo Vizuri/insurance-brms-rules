@@ -73,7 +73,7 @@ rule "Enable question[p.childCareLiabilityAlreadyExists]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(childCareLiabilityCoverageRequired == true ) 
+	$answer : Answer( questionId == "p.childCareLiabilityCoverageRequired", strValue == "true" ) 
 	$question : Question(questionId == "p.childCareLiabilityAlreadyExists")
 then
 	modify($question) {setEnabled( true )}
@@ -83,12 +83,11 @@ end
 rule "Disable question[p.childCareLiabilityAlreadyExists]"
 	no-loop true
 	agenda-group "question-display"
-when
-	property : Property(childCareLiabilityCoverageRequired == null || childCareLiabilityCoverageRequired == false ) 
-	question : Question(questionId == "p.childCareLiabilityAlreadyExists")
+when 
+	$answer : Answer( questionId == "p.childCareLiabilityCoverageRequired", strValue == null || strValue == "false" ) 
+	$question : Question(questionId == "p.childCareLiabilityAlreadyExists")
 then
-	question.setEnabled( false );
-	update( question );
+	modify($question){setEnabled( false )}
 end
 
 rule "Enable question[claims]"
