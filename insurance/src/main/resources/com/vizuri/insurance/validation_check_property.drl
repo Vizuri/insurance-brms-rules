@@ -32,7 +32,7 @@ then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("livingArea");
-	msg.setMessage("Living Area needs to greater than or equal to 500 sq ft.");
+	msg.setMessage("Living Area needs to be greater than or equal to 500 sq ft.");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
 	insertLogical(msg);
@@ -47,7 +47,7 @@ then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("livingArea");
-	msg.setMessage("Living Area needs to less than or equal to 5000 sq ft.");
+	msg.setMessage("Living Area needs to be less than or equal to 5000 sq ft.");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 
 	insertLogical(msg);
