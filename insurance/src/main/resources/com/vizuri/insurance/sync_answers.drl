@@ -23,24 +23,16 @@ then
 	System.out.println("remove old answer: "+ $a_old.getQuestionId());
 	modify($a_new){ setUpdatedValue( false ) }
 	retract( $a_old );
-end;
+end
 
 // this is for setting the question model if any answer
 rule "Update question for a given answer"
 	agenda-group "sync-answers"
+	no-loop true
 when 
 	$answer : Answer ( updatedValue == false , strValue != null)
 	$question : Question ( questionId == $answer.questionId)
 then
 	modify($question){ setStrValue( $answer.getStrValue() ) }
 	System.out.println("set question["+$question.getQuestionId()+"] strValue: "+ $question.getStrValue());
-end;
-
-rule "Updatedddd question for a given answer"
-	agenda-group "sync-answers"
-when 	
-	$question : Question ( questionId != null)
-then
-	
-	System.out.println("found question["+$question.getQuestionId()+"] strValue: "+ $question.getStrValue());
-end;
+end
