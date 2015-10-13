@@ -18,7 +18,7 @@ end
 rule "test firing agenda group: calculation"
 	agenda-group "calculation"
 when
-	applicant : Applicant( ) 
+	$answer : Answer( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[calculation]");
@@ -77,10 +77,10 @@ rule "Enable question[p.childCareLiabilityAlreadyExists]"
 	agenda-group "question-display"
 when
 	property : Property(childCareLiabilityCoverageRequired == true ) 
-	question : Question(questionId == "p.childCareLiabilityAlreadyExists")
+	$question : Question(questionId == "p.childCareLiabilityAlreadyExists")
 then
-	question.setEnabled( true );
-	update( question );
+	modify($question) {setEnabled( true )}
+	//update( question );
 end
 
 rule "Disable question[p.childCareLiabilityAlreadyExists]"
