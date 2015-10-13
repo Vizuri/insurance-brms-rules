@@ -1353,7 +1353,7 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueString>dogs</valueString>
+        <valueString>dogCount</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
@@ -1736,7 +1736,7 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueString>dogs</valueString>
+        <valueString>dogType</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
