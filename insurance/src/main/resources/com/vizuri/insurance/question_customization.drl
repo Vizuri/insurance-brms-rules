@@ -47,6 +47,7 @@ when
 then
 	modify($question) {setEnabled( false )}
 	//update( question );
+       System.out.println("Disable [a.anyPreviousInsuranceDenials] for agenda group[question-display]");
 end
 
 rule "Enable question[p.childCareLiabilityCoverageRequired]"
