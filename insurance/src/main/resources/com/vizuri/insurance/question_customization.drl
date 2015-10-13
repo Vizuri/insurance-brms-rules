@@ -53,7 +53,7 @@ rule "Enable question[p.childCareLiabilityCoverageRequired]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(childCareBusinessExists == true ) 
+	$answer : Answer( questionId == "p.childCareBusinessExists", strValue == "true" ) 
 	question : Question(questionId == "p.childCareLiabilityCoverageRequired")
 then
 	question.setEnabled( true );
