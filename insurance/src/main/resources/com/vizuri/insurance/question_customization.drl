@@ -95,8 +95,8 @@ rule "Enable question[]  enableClaims"
 	agenda-group "question-display"
 when
 	property : Property(previousClaims == true ) 
-	question20 : Question(questionId == 20)
-	question21 : Question(questionId == 21)
+	question20 : Question(questionId == "p.claimDate")
+	question21 : Question(questionId == "p.claimAmount")
 then
 	question20.setEnabled( true );
 	question21.setEnabled( true );
