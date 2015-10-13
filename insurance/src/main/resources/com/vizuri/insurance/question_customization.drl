@@ -21,25 +21,25 @@ then
 	System.out.println("******** Fired test rule for agenda group[calculation]");
 end
 
-rule "Enable question[p.anyPreviousInsuranceDenials] "
+rule "Enable question[a.anyPreviousInsuranceDenials] "
 
 	no-loop true
 	agenda-group "question-display"
 when
 	applicant : Applicant( fraud == true ) 
-	question : Question(questionId == "p.anyPreviousInsuranceDenials")
+	question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
 	question.setEnabled( true );
 	update( question );
-	System.out.println("Enable [p.anyPreviousInsuranceDenials] for agenda group[question-display]");
+	System.out.println("Enable [a.anyPreviousInsuranceDenials] for agenda group[question-display]");
 end
 
-rule "Disable question[p.anyPreviousInsuranceDenials]"
+rule "Disable question[a.anyPreviousInsuranceDenials]"
 	no-loop true
 	agenda-group "question-display"
 when
 	applicant : Applicant( fraud == null || fraud == false ) 
-	question : Question(questionId == "p.anyPreviousInsuranceDenials")
+	question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
 	question.setEnabled( false );
 	update( question );
