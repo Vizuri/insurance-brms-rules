@@ -1,5 +1,8 @@
 package com.vizuri.insurance;
 
+import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Quote;
+
 dialect "mvel"
 
 rule "test firing agenda group: eligibility"
