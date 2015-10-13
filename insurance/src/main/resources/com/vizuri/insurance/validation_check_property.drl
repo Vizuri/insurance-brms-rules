@@ -42,7 +42,7 @@ rule "livingAreaMax"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	$prop : Property( livingArea > 4000)
+	$answer : Answer( questionId == "p.livingArea", numValue > 5000 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
