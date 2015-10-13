@@ -26,11 +26,11 @@ rule "Enable question[a.anyPreviousInsuranceDenials] "
 	no-loop true
 	agenda-group "question-display"
 when
-	applicant : Applicant( fraud == true ) 
-	question : Question(questionId == "a.anyPreviousInsuranceDenials")
+	$applicant : Applicant( fraud == true ) 
+	$question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
-	modify(question) {setEnabled( true )}
-	//update( question );
+	modify($question) {setEnabled( true )}
+	//update( $question );
 	System.out.println("Enable [a.anyPreviousInsuranceDenials] for agenda group[question-display]");
 end
 
