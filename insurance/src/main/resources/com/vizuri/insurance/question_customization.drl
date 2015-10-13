@@ -25,7 +25,6 @@ then
 end
 
 rule "Enable question[a.anyPreviousInsuranceDenials] "
-
 	no-loop true
 	agenda-group "question-display"
 when
