@@ -90,7 +90,7 @@ then
 	update( question );
 end
 
-rule "Enable question[]  enableClaims"
+rule "Enable question[claims]"
 	no-loop true
 	agenda-group "question-display"
 when
@@ -104,13 +104,13 @@ then
 	update( question21 );
 end
 
-rule "Disable question[] disableClaims"
+rule "Disable question[claims]"
 	no-loop true
 	agenda-group "question-display"
 when
 	property : Property(previousClaims == null || previousClaims == false ) 
-	question20 : Question(questionId == 20)
-	question21 : Question(questionId == 21)
+	question20 : Question(questionId == "p.claimDate")
+	question21 : Question(questionId == "p.claimAmount")
 then
 	question20.setEnabled( false );
 	question21.setEnabled( false );
