@@ -42,5 +42,5 @@ when
 	$question : Question ( question != null)
 then
 	
-	System.out.println("found question["+$question.getId()+"] strValue: "+ $question.getStrValue());
+	System.out.println("found question["+$question.getQuestionId()+"] strValue: "+ $question.getStrValue());
 end;
