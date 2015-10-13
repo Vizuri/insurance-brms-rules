@@ -39,7 +39,7 @@ end;
 rule "Updatedddd question for a given answer"
 	agenda-group "sync-answers"
 when 	
-	$question : Question ( question != null)
+	$question : Question ( questionId != null)
 then
 	
 	System.out.println("found question["+$question.getQuestionId()+"] strValue: "+ $question.getStrValue());
