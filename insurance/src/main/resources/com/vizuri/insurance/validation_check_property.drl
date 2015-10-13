@@ -67,11 +67,11 @@ then
 	insertLogical(msg);
 end
 
-rule "yearBuiltCheck"
+rule "yearBuiltCheck older than 1920"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	$prop : Property(  yearBuilt < 1920)
+	$answer : Answer( questionId == "p.yearBuilt", numValue < 1920 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -87,13 +87,13 @@ rule "yearBuiltMax"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	$prop : Property(  yearBuilt > Calendar.getInstance().get(Calendar.YEAR))
+	$answer : Answer( questionId == "p.yearBuilt", numValue > Calendar.getInstance().get(Calendar.YEAR) )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
 	msg.setProperty("yearBuilt");
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-	msg.setMessage("Year Built cannot be greater than current year");
+	msg.setMessage("Year Built, cannot be in the future");
 	
 	insertLogical(msg);
 end
