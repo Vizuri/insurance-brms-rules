@@ -30,16 +30,16 @@ rule "Update question for a given answer"
 	agenda-group "sync-answers"
 when 
 	$answer : Answer ( updatedValue == false , strValue != null)
-	$question : Question ( id == $answer.questionId)
+	$question : Question ( questionId == $answer.questionId)
 then
 	modify($question){ setStrValue( $answer.getStrValue() ) }
-	System.out.println("set question["+$answer.getQuestionId()+"] strValue: "+ $question.getStrValue());
+	System.out.println("set question["+$question.getQuestionId()+"] strValue: "+ $question.getStrValue());
 end;
 
 rule "Updatedddd question for a given answer"
 	agenda-group "sync-answers"
 when 	
-	$question : Question ( id != null)
+	$question : Question ( question != null)
 then
 	
 	System.out.println("found question["+$question.getId()+"] strValue: "+ $question.getStrValue());
