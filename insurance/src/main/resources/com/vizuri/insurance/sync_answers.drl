@@ -33,7 +33,7 @@ rule "Update question for a given answer"
 	agenda-group "sync-answers"
 	no-loop true
 when 
-	$answer : Answer ( updatedValue == false , strValue != null)
+	$answer : Answer ( updatedValue == false)
 	$question : Question ( questionId == $answer.questionId, strValue != $answer.strValue)
 then
 	modify($question){ setStrValue( $answer.getStrValue() ) }
