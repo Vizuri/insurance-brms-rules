@@ -178,7 +178,7 @@
       <header>Default Value</header>
       <factType>Question</factType>
       <boundName>question</boundName>
-      <factField>defaultValue</factField>
+      <factField>strValue</factField>
       <type>String</type>
       <isInsertLogical>false</isInsertLogical>
     </insert-fact-column52>
