@@ -83,38 +83,6 @@
       <dataType>int</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-      <fact>Applicant</fact>
-      <field>anyPreviousInsuranceDenials</field>
-      <baselineScore>0.0</baselineScore>
-      <reasonCode></reasonCode>
-      <attributes>
-        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>N/A</value>
-          <partialScore>5.0</partialScore>
-          <reasonCode></reasonCode>
-          <operator>true</operator>
-        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
-      </attributes>
-      <name>ApplicantBackgroundCheck</name>
-      <dataType>Boolean</dataType>
-    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-      <fact>Applicant</fact>
-      <field>fraud</field>
-      <baselineScore>0.0</baselineScore>
-      <reasonCode></reasonCode>
-      <attributes>
-        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>N/A</value>
-          <partialScore>50.0</partialScore>
-          <reasonCode></reasonCode>
-          <operator>true</operator>
-        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
-      </attributes>
-      <name>ApplicantFraudCheck</name>
-      <dataType>Boolean</dataType>
-    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
       <fact>Property</fact>
       <field>childCareBusinessExists</field>
       <baselineScore>0.0</baselineScore>
@@ -145,6 +113,9 @@
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Quote</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.Answer</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
