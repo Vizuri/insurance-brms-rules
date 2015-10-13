@@ -1,5 +1,8 @@
 package com.vizuri.insurance;
-import com.vizuri.insurance.domain.*;
+import com.vizuri.insurance.domain.Applicant;
+import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Answer;
+import com.vizuri.insurance.domain.Question;
 
 dialect "mvel"
 
@@ -38,10 +41,10 @@ rule "Disable question[a.anyPreviousInsuranceDenials]"
 	no-loop true
 	agenda-group "question-display"
 when
-	applicant : Applicant( fraud == null || fraud == false ) 
+	$answer : Answer( questionId == "a.fraud", strValue == null || strValue == "false" ) 
 	question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
-	question.setEnabled( false );
+	modify($question) {setEnabled( false )}
 	update( question );
 end
 
