@@ -10,7 +10,7 @@ dialect "mvel"
 rule "test firing agenda group: question-display"
 	agenda-group "question-display"
 when
-	applicant : Applicant( ) 
+	$answer : Answer( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[question-display]");
