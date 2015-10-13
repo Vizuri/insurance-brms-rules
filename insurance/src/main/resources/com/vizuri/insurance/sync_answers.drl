@@ -1,5 +1,8 @@
 package com.vizuri.insurance;
 
+import com.vizuri.insurance.domain.Answer;
+import com.vizuri.insurance.domain.Question;
+
 // this is for first time inserted answers
 rule "Reset answer updated flag"
 agenda-group "sync-answers"
