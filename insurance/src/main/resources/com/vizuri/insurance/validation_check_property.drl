@@ -1,6 +1,7 @@
 package com.vizuri.insurance;
 
 import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Answer;
 import java.util.Calendar;
 
 dialect "mvel"
@@ -26,7 +27,7 @@ rule "livingAreaMin"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	$prop : Property( livingArea < 500)
+	$answer : Answer( questionId == "p.livingArea", numValue < 500 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -95,5 +96,5 @@ then
 	msg.setMessageStatus(QuoteMessageStatus.ERROR);
 	msg.setMessage("Year Built cannot be greater than current year");
 	
-insertLogical(msg);
+	insertLogical(msg);
 end
