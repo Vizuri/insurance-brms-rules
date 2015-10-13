@@ -43,10 +43,10 @@ rule "Disable question[a.anyPreviousInsuranceDenials]"
 	agenda-group "question-display"
 when
 	$answer : Answer( questionId == "a.fraud", strValue == null || strValue == "false" ) 
-	question : Question(questionId == "a.anyPreviousInsuranceDenials")
+	$question : Question( questionId == "a.anyPreviousInsuranceDenials")
 then
 	modify($question) {setEnabled( false )}
-	update( question );
+	//update( question );
 end
 
 rule "Enable question[p.childCareLiabilityCoverageRequired]"
