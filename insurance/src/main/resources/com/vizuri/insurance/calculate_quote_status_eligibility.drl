@@ -76,7 +76,8 @@ rule "No showstoppers"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "ELIGIBLE")
-	$applicant : Applicant(fraud == false, filedForBankruptcy == false ) 
+	$answer_fraud : Answer(questionId == "a.fraud", strValue == "false" ) 
+	$answer_bankrupt : Answer(questionId == "a.filedForBankruptcy", strValue == "false" ) 
 	$property : Property(age <= 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
 	modify($quote) {setStatus("ELIGIBLE")}
