@@ -64,7 +64,7 @@ rule "border line"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	$applicant : Applicant(fraud == false ) 
+	$answer : Answer(questionId == "a.fraud", strValue == "false" ) 
 	$property : Property(dogExists == true) 
 then	
 	modify($quote) {setStatus("TALK TO UNDERWRITER")}
