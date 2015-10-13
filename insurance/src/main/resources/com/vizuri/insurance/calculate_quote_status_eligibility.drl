@@ -1,6 +1,5 @@
 package com.vizuri.insurance;
 
-import com.vizuri.insurance.domain.Applicant;
 import com.vizuri.insurance.domain.Property;
 import com.vizuri.insurance.domain.Quote;
 
@@ -9,7 +8,7 @@ dialect "mvel"
 rule "test firing agenda group: eligibility"
 	agenda-group "eligibility"
 when
-	applicant : Applicant( ) 
+	$answer : Answer( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[eligibility]");
@@ -20,7 +19,7 @@ rule "bankruptcy"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "HOLD")
-	applicant : Applicant(filedForBankruptcy == true ) 
+	$answer : Answer(questionId == "a.filedForBankruptcy", strValue == "true" ) 
 then	
 	modify($quote) {setStatus("HOLD")}
 end
@@ -31,7 +30,7 @@ rule "fraud"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	applicant : Applicant(fraud == true ) 
+	$answer : Answer(questionId == "a.fraud", strValue == "true" ) 
 	
 then		
 	modify($quote) {setStatus("DISQUALIFIED")}
@@ -53,7 +52,7 @@ rule "old property"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	$applicant : Applicant(fraud == false ) 
+	$answer : Answer(questionId == "a.fraud", strValue == "false" ) 
 	$property : Property(age > 15) 
 then	
 	modify($quote) {setStatus("RISKY")}
