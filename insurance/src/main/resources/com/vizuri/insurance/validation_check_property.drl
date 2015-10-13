@@ -56,8 +56,8 @@ end;
 rule "roofTooOld"
 	no-loop true
 	agenda-group "quote-error-check"
-when
-	property : Property(ageOfRoof >= 25 ) 
+when 
+	$answer : Answer( questionId == "p.ageOfRoof", numValue >= 25 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
