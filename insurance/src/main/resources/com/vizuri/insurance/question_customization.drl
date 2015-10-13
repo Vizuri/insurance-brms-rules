@@ -26,7 +26,7 @@ rule "Enable question[a.anyPreviousInsuranceDenials] "
 	no-loop true
 	agenda-group "question-display"
 when
-	$applicant : Applicant( fraud == true ) 
+	$answer : Answer( questionId == "a.fraud", strValue == "true" ) 
 	$question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
 	modify($question) {setEnabled( true )}
