@@ -118,13 +118,13 @@ then
 	update( question21 );
 end
 
-rule "Enable question[] enableDogDetails"
+rule "Enable question[dogs]"
 	no-loop true
 	agenda-group "question-display"
 when
 	property : Property(dogExists == true ) 
-	question23 : Question(questionId == 23)
-	question24 : Question(questionId == 24)
+	question23 : Question(questionId == "p.dogCount")
+	question24 : Question(questionId == "p.dogType")
 then
 	question23.setEnabled( true );
 	question24.setEnabled( true );
@@ -132,14 +132,14 @@ then
 	update( question24 );
 end
 
-rule "Disable question[] disableDogDetails"
+rule "Disable question[dogs]"
 
 	no-loop true
 	agenda-group "question-display"
 when
 	property : Property(dogExists == null || dogExists == false ) 
-	question23 : Question(questionId == 23)
-	question24 : Question(questionId == 24)
+	question23 : Question(questionId == "p.dogCount")
+	question24 : Question(questionId == "p.dogType")
 then
 	question23.setEnabled( false );
 	question24.setEnabled( false );
