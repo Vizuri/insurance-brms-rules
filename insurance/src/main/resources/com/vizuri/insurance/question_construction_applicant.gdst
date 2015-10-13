@@ -32,6 +32,21 @@
         <isOtherwise>false</isOtherwise>
       </typedDefaultValue>
       <hideColumn>false</hideColumn>
+      <width>-1</width>
+      <header>ID</header>
+      <factType>Question</factType>
+      <boundName>question</boundName>
+      <factField>questionId</factField>
+      <type>String</type>
+      <isInsertLogical>false</isInsertLogical>
+    </insert-fact-column52>
+    <insert-fact-column52>
+      <typedDefaultValue>
+        <valueString></valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </typedDefaultValue>
+      <hideColumn>false</hideColumn>
       <width>498</width>
       <header>Description</header>
       <factType>Question</factType>
@@ -118,21 +133,6 @@
       <boundName>question</boundName>
       <factField>mappedProperty</factField>
       <type>String</type>
-      <isInsertLogical>false</isInsertLogical>
-    </insert-fact-column52>
-    <insert-fact-column52>
-      <typedDefaultValue>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
-        <isOtherwise>false</isOtherwise>
-      </typedDefaultValue>
-      <hideColumn>false</hideColumn>
-      <width>-1</width>
-      <header>Id</header>
-      <factType>Question</factType>
-      <boundName>question</boundName>
-      <factField>id</factField>
-      <type>Integer</type>
       <isInsertLogical>false</isInsertLogical>
     </insert-fact-column52>
     <insert-fact-column52>
@@ -259,6 +259,11 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
+        <valueString>a.filedForBankruptcy</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
         <valueString>Have you filed for bankruptcy in the last 1 year?</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
@@ -287,12 +292,6 @@
       <value>
         <valueString>filedForBankruptcy</valueString>
         <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueNumeric class="int">5</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
@@ -332,6 +331,11 @@
       </value>
       <value>
         <valueString>question-group</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
+        <valueString>a.fraud</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
@@ -367,12 +371,6 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
-        <valueNumeric class="int">17</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
         <valueBoolean>true</valueBoolean>
         <valueString></valueString>
         <dataType>BOOLEAN</dataType>
@@ -414,6 +412,11 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
+        <valueString>a.firstName</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
         <valueString>First Name</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
@@ -442,12 +445,6 @@
       <value>
         <valueString>firstName</valueString>
         <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueNumeric class="int">1</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
@@ -491,6 +488,11 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
+        <valueString>a.lastName</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
         <valueString>Last Name</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
@@ -519,12 +521,6 @@
       <value>
         <valueString>lastName</valueString>
         <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueNumeric class="int">2</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
@@ -568,6 +564,11 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
+        <valueString>a.email</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
         <valueString>Email</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
@@ -596,12 +597,6 @@
       <value>
         <valueString>email</valueString>
         <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueNumeric class="int">3</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
@@ -646,6 +641,11 @@
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
+        <valueString>a.phone</valueString>
+        <dataType>STRING</dataType>
+        <isOtherwise>false</isOtherwise>
+      </value>
+      <value>
         <valueString>Phone</valueString>
         <dataType>STRING</dataType>
         <isOtherwise>false</isOtherwise>
@@ -674,12 +674,6 @@
       <value>
         <valueString>phone</valueString>
         <dataType>STRING</dataType>
-        <isOtherwise>false</isOtherwise>
-      </value>
-      <value>
-        <valueNumeric class="int">4</valueNumeric>
-        <valueString></valueString>
-        <dataType>NUMERIC_INTEGER</dataType>
         <isOtherwise>false</isOtherwise>
       </value>
       <value>
