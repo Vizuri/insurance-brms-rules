@@ -19,13 +19,13 @@ rule "check bankruptcy"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "HOLD")
-	$answer : Answer(questionId == "a.filedForBankruptcy", strValue == "true" ) 
+	Answer(questionId == "a.filedForBankruptcy", strValue == "true" ) 
+	Answer(questionId == "a.fraud", strValue == "false" ) 
 then	
 	modify($quote) {setStatus("HOLD")}
 end
 
 rule "check fraud"
-
 	no-loop true
 	agenda-group "eligibility"
 when
