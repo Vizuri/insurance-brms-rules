@@ -1,6 +1,5 @@
 package com.vizuri.insurance;
 
-import com.vizuri.insurance.domain.Property;
 import com.vizuri.insurance.domain.Answer;
 import com.vizuri.insurance.domain.Quote;
 
@@ -31,8 +30,7 @@ rule "fraud"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	$answer : Answer(questionId == "a.fraud", strValue == "true" ) 
-	
+	$answer : Answer(questionId == "a.fraud", strValue == "true" ) 	
 then		
 	modify($quote) {setStatus("DISQUALIFIED")}
 end
@@ -42,9 +40,9 @@ rule "NotRewired"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
-	Answer(questionId == "p.electrictSystemRenovated", boolValue == false ) 
-	Answer(questionId == "p.electrictSystemRenovated", boolValue == false ) 
+	Answer( questionId == "p.electrictSystemRenovated", boolValue == false ) 
+	// property older than 80 years
+	Answer( questionId == "p.yearBuilt", (numValue - Calendar.getInstance().get(Calendar.YEAR)) > 80 )
 then	
 	modify($quote) {setStatus("HOLD")}
 end
@@ -55,8 +53,9 @@ rule "old property"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	$answer : Answer(questionId == "a.fraud", strValue == "false" ) 
-	$property : Property(age > 15) 
+	Answer(questionId == "a.fraud", boolValue == false ) 
+	// property older than 15 years
+	Answer( questionId == "p.yearBuilt", (numValue - Calendar.getInstance().get(Calendar.YEAR)) > 15 )
 then	
 	modify($quote) {setStatus("RISKY")}
 end
@@ -78,9 +77,13 @@ rule "No showstoppers"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "ELIGIBLE")
+	// applicant
 	$answer_fraud : Answer(questionId == "a.fraud", boolValue == false ) 
 	$answer_bankrupt : Answer(questionId == "a.filedForBankruptcy", boolValue == false ) 
-	$property : Property(age <= 15, electrictSystemRenovated == true, previousClaims == false) 
+	// property
+	Answer( questionId == "p.yearBuilt", (numValue - Calendar.getInstance().get(Calendar.YEAR)) <= 15 )
+	Answer( questionId == "p.electrictSystemRenovated", boolValue == true )
+	Answer( questionId == "p.previousClaims", boolValue == false )
 then	
 	modify($quote) {setStatus("ELIGIBLE")}
 end
