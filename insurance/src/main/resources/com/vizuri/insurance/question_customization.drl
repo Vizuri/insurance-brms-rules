@@ -84,7 +84,7 @@ rule "Disable question[p.childCareLiabilityAlreadyExists]"
 	no-loop true
 	agenda-group "question-display"
 when 
-	$answer : Answer( questionId == "p.childCareLiabilityCoverageRequired", boolValue == "false" ) 
+	$answer : Answer( questionId == "p.childCareLiabilityCoverageRequired", boolValue == false ) 
 	$question : Question(questionId == "p.childCareLiabilityAlreadyExists")
 then
 	modify($question){setEnabled( false )}
@@ -94,7 +94,8 @@ rule "Enable question[claims]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(previousClaims == true ) 
+	
+	$answer : Answer( questionId == "p.previousClaims", boolValue == true ) 
 	question20 : Question(questionId == "p.claimDate")
 	question21 : Question(questionId == "p.claimAmount")
 then
@@ -108,7 +109,7 @@ rule "Disable question[claims]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(previousClaims == null || previousClaims == false ) 
+	$answer : Answer( questionId == "p.previousClaims", boolValue == false ) 
 	question20 : Question(questionId == "p.claimDate")
 	question21 : Question(questionId == "p.claimAmount")
 then
@@ -122,7 +123,7 @@ rule "Enable question[dogs]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(dogExists == true ) 
+	$answer : Answer( questionId == "p.dogExists", boolValue == true ) 
 	question23 : Question(questionId == "p.dogCount")
 	question24 : Question(questionId == "p.dogType")
 then
@@ -137,7 +138,7 @@ rule "Disable question[dogs]"
 	no-loop true
 	agenda-group "question-display"
 when
-	property : Property(dogExists == null || dogExists == false ) 
+	$answer : Answer( questionId == "p.dogExists", boolValue == false ) 
 	question23 : Question(questionId == "p.dogCount")
 	question24 : Question(questionId == "p.dogType")
 then
