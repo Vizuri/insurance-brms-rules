@@ -130,6 +130,22 @@
       <name>PropertyRoofAgeCheck</name>
       <dataType>double</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>ScoreCardInput</fact>
+      <field>childCareBusinessExists</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>N/A</value>
+          <partialScore>10.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>true</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyBusinessChecks</name>
+      <dataType>boolean</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
