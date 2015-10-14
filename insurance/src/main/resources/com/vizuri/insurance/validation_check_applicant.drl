@@ -1,6 +1,7 @@
 package com.vizuri.insurance;
 
-import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Answer;
+import com.vizuri.insurance.domain.Question;
 import java.util.Calendar;
 
 dialect "mvel"
@@ -17,7 +18,8 @@ end
 rule "first name check"
 	agenda-group "quote-error-check"
 when
-	not Answer( questionId == "a.firstName", strValue != null && strValue.isEmpty == false )	
+	$question : Question(questionId == "a.firstName")
+	not Answer( questionId == $question.questionId, required == true, enabled == true, strValue != null && strValue.isEmpty == false )	
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Applicant");
