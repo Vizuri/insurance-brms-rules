@@ -27,7 +27,7 @@ rule "test answer 2"
 	agenda-group "calculation"
 	no-loop true
 when
-	$answer : Answer( questionId == "p. previousClaims")
+	$answer : Answer( questionId == "p.previousClaims")
 then	
 	System.out.println("******** found answer previousClaims: " + $answer.getBoolValue());
 end
