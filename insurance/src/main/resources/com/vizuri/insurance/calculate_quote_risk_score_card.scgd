@@ -3,8 +3,8 @@
   <baselineScore>0.0</baselineScore>
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
-  <factName>Property</factName>
-  <fieldName></fieldName>
+  <factName>Quote</factName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
@@ -98,6 +98,78 @@
       <name>PropertyBusinessCheck</name>
       <dataType>Boolean</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>ScoreCardInput</fact>
+      <field>filedForBankrupcy</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>N/A</value>
+          <partialScore>10.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>true</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>BankrupcyCheck</name>
+      <dataType>boolean</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>ScoreCardInput</fact>
+      <field>fraud</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>N/A</value>
+          <partialScore>20.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>true</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>FraudCheck</name>
+      <dataType>boolean</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>ScoreCardInput</fact>
+      <field>propertyAge</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>15</value>
+          <partialScore>5.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&lt;=</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>15,20</value>
+          <partialScore>10.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>20,30</value>
+          <partialScore>15.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>30,50</value>
+          <partialScore>20.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>50</value>
+          <partialScore>25.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyAgeChecks</name>
+      <dataType>double</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
@@ -113,6 +185,9 @@
       </org.drools.workbench.models.datamodel.imports.Import>
       <org.drools.workbench.models.datamodel.imports.Import>
         <type>com.vizuri.insurance.domain.Answer</type>
+      </org.drools.workbench.models.datamodel.imports.Import>
+      <org.drools.workbench.models.datamodel.imports.Import>
+        <type>com.vizuri.insurance.domain.ScoreCardInput</type>
       </org.drools.workbench.models.datamodel.imports.Import>
     </imports>
   </imports>
