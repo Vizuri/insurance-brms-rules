@@ -8,7 +8,7 @@ dialect "mvel"
 rule "test firing agenda group: eligibility"
 	agenda-group "eligibility"
 when
-	$answer : Answer( ) 
+	Quote( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[eligibility]");
