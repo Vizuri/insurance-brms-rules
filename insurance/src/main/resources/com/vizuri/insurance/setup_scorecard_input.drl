@@ -8,9 +8,23 @@ dialect "mvel"
 
 rule "remove any previous input facts"
 	agenda-group "prepare-scorecard-input"
+	salience 10
 when
-	$sci : ScoreCardInput(updated == true ) 
+	$new : ScoreCardInput(updated == true ) 
+	$old : ScoreCardInput(updated == false ) 
 then
-	retract($sci);
+	$new.setUpdated(false);
+	retract($old);
 	System.out.println("******** remove old scorcard input");
+end
+
+rule "Set fraud as input for scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 9
+when
+	$answer : Answer( questionId == "a.fraud") 
+	$sc : ScoreCardInput() 
+then
+	$sc.setFraud($answer.getBoolValue());
+	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
 end
