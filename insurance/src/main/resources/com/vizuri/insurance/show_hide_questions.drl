@@ -7,6 +7,7 @@ dialect "mvel"
 
 rule "test firing agenda group: question-display"
 	agenda-group "question-display"
+	lock-on-active true
 when
 	Quote( ) 
 then
@@ -16,6 +17,7 @@ end
 
 rule "test firing agenda group: calculation"
 	agenda-group "calculation"
+	lock-on-active true
 when
 	Quote( ) 
 then
