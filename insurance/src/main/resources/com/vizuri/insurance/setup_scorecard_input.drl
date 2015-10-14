@@ -39,3 +39,14 @@ then
 	$sc.setFiledForBankrupcy($answer.getBoolValue());
 	System.out.println("******** set scorcard input: FiledForBankrupcy: " + $answer.getBoolValue());
 end
+
+rule "Set Child Care Business Exists as input for scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 0
+when
+	$answer : Answer( questionId == "p.childCareBusinessExists") 
+	$sc : ScoreCardInput() 
+then
+	$sc.setChildCareBusinessExists($answer.getBoolValue());
+	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getBoolValue());
+end
