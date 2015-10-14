@@ -205,7 +205,7 @@
       <header>debug message</header>
       <definition>
         <org.drools.workbench.models.datamodel.rule.FreeFormLine>
-          <text>System.out.println(&quot;******** set amount for quote&quot;);</text>
+          <text>System.out.println(&quot;******** set amount for quote: &quot; + $quote);</text>
         </org.drools.workbench.models.datamodel.rule.FreeFormLine>
       </definition>
       <childColumns>
