@@ -1,6 +1,7 @@
 package com.vizuri.insurance;
 
 import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Answer;
 import com.vizuri.insurance.domain.Quote;
 
 dialect "mvel"
@@ -42,6 +43,8 @@ rule "NotRewired"
 when
 	$quote : Quote (id != null)
 	property : Property(age > 80, (electrictSystemRenovated == null || electrictSystemRenovated == false )) 
+	Answer(questionId == "p.electrictSystemRenovated", boolValue == false ) 
+	Answer(questionId == "p.electrictSystemRenovated", boolValue == false ) 
 then	
 	modify($quote) {setStatus("HOLD")}
 end
@@ -59,13 +62,12 @@ then
 end
 
 rule "border line"
-
 	no-loop true
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null)
-	$answer : Answer(questionId == "a.fraud", strValue == "false" ) 
-	$property : Property(dogExists == true) 
+	Answer(questionId == "a.fraud", boolValue == false ) 
+	Answer(questionId == "p.dogExists", boolValue == true ) 
 then	
 	modify($quote) {setStatus("TALK TO UNDERWRITER")}
 end
@@ -76,8 +78,8 @@ rule "No showstoppers"
 	agenda-group "eligibility"
 when
 	$quote : Quote (id != null, status != "ELIGIBLE")
-	$answer_fraud : Answer(questionId == "a.fraud", strValue == "false" ) 
-	$answer_bankrupt : Answer(questionId == "a.filedForBankruptcy", strValue == "false" ) 
+	$answer_fraud : Answer(questionId == "a.fraud", boolValue == false ) 
+	$answer_bankrupt : Answer(questionId == "a.filedForBankruptcy", boolValue == false ) 
 	$property : Property(age <= 15, electrictSystemRenovated == true, previousClaims == false) 
 then	
 	modify($quote) {setStatus("ELIGIBLE")}
