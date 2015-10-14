@@ -20,11 +20,22 @@ end
 
 rule "Set fraud as input for scorecard"
 	agenda-group "prepare-scorecard-input"
-	salience 9
+	salience 0
 when
 	$answer : Answer( questionId == "a.fraud") 
 	$sc : ScoreCardInput() 
 then
 	$sc.setFraud($answer.getBoolValue());
 	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
+end
+
+rule "Set FiledForBankrupcy as input for scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 0
+when
+	$answer : Answer( questionId == "a.filedForBankruptcy") 
+	$sc : ScoreCardInput() 
+then
+	$sc.setFiledForBankrupcy($answer.getBoolValue());
+	System.out.println("******** set scorcard input: FiledForBankrupcy: " + $answer.getBoolValue());
 end
