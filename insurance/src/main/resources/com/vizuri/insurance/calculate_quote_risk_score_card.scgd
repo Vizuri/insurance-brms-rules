@@ -130,6 +130,40 @@
       <name>PropertyAgeCheck</name>
       <dataType>double</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
+      <fact>ScoreCardInput</fact>
+      <field>propertyRoofAge</field>
+      <baselineScore>0.0</baselineScore>
+      <reasonCode></reasonCode>
+      <attributes>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>0,5</value>
+          <partialScore>1.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>5,10</value>
+          <partialScore>2.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>10,24</value>
+          <partialScore>5.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=..&lt;</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
+          <value>24</value>
+          <partialScore>10.0</partialScore>
+          <reasonCode></reasonCode>
+          <operator>&gt;=</operator>
+        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
+      </attributes>
+      <name>PropertyRoofAgeChecks</name>
+      <dataType>double</dataType>
+    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
   <packageName>com.vizuri.insurance</packageName>
   <imports>
