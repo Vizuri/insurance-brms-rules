@@ -18,8 +18,8 @@ end
 rule "first name check"
 	agenda-group "quote-error-check"
 when
-	$question : Question(questionId == "a.firstName")
-	not Answer( questionId == $question.questionId, required == true, enabled == true, strValue != null && strValue.isEmpty == false )	
+	$question : Question(questionId == "a.firstName", required == true, enabled == true)
+	not Answer( questionId == $question.questionId, strValue != null && strValue.isEmpty == false )	
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Applicant");
