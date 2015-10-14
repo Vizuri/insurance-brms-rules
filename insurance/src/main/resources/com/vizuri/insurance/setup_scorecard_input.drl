@@ -4,6 +4,8 @@ import com.vizuri.insurance.domain.Answer;
 import com.vizuri.insurance.domain.Quote;
 import com.vizuri.insurance.domain.ScoreCardInput;
 
+import java.util.Calendar;
+
 dialect "mvel"
 
 rule "remove any previous input facts"
@@ -49,4 +51,15 @@ when
 then
 	$sc.setChildCareBusinessExists($answer.getBoolValue());
 	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getBoolValue());
+end
+
+rule "Set Property Age as input for scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 0
+when
+	$answer : Answer( questionId == "p.yearBuilt") 
+	$sc : ScoreCardInput() 
+then
+	$sc.setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue());
+	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getDecValue());
 end
