@@ -135,7 +135,7 @@
           <constraintList>
             <constraints>
               <org.drools.workbench.models.datamodel.rule.SingleFieldConstraint>
-                <value>p. previousClaims</value>
+                <value>p.previousClaims</value>
                 <operator>==</operator>
                 <constraintValueType>1</constraintValueType>
                 <expression>
@@ -172,7 +172,7 @@
       <childColumns>
         <org.drools.workbench.models.guided.dtable.shared.model.BRLConditionVariableColumn>
           <hideColumn>false</hideColumn>
-          <width>138</width>
+          <width>-1</width>
           <header>Have Previous Claims</header>
           <constraintValueType>1</constraintValueType>
           <factField>boolValue</factField>
