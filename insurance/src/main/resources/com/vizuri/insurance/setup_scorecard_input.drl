@@ -61,5 +61,5 @@ when
 	$sc : ScoreCardInput() 
 then
 	$sc.setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue());
-	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getDecValue());
+	System.out.println("******** set scorcard input: Property Age: " + $sc.getPropertyAge());
 end
