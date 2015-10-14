@@ -71,6 +71,6 @@ when
 	$answer : Answer( questionId == "p.ageOfRoof") 
 	$sc : ScoreCardInput() 
 then
-	$sc.setPropertyRoofAge($answer.getDecValue()d);
+	$sc.setPropertyRoofAge($answer.getDecValue() + 0.0d);
 	System.out.println("******** set scorcard input: Property Roof Age: " + $sc.getPropertyRoofAge());
 end
