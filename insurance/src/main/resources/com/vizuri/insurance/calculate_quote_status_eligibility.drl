@@ -7,10 +7,10 @@ dialect "mvel"
 
 rule "test firing agenda group: eligibility"
 	agenda-group "eligibility"
+	no-loop true
 when
-	Quote( ) 
-then
-	
+	Quote(id != null ) 
+then	
 	System.out.println("******** Fired test rule for agenda group[eligibility]");
 end
 
