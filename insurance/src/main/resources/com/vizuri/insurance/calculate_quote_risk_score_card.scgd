@@ -3,8 +3,8 @@
   <baselineScore>0.0</baselineScore>
   <initialScore>0.0</initialScore>
   <useReasonCodes>false</useReasonCodes>
-  <factName>OutputField</factName>
-  <fieldName></fieldName>
+  <factName>Quote</factName>
+  <fieldName>riskRate</fieldName>
   <reasonCodesAlgorithm>none</reasonCodesAlgorithm>
   <reasonCodeField></reasonCodeField>
   <characteristics>
