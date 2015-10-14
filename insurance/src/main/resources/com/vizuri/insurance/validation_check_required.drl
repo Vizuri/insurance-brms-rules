@@ -1,6 +1,6 @@
 package com.vizuri.insurance;
 
-import com.vizuri.insurance.domain.Property;
+import com.vizuri.insurance.domain.Answer;
 import java.util.Calendar;
 
 dialect "mvel"
@@ -9,7 +9,8 @@ rule "If selected that dogs exists, but did not give details"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	property : Property(dogExists == true, dogs == null || dogs.size == 0 ) 
+	Answer( questionId == "p.dogExists", boolValue  == true )
+	not Answer( questionId == "p.dogCount", numValue  > 0 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
@@ -24,7 +25,8 @@ rule "If selected that claims exists, but did not give details"
 	no-loop true
 	agenda-group "quote-error-check"
 when
-	property : Property(previousClaims == true, claims == null || claims.size == 0 ) 
+	Answer( questionId == "p.previousClaims", boolValue  == true )
+	not Answer( questionId == "c.claimAmount", numValue  > 0 )
 then
 	QuoteMessage msg  = new QuoteMessage();
 	msg.setGroup("Property");
