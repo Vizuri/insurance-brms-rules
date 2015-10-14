@@ -113,7 +113,7 @@
       <childColumns>
         <org.drools.workbench.models.guided.dtable.shared.model.BRLConditionVariableColumn>
           <hideColumn>false</hideColumn>
-          <width>-1</width>
+          <width>105</width>
           <header>Dog(s) Exists</header>
           <constraintValueType>1</constraintValueType>
           <factField>boolValue</factField>
@@ -172,7 +172,7 @@
       <childColumns>
         <org.drools.workbench.models.guided.dtable.shared.model.BRLConditionVariableColumn>
           <hideColumn>false</hideColumn>
-          <width>-1</width>
+          <width>138</width>
           <header>Have Previous Claims</header>
           <constraintValueType>1</constraintValueType>
           <factField>boolValue</factField>
