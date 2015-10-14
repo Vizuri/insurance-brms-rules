@@ -8,7 +8,7 @@ dialect "mvel"
 rule "test firing agenda group: question-display"
 	agenda-group "question-display"
 when
-	$answer : Answer( ) 
+	Quote( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[question-display]");
@@ -17,7 +17,7 @@ end
 rule "test firing agenda group: calculation"
 	agenda-group "calculation"
 when
-	$answer : Answer( ) 
+	Quote( ) 
 then
 	
 	System.out.println("******** Fired test rule for agenda group[calculation]");
