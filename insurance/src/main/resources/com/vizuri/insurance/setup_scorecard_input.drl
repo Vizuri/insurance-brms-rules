@@ -1,2 +1,16 @@
 package com.vizuri.insurance;
 
+import com.vizuri.insurance.domain.Answer;
+import com.vizuri.insurance.domain.Quote;
+import com.vizuri.insurance.domain.ScoreCardInput;
+
+dialect "mvel"
+
+rule "remove any previous input facts"
+	agenda-group "prepare-scorecard-input"
+when
+	$sci : ScoreCardInput(updated == true ) 
+then
+	retract($sci);
+	System.out.println("******** remove old scorcard input");
+end
