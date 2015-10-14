@@ -9,22 +9,6 @@
   <reasonCodeField></reasonCodeField>
   <characteristics>
     <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-      <fact>Property</fact>
-      <field>childCareBusinessExists</field>
-      <baselineScore>0.0</baselineScore>
-      <reasonCode></reasonCode>
-      <attributes>
-        <org.drools.workbench.models.guided.scorecard.shared.Attribute>
-          <value>N/A</value>
-          <partialScore>10.0</partialScore>
-          <reasonCode></reasonCode>
-          <operator>true</operator>
-        </org.drools.workbench.models.guided.scorecard.shared.Attribute>
-      </attributes>
-      <name>PropertyBusinessCheck</name>
-      <dataType>Boolean</dataType>
-    </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
-    <org.drools.workbench.models.guided.scorecard.shared.Characteristic>
       <fact>ScoreCardInput</fact>
       <field>filedForBankrupcy</field>
       <baselineScore>0.0</baselineScore>
@@ -143,7 +127,7 @@
           <operator>true</operator>
         </org.drools.workbench.models.guided.scorecard.shared.Attribute>
       </attributes>
-      <name>PropertyBusinessChecks</name>
+      <name>PropertyBusinessCheck</name>
       <dataType>boolean</dataType>
     </org.drools.workbench.models.guided.scorecard.shared.Characteristic>
   </characteristics>
