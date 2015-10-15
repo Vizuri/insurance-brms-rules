@@ -16,7 +16,7 @@ when
 	not ScoreCardInput(updated == false ) 
 then
 	$new.setUpdated(false);
-	System.out.println("******** reset old scorcard input");
+	System.out.println("******** reset new scorcard input");
 end
 
 rule "remove any previous input facts"
