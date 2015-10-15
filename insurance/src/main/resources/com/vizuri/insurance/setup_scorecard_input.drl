@@ -15,7 +15,7 @@ when
 	not ScoreCardInput( ) 
 then
 	ScoreCardInput $sc = new ScoreCardInput();
-	$sc.setUpdated(true);
+	//$sc.setUpdated(true);
 	insert ($sc);
 
 	System.out.println("******** insert new scorcard input");
