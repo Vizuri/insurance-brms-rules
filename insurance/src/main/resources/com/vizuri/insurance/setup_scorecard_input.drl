@@ -15,9 +15,24 @@ when
 	not ScoreCardInput( ) 
 then
 	ScoreCardInput $sc = new ScoreCardInput();
+        $sc.setUpdated(true);
 	insert ($sc);
 
 	System.out.println("******** insert new scorcard input");
+end
+
+rule "insert a new Scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 10
+when
+	$new : ScoreCardInput(updated == true ) 
+	$old : ScoreCardInput(updated == false ) 
+then
+	
+	retract ($old);
+	modify($new) {setUpdated(false)}
+
+	System.out.println("******** remove old scorcard input");
 end
 
 rule "Set fraud as input for scorecard"
