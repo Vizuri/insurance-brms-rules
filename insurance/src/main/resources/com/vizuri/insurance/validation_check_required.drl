@@ -54,3 +54,19 @@ then
 
 	insertLogical(msg);
 end
+
+rule "If any question has an answer but with no vlaue"
+	no-loop true
+	agenda-group "quote-error-check"
+when
+	$answer: Answer( questionId != null, strValue == null || strValue.isEmpty == true )
+	$question : Question( questionId == $answer.questionId, enabled == true, required == true )
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup($question.getGroup());
+	msg.setProperty($question.getMappedProperty());
+	msg.setMessage("Please enter a valid answer for the question: " + $question.getDescription());
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insertLogical(msg);
+end
