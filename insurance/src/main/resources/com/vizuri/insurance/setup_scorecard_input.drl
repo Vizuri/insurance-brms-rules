@@ -38,7 +38,7 @@ when
 	$answer : Answer( questionId == "a.fraud") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	$sc.setFraud($answer.getBoolValue());
+	modify($sc) {setFraud($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
 end
 
@@ -49,7 +49,7 @@ when
 	$answer : Answer( questionId == "a.filedForBankruptcy") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	$sc.setFiledForBankrupcy($answer.getBoolValue());
+	modify($sc) {setFiledForBankrupcy($answer.getBoolValue())}
 	System.out.println("******** set scorcard input: FiledForBankrupcy: " + $answer.getBoolValue());
 end
 
