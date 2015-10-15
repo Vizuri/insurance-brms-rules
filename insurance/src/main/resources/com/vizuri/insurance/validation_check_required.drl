@@ -5,6 +5,22 @@ import java.util.Calendar;
 
 dialect "mvel"
 
+rule "If fraud is true then a.anyPreviousInsuranceDenials is required"
+	no-loop true
+	agenda-group "quote-error-check"
+when
+	Answer( questionId == "a.fraud", boolValue == true ) 
+	not Answer( questionId == "a.anyPreviousInsuranceDenials") 
+then
+	QuoteMessage msg  = new QuoteMessage();
+	msg.setGroup("Applicant");
+	msg.setProperty("a.anyPreviousInsuranceDenials");
+	msg.setMessage("Please indicate any previos insurance denials");
+	msg.setMessageStatus(QuoteMessageStatus.ERROR);
+
+	insertLogical(msg);
+end
+
 rule "If selected that dogs exists, but did not give details"
 	no-loop true
 	agenda-group "quote-error-check"
