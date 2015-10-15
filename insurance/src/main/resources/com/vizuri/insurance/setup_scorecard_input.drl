@@ -15,7 +15,7 @@ when
 	$new : ScoreCardInput(updated == true ) 
 	not ScoreCardInput(updated == false ) 
 then
-	$new.setUpdated(false);
+	modify($new) {setUpdated(false)}
 	System.out.println("******** reset new scorcard input");
 end
 
@@ -26,7 +26,7 @@ when
 	$new : ScoreCardInput(updated == true ) 
 	$old : ScoreCardInput(updated == false ) 
 then
-	$new.setUpdated(false);
+	modify($new) {setUpdated(false)}
 	retract($old);
 	System.out.println("******** remove old scorcard input");
 end
