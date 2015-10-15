@@ -32,7 +32,7 @@ when
 	$answer : Answer( questionId == "a.fraud", boolValue == true ) 
 	$question : Question(questionId == "a.anyPreviousInsuranceDenials")
 then
-	modify($question) {setEnabled( true )}
+	modify($question) { setEnabled( true ), setRequired( true ) }
 	//update( $question );
 	System.out.println("Enable [a.anyPreviousInsuranceDenials] for agenda group[question-display]");
 end
@@ -44,7 +44,7 @@ when
 	$answer : Answer( questionId == "a.fraud", boolValue == false ) 
 	$question : Question( questionId == "a.anyPreviousInsuranceDenials")
 then
-	modify($question) {setEnabled( false )}
+	modify($question) {setEnabled( false ), setRequired( false )}
 	//update( question );
        System.out.println("Disable [a.anyPreviousInsuranceDenials] for agenda group[question-display]");
 end
