@@ -10,7 +10,8 @@ rule "If fraud is true then a.anyPreviousInsuranceDenials is required"
 	agenda-group "quote-error-check"
 when
 	Answer( questionId == "a.fraud", boolValue == true ) 
-	not Answer( questionId == "a.anyPreviousInsuranceDenials")  or 
+	not Answer( questionId == "a.anyPreviousInsuranceDenials")  
+	or 
 	Answer( questionId == "a.anyPreviousInsuranceDenials", strValue == null || strValue.isEmpty == true)
 then
 	QuoteMessage msg  = new QuoteMessage();
