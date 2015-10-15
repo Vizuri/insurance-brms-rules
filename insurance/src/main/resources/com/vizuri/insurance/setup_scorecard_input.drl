@@ -8,15 +8,17 @@ import java.util.Calendar;
 
 dialect "mvel"
 
-rule "reset Scorecard"
+rule "insert a new Scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 10
 when
-	$new : ScoreCardInput(updated == true ) 
-	not ScoreCardInput(updated == false ) 
+	not ScoreCardInput( ) 
 then
-	modify($new) {setUpdated(false)}
-	System.out.println("******** reset new scorcard input");
+	ScoreCardInput $sc = new ScoreCardInput();
+	$sc.setUpdated(true);
+	insert ($sc);
+
+	System.out.println("******** insert new scorcard input");
 end
 
 rule "remove any previous input facts"
