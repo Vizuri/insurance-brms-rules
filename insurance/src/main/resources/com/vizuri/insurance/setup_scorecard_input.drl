@@ -26,7 +26,7 @@ rule "Set fraud as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "a.fraud") 
-	$sc : ScoreCardInput() 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setFraud($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
@@ -38,7 +38,7 @@ rule "Set FiledForBankrupcy as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "a.filedForBankruptcy") 
-	$sc : ScoreCardInput() 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setFiledForBankrupcy($answer.getBoolValue())}
 	System.out.println("******** set scorcard input: FiledForBankrupcy: " + $answer.getBoolValue());
