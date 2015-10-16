@@ -33,6 +33,17 @@ then
 	retract( $old );
 end
 
+rule "test fraud as input for scorecard"
+	agenda-group "prepare-scorecard-input"
+	salience 0
+	
+when
+	$answer : Answer( questionId == "a.fraud") 
+then
+	
+	System.out.println("******** have answer: fraud: " + $answer.getBoolValue());
+end
+
 rule "Set fraud as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
