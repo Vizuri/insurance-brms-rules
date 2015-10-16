@@ -21,7 +21,7 @@ then
 	System.out.println("******** insert new scorcard input");
 end
 
-rule "insert a new Scorecard"
+rule "remove old Scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 10
 when
