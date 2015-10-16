@@ -9,15 +9,11 @@ import java.util.Calendar;
 dialect "mvel"
 
 rule "remove old Scorecard"
-	agenda-group "prepare-scorecard-input"
-	salience 9
+	agenda-group "remove-scorecard-input"
 when
-	$new : ScoreCardInput(updated == true ) 
-	$old : ScoreCardInput(updated == false ) 
+	$old : ScoreCardInput() 
 then
 	retract ($old);
-	modify($new) {setUpdated(false)}
-
 	System.out.println("******** remove old scorcard input");
 end
 
