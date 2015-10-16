@@ -33,22 +33,11 @@ then
 	retract( $old );
 end
 
-rule "test fraud as input for scorecard"
-	agenda-group "prepare-scorecard-input"
-	salience 0
-	
-when
-	$answer : Answer( questionId == "a.fraud", updatedValue == false) 
-then
-	
-	System.out.println("******** have answer: fraud: " + $answer.getBoolValue());
-end
-
 rule "Set fraud as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
 when
-	$answer : Answer( questionId == "a.fraud") 
+	$answer : Answer( questionId == "a.fraud") 	// , updatedValue == false
 	$sc : ScoreCardInput(updated == false) 
 then
 	$sc.setFraud($answer.getBoolValue());
@@ -76,7 +65,8 @@ when
 	$answer : Answer( questionId == "p.childCareBusinessExists") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	modify($sc) {setChildCareBusinessExists($answer.getBoolValue()) }
+	$sc.setChildCareBusinessExists($answer.getBoolValue());
+	//modify($sc) {setChildCareBusinessExists($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getBoolValue());
 end
 
@@ -88,7 +78,8 @@ when
 	$answer : Answer( questionId == "p.yearBuilt") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	modify($sc) {setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue()) }
+	$sc.setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue() );
+	//modify($sc) {setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue()) }
 	System.out.println("******** set scorcard input: Property Age: " + $sc.getPropertyAge());
 end
 
@@ -100,12 +91,14 @@ when
 	$answer : Answer( questionId == "p.ageOfRoof") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	modify($sc) {setPropertyRoofAge($answer.getDecValue() + 0.0d) }
+	$sc.setPropertyRoofAge($answer.getDecValue() + 0.0d);
+	//modify($sc) {setPropertyRoofAge($answer.getDecValue() + 0.0d) }
 	System.out.println("******** set scorcard input: Property Roof Age: " + $sc.getPropertyRoofAge());
 end
 
 rule "Trigger ScoreCard calculation"
 	agenda-group "calculation"
+	no-loop true
 	salience -1
 when 
 	$sc : ScoreCardInput ( updated == false )
