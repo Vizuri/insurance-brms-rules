@@ -36,12 +36,13 @@ end
 rule "Set fraud as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
-	lock-on-active true
+	
 when
 	$answer : Answer( questionId == "a.fraud") 
 	$sc : ScoreCardInput(updated == false) 
 then
-	modify($sc) {setFraud($answer.getBoolValue()) }
+	$sc.setFraud($answer.getBoolValue());
+	//modify($sc) {setFraud($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
 end
 
