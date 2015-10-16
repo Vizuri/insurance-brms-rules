@@ -36,6 +36,7 @@ end
 rule "Set fraud as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
+	lock-on-active true
 when
 	$answer : Answer( questionId == "a.fraud") 
 	$sc : ScoreCardInput(updated == false) 
