@@ -96,7 +96,7 @@ end
 rule "Trigger ScoreCard calculation"
 	agenda-group "calculation"
 	no-loop true
-	salience -1
+	salience 10
 when 
 	$sc : ScoreCardInput ( updated == false )
 then
