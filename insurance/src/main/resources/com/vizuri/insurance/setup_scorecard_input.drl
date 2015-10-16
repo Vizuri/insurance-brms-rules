@@ -38,7 +38,7 @@ rule "test fraud as input for scorecard"
 	salience 0
 	
 when
-	$answer : Answer( questionId == "a.fraud") 
+	$answer : Answer( questionId == "a.fraud", updatedValue == false) 
 then
 	
 	System.out.println("******** have answer: fraud: " + $answer.getBoolValue());
