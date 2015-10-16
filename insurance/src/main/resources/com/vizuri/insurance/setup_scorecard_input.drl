@@ -23,7 +23,7 @@ end
 
 rule "remove old Scorecard"
 	agenda-group "prepare-scorecard-input"
-	salience 10
+	salience 9
 when
 	$new : ScoreCardInput(updated == true ) 
 	$old : ScoreCardInput(updated == false ) 
