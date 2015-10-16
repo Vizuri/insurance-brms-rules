@@ -60,7 +60,6 @@ end
 rule "Set Child Care Business Exists as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
-	lock-on-active true
 when
 	$answer : Answer( questionId == "p.childCareBusinessExists") 
 	$sc : ScoreCardInput(updated == false) 
@@ -73,7 +72,6 @@ end
 rule "Set Property Age as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
-	lock-on-active true
 when
 	$answer : Answer( questionId == "p.yearBuilt") 
 	$sc : ScoreCardInput(updated == false) 
@@ -86,7 +84,6 @@ end
 rule "Set Property Roof Age as input for scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 0
-	lock-on-active true
 when
 	$answer : Answer( questionId == "p.ageOfRoof") 
 	$sc : ScoreCardInput(updated == false) 
