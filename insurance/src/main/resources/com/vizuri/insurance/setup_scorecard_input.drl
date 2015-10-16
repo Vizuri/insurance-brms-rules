@@ -8,27 +8,17 @@ import java.util.Calendar;
 
 dialect "mvel"
 
-rule "remove any old Scorecard"
-	agenda-group "prepare-scorecard-input"
-	salience 10
-when
-	$old : ScoreCardInput(updated == true ) 
-then
-	retract ($old);
-	System.out.println("******** remove old scorcard input");
-end
-
-rule "insert a new Scorecard"
+rule "remove old Scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 9
 when
-	not ScoreCardInput( ) 
+	$new : ScoreCardInput(updated == true ) 
+	$old : ScoreCardInput(updated == false ) 
 then
-	ScoreCardInput $sc = new ScoreCardInput();
-        $sc.setUpdated(true);
-	insert ($sc);
+	retract ($old);
+	modify($new) {setUpdated(false)}
 
-	System.out.println("******** insert new scorcard input");
+	System.out.println("******** remove old scorcard input");
 end
 
 rule "Set fraud as input for scorecard"
@@ -37,7 +27,7 @@ rule "Set fraud as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "a.fraud") 
-	$sc : ScoreCardInput(updated == true) 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setFraud($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: fraud: " + $answer.getBoolValue());
@@ -49,7 +39,7 @@ rule "Set FiledForBankrupcy as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "a.filedForBankruptcy") 
-	$sc : ScoreCardInput(updated == true) 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setFiledForBankrupcy($answer.getBoolValue())}
 	System.out.println("******** set scorcard input: FiledForBankrupcy: " + $answer.getBoolValue());
@@ -61,7 +51,7 @@ rule "Set Child Care Business Exists as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "p.childCareBusinessExists") 
-	$sc : ScoreCardInput(updated == true) 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setChildCareBusinessExists($answer.getBoolValue()) }
 	System.out.println("******** set scorcard input: ChildCareBusinessExists: " + $answer.getBoolValue());
@@ -73,7 +63,7 @@ rule "Set Property Age as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "p.yearBuilt") 
-	$sc : ScoreCardInput(updated == true) 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setPropertyAge(Calendar.getInstance().get(Calendar.YEAR) - $answer.getDecValue()) }
 	System.out.println("******** set scorcard input: Property Age: " + $sc.getPropertyAge());
@@ -85,7 +75,7 @@ rule "Set Property Roof Age as input for scorecard"
 	lock-on-active true
 when
 	$answer : Answer( questionId == "p.ageOfRoof") 
-	$sc : ScoreCardInput(updated == true) 
+	$sc : ScoreCardInput(updated == false) 
 then
 	modify($sc) {setPropertyRoofAge($answer.getDecValue() + 0.0d) }
 	System.out.println("******** set scorcard input: Property Roof Age: " + $sc.getPropertyRoofAge());
