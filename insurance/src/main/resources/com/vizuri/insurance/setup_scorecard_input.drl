@@ -8,13 +8,29 @@ import java.util.Calendar;
 
 dialect "mvel"
 
-rule "remove old Scorecard"
-	agenda-group "remove-scorecard-input"
-when
-	$old : ScoreCardInput() 
+// this is for first time we insert scorecard input
+rule "Reset ScoreCard Input updated flag"
+	agenda-group "prepare-scorecard-input"
+	salience 10
+when 
+	$new : ScoreCardInput ( updated == true )
+	not $old : ScoreCardInput (updated == false)
 then
-	retract ($old);
+	modify($new){ setUpdated( false ) }
+	System.out.println("reset scorecard input");
+end;
+
+// this is for answers that are updated for a second or more times
+rule "remove old Scorecard input"
+	agenda-group "prepare-scorecard-input"
+	salience 9
+when 
+	$new : ScoreCardInput ( updated == true)
+	$old : ScoreCardInput ( updated == false )	
+then
 	System.out.println("******** remove old scorcard input");
+	modify($new){ setUpdated( false ) }
+	retract( $old );
 end
 
 rule "Set fraud as input for scorecard"
