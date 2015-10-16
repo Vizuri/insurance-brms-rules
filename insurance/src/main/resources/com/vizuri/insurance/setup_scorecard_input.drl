@@ -17,7 +17,7 @@ when
 	not $old : ScoreCardInput (updated == false)
 then
 	modify($new){ setUpdated( false ) }
-	System.out.println("reset scorecard input");
+	System.out.println("******** reset scorecard input");
 end;
 
 // this is for answers that are updated for a second or more times
