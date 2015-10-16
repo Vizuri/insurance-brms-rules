@@ -103,3 +103,13 @@ then
 	modify($sc) {setPropertyRoofAge($answer.getDecValue() + 0.0d) }
 	System.out.println("******** set scorcard input: Property Roof Age: " + $sc.getPropertyRoofAge());
 end
+
+rule "Trigger ScoreCard calculation"
+	agenda-group "calculation"
+	salience -1
+when 
+	$sc : ScoreCardInput ( updated == false )
+then
+	update($sc);
+	System.out.println("******** trigger scorecard calculation");
+end;
