@@ -12,7 +12,7 @@ rule "insert a new Scorecard"
 	agenda-group "prepare-scorecard-input"
 	salience 10
 when
-	not ScoreCardInput( ) 
+	//not ScoreCardInput( ) 
 then
 	ScoreCardInput $sc = new ScoreCardInput();
         $sc.setUpdated(true);
