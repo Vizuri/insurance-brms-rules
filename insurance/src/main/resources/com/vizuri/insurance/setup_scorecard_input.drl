@@ -94,7 +94,7 @@ then
 end
 
 rule "Trigger ScoreCard calculation"
-	agenda-group "calculation"
+	agenda-group "eligibility"
 	no-loop true
 	salience 10
 when 
