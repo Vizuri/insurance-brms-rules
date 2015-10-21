@@ -103,5 +103,6 @@ when
 then
 	update($sc);
 	$quote.setAmount(0.0);
+	$quote.setRiskRate(0.0);
 	System.out.println("******** trigger scorecard calculation");
 end;
