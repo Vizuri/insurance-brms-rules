@@ -168,4 +168,5 @@ when
 	$dog : Answer( questionId == "p.dogCount" )
 then
 	retract($dog);
+	System.out.println("remove answer for dog count ["+$dog.getStrValue()+ "]");
 end
