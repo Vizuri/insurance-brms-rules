@@ -111,14 +111,25 @@ rule "Disable question[claims]"
 	agenda-group "question-display"
 when
 	$answer : Answer( questionId == "p.previousClaims", boolValue == false ) 
-	question20 : Question(questionId == "p.claimDate")
-	question21 : Question(questionId == "p.claimAmount")
+	question20 : Question(questionId == "c.claimDate")
+	question21 : Question(questionId == "c.claimAmount")
 then
 	question20.setEnabled( false );
 	question21.setEnabled( false );
 	update( question20 );
 	update( question21 );
 end
+
+rule "If selected that NO claims exists, remove any instances of a claim"
+	no-loop true
+	agenda-group "quote-error-check"
+when
+	Answer( questionId == "p.previousClaims", boolValue  == false )
+	$claim : Answer( questionId == "c.claimAmount" )
+then
+	retract($claim);
+	System.out.println("remove answer for claim amount ["+$claim.getStrValue()+ "]");
+end;
 
 rule "Enable question[dogs]"
 	no-loop true
@@ -147,4 +158,14 @@ then
 	question24.setEnabled( false );
 	update( question23 );
 	update( question24 );
+end;
+
+rule "If selected that NO dogs exists, remove any instances of a dog"
+	no-loop true
+	agenda-group "quote-error-check"
+when
+	Answer( questionId == "p.dogExists", boolValue  == false )
+	$dog : Answer( questionId == "p.dogCount" )
+then
+	retract($dog);
 end
