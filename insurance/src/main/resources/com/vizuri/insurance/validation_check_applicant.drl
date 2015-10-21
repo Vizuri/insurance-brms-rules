@@ -13,19 +13,4 @@ when
 then
 	
 	System.out.println("******** Fired test rule for agenda group[quote-error-check]");
-end
-
-rule "first name check"
-	agenda-group "quote-error-check"
-when
-	$question : Question(questionId == "a.firstName", required == true, enabled == true)
-	not Answer( questionId == $question.questionId, strValue != null && strValue.isEmpty == false )	
-then
-	QuoteMessage msg  = new QuoteMessage();
-	msg.setGroup("Applicant");
-	msg.setProperty("First Name");
-	msg.setMessage("Applicant must have a first name");
-	msg.setMessageStatus(QuoteMessageStatus.ERROR);
-
-	insertLogical(msg);	
 end;
