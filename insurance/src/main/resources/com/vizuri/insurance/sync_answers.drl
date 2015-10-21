@@ -23,7 +23,7 @@ when
 	
 then
 	// remove the old answer which was not update if we have the same answer but with an updated value
-	System.out.println("remove old answer: "+ $a_old.getQuestionId() + groupId["+$a_old.getGroupId()+"]");
+	System.out.println("remove old answer["+ $a_old.getQuestionId() + "], groupId["+$a_old.getGroupId()+"]");
 	modify($a_new){ setUpdatedValue( false ) }
 	retract( $a_old );
 end
