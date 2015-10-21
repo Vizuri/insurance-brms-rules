@@ -8,7 +8,7 @@ rule "Reset answer updated flag"
 agenda-group "sync-answers"
 when 
 	$a_new : Answer ( updatedValue == true )
-	not $a_old : Answer ( questionId == $a_new.questionId, updatedValue == false)
+	not $a_old : Answer ( questionId == $a_new.questionId, groupId == $a_new.groupId, updatedValue == false)
 then
 	modify($a_new){ setUpdatedValue( false ) }
 	System.out.println("reset answer: "+ $a_new.getQuestionId());
@@ -19,11 +19,11 @@ rule "Remove old answers"
 agenda-group "sync-answers"
 when 
 	$a_new : Answer ( updatedValue == true)
-	$a_old : Answer ( questionId == $a_new.questionId, updatedValue == false )
+	$a_old : Answer ( questionId == $a_new.questionId, groupId == $a_new.groupId, updatedValue == false )
 	
 then
 	// remove the old answer which was not update if we have the same answer but with an updated value
-	System.out.println("remove old answer: "+ $a_old.getQuestionId());
+	System.out.println("remove old answer: "+ $a_old.getQuestionId() + groupId["+$a_old.getGroupId()+"]);
 	modify($a_new){ setUpdatedValue( false ) }
 	retract( $a_old );
 end
