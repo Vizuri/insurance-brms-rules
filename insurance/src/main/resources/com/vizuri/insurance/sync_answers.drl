@@ -28,9 +28,9 @@ then
 	retract( $a_old );
 end
 
-// this iwill remove deleted answers
+// this will remove deleted answers
 rule "Remove deleted answers"
-agenda-group "sync-answers"
+	agenda-group "sync-answers"
 when 
 	$a : Answer ( delete == true)
 	
