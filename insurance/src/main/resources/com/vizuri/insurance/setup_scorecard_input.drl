@@ -103,6 +103,5 @@ when
 then
 	update($sc);
 	$quote.setAmount(0.0);
-	update($quote);
 	System.out.println("******** trigger scorecard calculation");
 end;
