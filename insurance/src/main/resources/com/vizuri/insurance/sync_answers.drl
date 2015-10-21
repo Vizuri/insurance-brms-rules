@@ -29,17 +29,15 @@ then
 end
 
 // this iwill remove deleted answers
-rule "Remove old answers"
+rule "Remove deleted answers"
 agenda-group "sync-answers"
 when 
-	$a_new : Answer ( updatedValue == true)
-	$a_old : Answer ( questionId == $a_new.questionId, updatedValue == false )
+	$a : Answer ( delete == true)
 	
 then
-	// remove the old answer which was not update if we have the same answer but with an updated value
-	System.out.println("remove old answer: "+ $a_old.getQuestionId());
-	modify($a_new){ setUpdatedValue( false ) }
-	retract( $a_old );
+	// remove the old answer which was deleted
+	System.out.println("remove deleted answer: "+ $a.getQuestionId());
+	retract( $a);
 end;
 
 // this is for setting the question model if any answer
