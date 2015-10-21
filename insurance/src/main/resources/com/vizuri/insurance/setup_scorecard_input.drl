@@ -102,6 +102,6 @@ when
 	$quote : Quote (id != null)
 then
 	update($sc);
-	$quote.setAmount(0.0);
+	modify($quote){ setAmount($quote.getAmount())}
 	System.out.println("******** trigger scorecard calculation");
 end;
