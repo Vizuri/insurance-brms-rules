@@ -101,7 +101,7 @@ when
 	$sc : ScoreCardInput ( updated == false )
 	$quote : Quote (id != null)
 then
-	update($sc);
+	modify($sc){setUpdated(false)}
 	modify($quote){ setAmount($quote.getAmount())}
 	System.out.println("******** trigger scorecard calculation");
 end;
