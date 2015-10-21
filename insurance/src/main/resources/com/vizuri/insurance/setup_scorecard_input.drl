@@ -99,7 +99,9 @@ rule "Trigger ScoreCard calculation"
 	salience 10
 when 
 	$sc : ScoreCardInput ( updated == false )
+	$quote : Quote (id != null)
 then
 	update($sc);
+	update($quote);
 	System.out.println("******** trigger scorecard calculation");
 end;
