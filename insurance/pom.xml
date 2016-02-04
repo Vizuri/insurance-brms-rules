@@ -13,6 +13,8 @@
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
+  <!-- ################# BRMS 6.1 config ############### -->
+  <!--
   <repositories>
     <repository>
       <id>guvnor-m2-repo</id>
@@ -26,6 +28,20 @@
         <groupId>org.kie</groupId>
         <artifactId>kie-maven-plugin</artifactId>
         <version>6.0.3-redhat-6</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  -->
+  
+  <!-- ################# BRMS 6.2 config ############### -->
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-maven-plugin</artifactId>
+        <version>6.3.0.Final-redhat-5</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
